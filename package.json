@@ -1,7 +1,6 @@
 {
   "name": "twal-core",
   "version": "0.1.0",
-  "private": true,
   "browserslist": [
     ">0.2%",
     "not dead",
