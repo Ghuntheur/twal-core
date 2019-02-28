@@ -5,6 +5,8 @@ import './styles/index.scss';
 
 import App from './App';
 
+import { a } from './../config/test.js';
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));

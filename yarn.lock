@@ -3409,6 +3409,10 @@ dotenv@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-5.0.1.tgz#a5317459bd3d79ab88cff6e44057a6a3fbb1fcef"
 
+dotenv@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
+
 duplexer3@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
@@ -8520,6 +8524,18 @@ react-app-polyfill@^0.2.1:
     promise "8.0.2"
     raf "3.4.1"
     whatwg-fetch "3.0.0"
+
+react-app-rewire-aliases@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-app-rewire-aliases/-/react-app-rewire-aliases-0.2.0.tgz#ef5ffc0099eec05279949fab8d4983c1556a1c1e"
+
+react-app-rewired@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-app-rewired/-/react-app-rewired-2.1.0.tgz#8451acbf5e9d3d2252b259d4d531f60845817df4"
+  dependencies:
+    cross-spawn "^6.0.5"
+    dotenv "^6.2.0"
+    semver "^5.6.0"
 
 react-dev-utils@^7.0.3:
   version "7.0.3"
