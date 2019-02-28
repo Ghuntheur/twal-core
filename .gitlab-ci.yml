@@ -1,0 +1,70 @@
+stages:
+  - test_stage
+  - build_stage
+  - deploy_stage
+  - release_stage
+
+image: node:8
+
+before_script:
+  - npm install
+
+cache:
+  paths:
+    - node_modules/
+
+# TEMPLATES
+.template_test_job: &template_test_job
+  stage: test_stage
+  script:
+    - npm run test
+  except:
+    - tags
+  only:
+    - branches
+    - merge_requests
+
+# TEST
+test_node_6_job:
+  image: node:6
+  <<: *template_test_job
+
+test_node_8_job:
+  image: node:8
+  <<: *template_test_job
+
+# BUILD
+build_job:
+  stage: build_stage
+  before_script:
+    - npm rebuild node-sass
+  script:
+    - npm run prod
+    - npm run export
+  artifacts:
+    paths:
+      - dist/
+  only:
+    - master
+    - develop
+    - merge_requests
+
+# DEPLOY
+deploy_job:
+  stage: deploy_stage
+  before_script:
+    - npm i -g netlify-cli
+  script:
+    - netlify deploy --prod --dir=dist/ --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN
+  only:
+    - master
+    - develop
+
+# RELEASE
+release_job:
+  stage: release_stage
+  script:
+    - npx semantic-release
+  only:
+    - master
+  when: manual
