@@ -17,7 +17,7 @@ cache:
 .template_test_job: &template_test_job
   stage: test_stage
   script:
-    - npm run test
+    - npm run test:ci
   except:
     - tags
   only:
@@ -40,7 +40,6 @@ build_job:
     - npm rebuild node-sass
   script:
     - npm run prod
-    - npm run export
   artifacts:
     paths:
       - dist/
