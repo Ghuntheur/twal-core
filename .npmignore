@@ -1,0 +1,12 @@
+.editorconfig
+.releaserc
+commitlint.config.js
+
+*.spec.*
+*.test.*
+
+build
+node_modules
+
+yarn-error.log
+yarn.lock
