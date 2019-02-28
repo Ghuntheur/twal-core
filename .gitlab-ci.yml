@@ -42,7 +42,7 @@ build_job:
     - npm run prod
   artifacts:
     paths:
-      - dist/
+      - build/
   only:
     - master
     - develop
@@ -54,7 +54,7 @@ deploy_job:
   before_script:
     - npm i -g netlify-cli
   script:
-    - netlify deploy --prod --dir=dist/ --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN
+    - netlify deploy --prod --dir=build/ --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN
   only:
     - master
     - develop
