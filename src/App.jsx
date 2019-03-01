@@ -1,9 +1,16 @@
 import React from 'react';
+import propTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
 
 class App extends React.Component {
   render() {
-    return <h1>bonjour</h1>;
+    const { t } = this.props;
+    return <h1>{t('hello')}</h1>;
   }
 }
 
-export default App;
+App.propTypes = {
+  t: propTypes.func.isRequired
+};
+
+export default withTranslation()(App);
