@@ -1,8 +1,7 @@
 const path = require('path');
 
-const rewireYAML = require('react-app-rewire-yaml');
-
 module.exports = function override(config, env) {
+  // allow import outsise src folder
   config.resolve.plugins.splice(-1, 1);
 
   config.resolve.extensions.push('.scss', '.sass');
@@ -10,10 +9,8 @@ module.exports = function override(config, env) {
   config.resolve.alias = {
     '@utils': path.resolve(__dirname, 'src/utils/'),
     '@config': path.resolve(__dirname, 'config'),
-    '@locales': path.resolve(__dirname, 'src/locales/')
+    '@locales': path.resolve(__dirname, 'public/locales/')
   };
-
-  config = rewireYAML(config, env);
 
   return config;
 };
