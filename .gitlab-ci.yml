@@ -17,7 +17,7 @@ cache:
 .template_test_job: &template_test_job
   stage: test_stage
   script:
-    - npm run test:ci
+    - npm run test
   except:
     - tags
   only:
