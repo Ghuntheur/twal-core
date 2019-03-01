@@ -1,10 +1,19 @@
 import React, { Suspense } from 'react';
 import propTypes from 'prop-types';
-import Loader from './Loader';
+
+import Loader from '@twal/ui/Loader';
+import ScreenSaver from '@twal/components/ScreenSaver';
 
 import '@twal/config/i18n.config';
 
-const Twal = ({ children }) => <Suspense fallback={<Loader />}>{children}</Suspense>;
+import '@twal/styles/index';
+
+const Twal = ({ children }) => (
+  <Suspense fallback={<Loader />}>
+    <ScreenSaver />
+    <Loader />
+  </Suspense>
+);
 
 Twal.propTypes = {
   children: propTypes.element.isRequired
