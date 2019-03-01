@@ -16,7 +16,7 @@ i18n
     defaultNS: 'common',
     fallbackNS: ['common'],
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json'
+      loadPath: './locales/{{lng}}/{{ns}}.json'
     }
   });
 
