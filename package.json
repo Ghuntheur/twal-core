@@ -36,7 +36,7 @@
     "dev": "cross-env PORT=8080 react-app-rewired start",
     "prod": "react-app-rewired build",
     "test:watch": "react-app-rewired test",
-    "test:ci": "cross-env CI=true react-app-rewired test",
+    "test:ci": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "husky": {
