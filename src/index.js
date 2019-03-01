@@ -1,17 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import '@twal/styles/index';
-
 import App from './App';
 
-import '@twal/config/i18n.config';
+import Twal from '@twal/components/Twal';
 
-const Loading = () => <div>load</div>;
-
-ReactDOM.render(
-  <React.Suspense fallback={<Loading />}>
-    <App />
-  </React.Suspense>,
-  document.getElementById('root')
-);
+ReactDOM.render(<Twal>ok</Twal>, document.getElementById('root'));
