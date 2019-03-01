@@ -6,12 +6,16 @@ module.exports = function override(config, env) {
 
   config.resolve.extensions.push('.scss', '.sass');
 
-  console.log(config.module.rules);
+  // compile @twal folder
+  config.module.rules[2].oneOf[1].include = [
+    config.module.rules[2].oneOf[1].include,
+    path.resolve(__dirname, '@twal')
+  ];
 
   config.resolve.alias = {
     '@locales': path.resolve(__dirname, 'public/locales/'),
     '@twal': path.resolve(__dirname, '@twal/')
   };
 
-  // return config;
+  return config;
 };

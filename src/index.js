@@ -5,4 +5,9 @@ import App from './App';
 
 import Twal from '@twal/components/Twal';
 
-ReactDOM.render(<Twal>ok</Twal>, document.getElementById('root'));
+ReactDOM.render(
+  <Twal>
+    <App />
+  </Twal>,
+  document.getElementById('root')
+);
