@@ -7,9 +7,8 @@ module.exports = function override(config, env) {
   config.resolve.extensions.push('.scss', '.sass');
 
   config.resolve.alias = {
-    '@utils': path.resolve(__dirname, 'src/utils/'),
-    '@config': path.resolve(__dirname, 'config'),
-    '@locales': path.resolve(__dirname, 'public/locales/')
+    '@locales': path.resolve(__dirname, 'public/locales/'),
+    '@twal': path.resolve(__dirname, '@twal/')
   };
 
   return config;
