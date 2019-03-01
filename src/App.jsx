@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { withTranslation } from 'react-i18next';
 
-class App extends Component {
+class App extends React.Component {
   render() {
-    return <h1>Bienvenue sur Twal</h1>;
+    const { t } = this.props;
+    return <h1>bonjour = {t('hello')}</h1>;
   }
 }
 
-export default App;
+export default withTranslation()(App);

@@ -1,6 +1,7 @@
 .editorconfig
 .releaserc
 commitlint.config.js
+config-overrides.js
 
 *.spec.*
 *.test.*
