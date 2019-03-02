@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import Test from './Test';
 import withScreenSaver from '@twal/hoc/withScreenSaver';
 
 class App extends React.Component {
@@ -10,12 +8,9 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
-  // t: PropTypes.func.isRequired
-};
+App.propTypes = {};
 
 export default withScreenSaver({
   timeout: 3,
-  unit: 's',
-  component: <Test />
+  unit: 's'
 })(App);
