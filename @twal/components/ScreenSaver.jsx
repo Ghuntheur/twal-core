@@ -4,7 +4,7 @@ import IdleTimer from 'react-idle-timer';
 
 import { withTranslation } from 'react-i18next';
 
-const ScreenSaver = ({ children, timeout, unit }) => {
+const ScreenSaver = ({ component, timeout, unit }) => {
   const idleTimer = useRef(null);
   const [isIdle, setIdle] = useState(false);
 
@@ -19,7 +19,7 @@ const ScreenSaver = ({ children, timeout, unit }) => {
       onAction={() => setIdle(false)}
     >
       {isIdle &&
-        (children || (
+        (component || (
           <div>
             <h1>par défaut</h1>
           </div>
@@ -29,9 +29,10 @@ const ScreenSaver = ({ children, timeout, unit }) => {
 };
 
 ScreenSaver.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  component: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   timeout: PropTypes.number,
-  unit: PropTypes.oneOf(['s', 'min'])
+  unit: PropTypes.oneOf(['s', 'min']),
+  t: PropTypes.func.isRequired
 };
 
 ScreenSaver.defaultProps = {
