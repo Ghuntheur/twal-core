@@ -31,10 +31,7 @@ module.exports = {
     return config;
   },
   jest: function(config) {
-    config.moduleNameMapper = {
-      ...config.moduleNameMapper,
-      '^@twal(.*)$': '<rootDir>/@twal$1'
-    };
+    config.moduleNameMapper['^@twal(.*)$'] = '<rootDir>/@twal$1';
     config.moduleFileExtensions.push('scss', 'sass');
 
     return config;
