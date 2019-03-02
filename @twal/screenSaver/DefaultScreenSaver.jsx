@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import '@twal/styles/ui/screenSaver';
+import '@twal/styles/ui/screenSaver.scss';
 
 const DefaultScreenSaver = () => (
   <div className="screen-saver full">
