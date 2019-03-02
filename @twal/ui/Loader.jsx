@@ -4,7 +4,7 @@ import '@twal/styles/ui/loader';
 
 const Loader = () => (
   <div className="loader-container full">
-    <div class="lds-ring">
+    <div className="lds-ring">
       <div />
       <div />
       <div />

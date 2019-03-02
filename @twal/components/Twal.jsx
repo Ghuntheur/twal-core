@@ -1,35 +1,18 @@
-import React, { Suspense, useState, useRef } from 'react';
-import propTypes from 'prop-types';
-import IdleTimer from 'react-idle-timer';
+import React, { Suspense } from 'react';
 
 import Loader from '@twal/ui/Loader';
-import ScreenSaver from '@twal/components/ScreenSaver';
 
 import '@twal/config/i18n.config';
 
+import App from 'App';
 import '@twal/styles/index';
 
-const Twal = ({ children }) => {
-  const idleTimer = useRef(null);
-  const [isIdle, setIdle] = useState(false);
-
+const Twal = () => {
   return (
     <Suspense fallback={<Loader />}>
-      <IdleTimer
-        ref={idleTimer}
-        element={document}
-        timeout={1000 * 3}
-        onIdle={() => setIdle(true)}
-        onAction={() => setIdle(false)}
-      >
-        {isIdle && <ScreenSaver />}
-      </IdleTimer>
+      <App />
     </Suspense>
   );
-};
-
-Twal.propTypes = {
-  children: propTypes.element.isRequired
 };
 
 export default Twal;
