@@ -1,0 +1,13 @@
+.screen-saver {
+  background: $dark;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  overflow: hidden;
+  &__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

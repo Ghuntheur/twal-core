@@ -1,6 +1,6 @@
 import React from 'react';
 
-import withScreenSaver from '@twal/hoc/withScreenSaver';
+import withScreenSaver from '@twal/screenSaver/withScreenSaver';
 
 class App extends React.Component {
   render() {
