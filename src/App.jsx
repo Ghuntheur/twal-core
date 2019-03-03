@@ -1,16 +1,17 @@
 import React from 'react';
-import propTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
+import Test from './components/Test';
+
+import withScreenSaver from '@twal/screenSaver/withScreenSaver';
 
 class App extends React.Component {
   render() {
-    const { t } = this.props;
-    return <h1>{t('hello')}</h1>;
+    return <Test />;
   }
 }
 
-App.propTypes = {
-  t: propTypes.func.isRequired
-};
+App.propTypes = {};
 
-export default withTranslation()(App);
+export default withScreenSaver({
+  unit: 's',
+  timeout: 4
+})(App);

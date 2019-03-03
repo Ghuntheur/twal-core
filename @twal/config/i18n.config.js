@@ -12,7 +12,7 @@ i18n
     load: 'languageOnly',
     lng: 'fr',
     fallbackLng: ['fr', 'en'],
-    ns: ['common', 'test'],
+    ns: ['common'],
     defaultNS: 'common',
     fallbackNS: ['common'],
     backend: {
