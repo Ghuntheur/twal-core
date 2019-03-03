@@ -1,6 +1,6 @@
 import React from 'react';
 
-import withScreenSaver from '@twal/hoc/withScreenSaver';
+import withScreenSaver from '@twal/screenSaver/withScreenSaver';
 
 class App extends React.Component {
   render() {
@@ -11,6 +11,6 @@ class App extends React.Component {
 App.propTypes = {};
 
 export default withScreenSaver({
-  timeout: 3,
-  unit: 's'
+  unit: 's',
+  timeout: 4
 })(App);

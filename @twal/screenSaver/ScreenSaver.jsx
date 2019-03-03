@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import IdleTimer from 'react-idle-timer';
 
 import { withTranslation } from 'react-i18next';
+import DefaultScreenSaver from '@twal/screenSaver/DefaultScreenSaver';
 
 const ScreenSaver = ({ component, timeout, unit }) => {
   const idleTimer = useRef(null);
@@ -18,12 +19,7 @@ const ScreenSaver = ({ component, timeout, unit }) => {
       onIdle={() => setIdle(true)}
       onAction={() => setIdle(false)}
     >
-      {isIdle &&
-        (component || (
-          <div>
-            <h1>par défaut</h1>
-          </div>
-        ))}
+      {isIdle && (component || <DefaultScreenSaver />)}
     </IdleTimer>
   );
 };

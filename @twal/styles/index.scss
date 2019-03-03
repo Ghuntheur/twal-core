@@ -1,7 +1,8 @@
-@import 'vendors/_reset';
+@import 'vendors/reset';
 
-@import 'variables/_variables';
-@import 'variables/_colors';
+@import 'variables/colors';
+@import 'variables/variables';
 
-@import 'base/_base';
-@import 'base/_utils';
+@import 'base/base';
+@import 'base/spacing';
+@import 'base/utils';
