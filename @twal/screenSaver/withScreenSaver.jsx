@@ -6,7 +6,7 @@ const withScreenSaver = options => BaseComponent => {
     render() {
       return (
         <>
-          {/* <ScreenSaver {...options} /> */}
+          <ScreenSaver {...options} />
           <BaseComponent />
         </>
       );

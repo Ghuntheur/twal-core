@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 
 import Loader from '@twal/ui/Loader';
-import DefaultScreenSaver from '@twal/screenSaver/DefaultScreenSaver';
 
 import App from 'App';
 
@@ -13,7 +12,6 @@ class Twal extends React.Component {
     return (
       <Suspense fallback={<Loader />}>
         <App />
-        <DefaultScreenSaver />
       </Suspense>
     );
   }
