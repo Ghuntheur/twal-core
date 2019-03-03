@@ -1,16 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Transition } from 'react-transition-group';
 
 import '@twal/styles/ui/screenSaver.scss';
 
 const DefaultScreenSaver = ({ icon, text }) => {
+  const duration = 200;
+
+  const defaultStyle = {
+    opacity: 0,
+    transition: `opacity ${duration}ms ease`
+  };
+
+  const transitionStyle = {
+    entering: { opacity: 0 },
+    entered: { opacity: 1 }
+  };
+
   return (
-    <div className="screen-saver full">
-      <div className="screen-saver__main full">
-        <div className="screen-saver__main img-container mb-2">{icon}</div>
-        <h3 className="mt-2">{text}</h3>
-      </div>
-    </div>
+    <Transition timeout={duration} appear={true} in={true}>
+      {state => (
+        <div className="screen-saver full" style={{ ...defaultStyle, ...transitionStyle[state] }}>
+          <div className="screen-saver__main full">
+            <div className="screen-saver__main img-container mb-2">{icon}</div>
+            <h3 className="mt-2">{text}</h3>
+          </div>
+        </div>
+      )}
+    </Transition>
   );
 };
 
