@@ -11,7 +11,4 @@ class App extends React.Component {
 
 App.propTypes = {};
 
-export default withScreenSaver({
-  unit: 's',
-  timeout: 4
-})(App);
+export default withScreenSaver()(App);
