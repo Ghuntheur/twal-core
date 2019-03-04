@@ -1,3 +1,4 @@
 {
-  "hello": "Bonjour"
+  "hello": "Bonjour",
+  "remaining": "Il reste {{counter}} jours avant le rendu"
 }

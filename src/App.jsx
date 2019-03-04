@@ -1,14 +1,12 @@
 import React from 'react';
-import Test from './components/Test';
 
 import withScreenSaver from '@twal/screenSaver/withScreenSaver';
+import Remaining from './components/Remaining';
 
 class App extends React.Component {
   render() {
-    return <Test />;
+    return <Remaining />;
   }
 }
-
-App.propTypes = {};
 
 export default withScreenSaver()(App);
