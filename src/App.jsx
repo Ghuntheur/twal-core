@@ -1,11 +1,15 @@
 import React from 'react';
 
-import withScreenSaver from '@twal/screenSaver/withScreenSaver';
+import withScreenSaver from '@twal/components/screenSaver/withScreenSaver';
 import Remaining from './components/Remaining';
 
 class App extends React.Component {
   render() {
-    return <Remaining />;
+    return (
+      <>
+        <Remaining />
+      </>
+    );
   }
 }
 
