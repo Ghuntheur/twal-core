@@ -1,21 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { withTranslation } from 'react-i18next';
+import { compose } from 'recompose';
 import PropTypes from 'prop-types';
 
-const HomeButton = ({ content }) => {
+import '@twal/styles/components/nav/homeButton.scss';
+
+const HomeButton = ({ t }) => {
   return (
-    <div>
-      <Link to="lel">le bouton</Link>
-    </div>
+    <Link className="button button__home p-2" to="/">
+      {t('hello')}
+    </Link>
   );
 };
 
 HomeButton.propTypes = {
-  content: PropTypes.node
+  content: PropTypes.node,
+  t: PropTypes.func.isRequired
 };
 
-HomeButton.defaultProps = {
-  content: 'Home'
-};
-
-export default HomeButton;
+export default compose(
+  withRouter,
+  withTranslation()
+)(HomeButton);

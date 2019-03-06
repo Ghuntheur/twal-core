@@ -2,10 +2,15 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import IdleTimer from 'react-idle-timer';
 
+import { withRouter } from 'react-router-dom';
+import { compose } from 'recompose';
+
 import { withTranslation } from 'react-i18next';
 import DefaultScreenSaver from './DefaultScreenSaver';
 
-const ScreenSaver = ({ component, timeout, unit }) => {
+// import history from '@twal/utils/history';
+
+const ScreenSaver = ({ component, timeout, unit, history }) => {
   const idleTimer = useRef(null);
   const [isIdle, setIdle] = useState(false);
 
@@ -17,7 +22,10 @@ const ScreenSaver = ({ component, timeout, unit }) => {
       element={document}
       timeout={time}
       onIdle={() => setIdle(true)}
-      onAction={() => setIdle(false)}
+      onActive={() => {
+        history.push('/');
+        setIdle(false);
+      }}
     >
       {isIdle && (component || <DefaultScreenSaver />)}
     </IdleTimer>
@@ -28,11 +36,17 @@ ScreenSaver.propTypes = {
   component: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   timeout: PropTypes.number,
   unit: PropTypes.oneOf(['s', 'min']),
-  t: PropTypes.func.isRequired
+  t: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired
 };
 
 ScreenSaver.defaultProps = {
   unit: 'min'
 };
 
-export default withTranslation()(ScreenSaver);
+export default compose(
+  withRouter,
+  withTranslation()
+)(ScreenSaver);
