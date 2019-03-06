@@ -1,19 +1,25 @@
 import React from 'react';
 import withScreenSaver from '@twal/components/screenSaver/withScreenSaver';
-import { Route, Link } from 'react-router-dom';
+import MainNav from '@twal/components/nav/MainNav';
+
 import Rooms from './components/Rooms';
 import History from './components/History';
-import MainNav from '@twal/components/nav/MainNav';
 
 class App extends React.Component {
   constructor() {
     super();
-    this.routes = [{ to: 'history', component: History }, { to: 'rooms', component: Rooms }];
+    this.routes = [
+      { path: 'history', contentKey: 'history', component: History },
+      { path: 'rooms', contentKey: 'rooms', component: Rooms }
+    ];
   }
 
   render() {
     return (
-      <MainNav />
+      <MainNav
+        routes={this.routes}
+        LinkComponent={({ children }) => <div className="p-4">{children}</div>}
+      />
       // <>
       //   <HomeButton />
       //   <Route
