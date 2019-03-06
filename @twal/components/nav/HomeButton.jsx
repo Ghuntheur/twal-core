@@ -6,13 +6,11 @@ import PropTypes from 'prop-types';
 
 import '@twal/styles/components/nav/homeButton.scss';
 
-const HomeButton = ({ t }) => {
-  return (
-    <Link className="button button__home p-2" to="/">
-      {t('hello')}
-    </Link>
-  );
-};
+const HomeButton = ({ t }) => (
+  <Link className="button button__home p-2" to="/">
+    {t('hello')}
+  </Link>
+);
 
 HomeButton.propTypes = {
   content: PropTypes.node,

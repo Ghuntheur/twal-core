@@ -15,27 +15,12 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <MainNav
-        routes={this.routes}
-        LinkComponent={({ children }) => <div className="p-4">{children}</div>}
-      />
-      // <>
-      //   <HomeButton />
-      //   <Route
-      //     path="/"
-      //     exact
-      //     render={() => (
-      //       <div>
-      //         <h1>Home</h1>
-      //         {links.map(link => link)}
-      //       </div>
-      //     )}
-      //   />
-      //   <Outlet />
-      // </>
-    );
+    return <MainNav routes={this.routes} />;
   }
 }
 
-export default withScreenSaver()(App);
+export default withScreenSaver({
+  timeout: 4,
+  unit: 's'
+  // component: <div>Mise en veille</div>
+})(App);

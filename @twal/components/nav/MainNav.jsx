@@ -17,9 +17,9 @@ const MainNav = ({ routes, namespace, LinkComponent }) => {
         path="/"
         component={() => {
           return routes.map(route => (
-            <LinkComponent key={route.path}>
-              <Link to={`/${route.path}`}>{t(route.contentKey)}</Link>
-            </LinkComponent>
+            <Link key={route.path} to={`/${route.path}`}>
+              {t(route.contentKey)}
+            </Link>
           ));
         }}
       />
@@ -45,7 +45,7 @@ MainNav.propTypes = {
 
 MainNav.defaultProps = {
   namespace: 'common',
-  LinkComponent: ({ children }) => <div>{children}</div>
+  LinkComponent: ({ children }) => children
 };
 
 export default MainNav;

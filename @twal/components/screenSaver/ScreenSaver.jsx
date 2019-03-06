@@ -8,8 +8,6 @@ import { compose } from 'recompose';
 import { withTranslation } from 'react-i18next';
 import DefaultScreenSaver from './DefaultScreenSaver';
 
-// import history from '@twal/utils/history';
-
 const ScreenSaver = ({ component, timeout, unit, history }) => {
   const idleTimer = useRef(null);
   const [isIdle, setIdle] = useState(false);

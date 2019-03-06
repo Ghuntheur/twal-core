@@ -1,7 +1,6 @@
 .editorconfig
 .releaserc
 commitlint.config.js
-config-overrides.js
 
 *.spec.*
 *.test.*
@@ -11,3 +10,5 @@ node_modules
 
 yarn-error.log
 yarn.lock
+
+CHANGELOG.md
