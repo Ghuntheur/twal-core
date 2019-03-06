@@ -2,8 +2,7 @@ import React, { Suspense } from 'react';
 import { HashRouter, Switch } from 'react-router-dom';
 
 import Loader from '@twal/components/ui/Loader';
-
-import App from 'App';
+import TwalApp from '@twal/components/core/TwalApp';
 
 import '@twal/config/i18n.config';
 import '@twal/styles/index.scss';
@@ -14,7 +13,7 @@ class Twal extends React.Component {
       <Suspense fallback={<Loader />}>
         <HashRouter>
           <Switch>
-            <App />
+            <TwalApp />
           </Switch>
         </HashRouter>
       </Suspense>
