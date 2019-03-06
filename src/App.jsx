@@ -1,17 +1,26 @@
 import React from 'react';
-import Test from './components/Test';
+import withScreenSaver from '@twal/components/screenSaver/withScreenSaver';
+import MainNav from '@twal/components/nav/MainNav';
 
-import withScreenSaver from '@twal/screenSaver/withScreenSaver';
+import Rooms from './components/Rooms';
+import History from './components/History';
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.routes = [
+      { path: 'history', contentKey: 'history', component: History },
+      { path: 'rooms', contentKey: 'rooms', component: Rooms }
+    ];
+  }
+
   render() {
-    return <Test />;
+    return <MainNav routes={this.routes} />;
   }
 }
 
-App.propTypes = {};
-
 export default withScreenSaver({
-  unit: 's',
-  timeout: 4
+  timeout: 4,
+  unit: 's'
+  // component: <div>Mise en veille</div>
 })(App);

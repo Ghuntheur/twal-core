@@ -1,5 +1,5 @@
 import React from 'react';
-import ScreenSaver from '@twal/screenSaver/ScreenSaver';
+import ScreenSaver from './ScreenSaver';
 
 const withScreenSaver = options => BaseComponent => {
   class WithScreenSaver extends React.Component {

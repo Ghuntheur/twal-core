@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
+import { HashRouter, Switch } from 'react-router-dom';
 
-import Loader from '@twal/ui/Loader';
+import Loader from '@twal/components/ui/Loader';
 
 import App from 'App';
 
@@ -11,7 +12,11 @@ class Twal extends React.Component {
   render() {
     return (
       <Suspense fallback={<Loader />}>
-        <App />
+        <HashRouter>
+          <Switch>
+            <App />
+          </Switch>
+        </HashRouter>
       </Suspense>
     );
   }
