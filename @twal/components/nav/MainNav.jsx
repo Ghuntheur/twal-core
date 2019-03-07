@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 
-import HomeButton from './HomeButton';
+import IconButton from '../ui/IconButton';
+import AbsoluteContent from '../ui/AbsoluteContent';
 
 import twalConfig from '@root/twal.config';
 
@@ -29,25 +30,25 @@ class MainNav extends React.Component {
 
     return (
       <div className="main-nav">
-        <div className="button-container">
-          <HomeButton onClick={() => this.setOpen(!isOpened)} />
-        </div>
+        <IconButton onClick={() => this.setOpen(!isOpened)} icon="home" className="button__home" />
         {isOpened && (
-          <nav className="navigation nav">
-            <ul className="navigation list">
-              {routes.map(route => (
-                <li
-                  key={route.component}
-                  className="navigation list-element"
-                  onClick={() => this.setOpen(!isOpened)}
-                >
-                  <NavLink to={`/${route.component.toLowerCase()}`}>
-                    {t(`${namespace}:${route.contentKey}`)}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <AbsoluteContent className="nav">
+            <nav className="navigation nav">
+              <ul className="navigation list">
+                {routes.map(route => (
+                  <li
+                    key={route.component}
+                    className="navigation list-element"
+                    onClick={() => this.setOpen(!isOpened)}
+                  >
+                    <NavLink to={`/${route.component.toLowerCase()}`}>
+                      {t(`${namespace}:${route.contentKey}`)}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </AbsoluteContent>
         )}
       </div>
     );
