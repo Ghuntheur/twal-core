@@ -8,15 +8,20 @@ import twalConfig from '@root/twal.config';
 const MainContent = () => {
   const { routes } = twalConfig;
 
-  return routes.map(route => (
-    <Page>
+  return routes.map(route => {
+    const Component = require(`@root/src/pages/${route.component}`).default;
+    return (
       <Route
         key={route.component}
         path={`/${route.component}`}
-        component={require(`@root/src/pages/${route.component}`).default}
+        component={() => (
+          <Page>
+            <Component />
+          </Page>
+        )}
       />
-    </Page>
-  ));
+    );
+  });
 };
 
 export default MainContent;

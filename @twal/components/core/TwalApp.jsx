@@ -6,10 +6,10 @@ import MainContent from '@twal/components/core/MainContent';
 class TwalApp extends React.Component {
   render() {
     return (
-      <div>
+      <main>
         <MainNav />
         <MainContent />
-      </div>
+      </main>
     );
   }
 }
