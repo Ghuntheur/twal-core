@@ -10,7 +10,8 @@ module.exports = {
     openNavOnUnmount: false,
     options: {
       timeout: 4,
-      unit: 's'
+      unit: 's',
+      text: "l'ecran de mise en veille"
     }
   },
   routing: {
