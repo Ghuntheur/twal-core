@@ -1,19 +1,20 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import { compose } from 'recompose';
 import PropTypes from 'prop-types';
 
 import '@twal/styles/components/nav/homeButton.scss';
 
-const HomeButton = ({ t }) => (
-  <Link className="button button__home p-2" to="/">
+const HomeButton = ({ t, onClick }) => (
+  <div onClick={onClick} className="button button__home p-2">
     {t('hello')}
-  </Link>
+  </div>
 );
 
 HomeButton.propTypes = {
   content: PropTypes.node,
+  onClick: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired
 };
 

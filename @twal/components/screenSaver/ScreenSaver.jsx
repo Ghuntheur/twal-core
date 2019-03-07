@@ -20,10 +20,7 @@ const ScreenSaver = ({ component, timeout, unit, history }) => {
       element={document}
       timeout={time}
       onIdle={() => setIdle(true)}
-      onActive={() => {
-        history.push('/');
-        setIdle(false);
-      }}
+      onActive={() => setIdle(false)}
     >
       {isIdle && (component || <DefaultScreenSaver />)}
     </IdleTimer>
