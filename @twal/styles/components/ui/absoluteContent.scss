@@ -3,4 +3,6 @@
   left: 0;
   top: 0;
   @include full;
+  color: $light;
+  background: rgba($dark, 0.8);
 }

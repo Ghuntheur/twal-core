@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import IconButton from '../ui/IconButton';
 import AbsoluteContent from '../ui/AbsoluteContent';
+import Languages from '../languages/Languages';
 
 const Settings = () => {
   const [isOpened, setOpened] = useState(false);
@@ -12,6 +13,7 @@ const Settings = () => {
         <AbsoluteContent className="settings">
           <h1>Settings 1</h1>
           <h1>Settings 2</h1>
+          <Languages />
         </AbsoluteContent>
       )}
     </div>
