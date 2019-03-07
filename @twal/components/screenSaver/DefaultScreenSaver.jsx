@@ -20,9 +20,9 @@ const DefaultScreenSaver = ({ icon, text }) => {
   return (
     <Transition timeout={duration} appear={true} in={true}>
       {state => (
-        <div className="screen-saver full" style={{ ...defaultStyle, ...transitionStyle[state] }}>
-          <div className="screen-saver__main full">
-            <div className="screen-saver__main img-container mb-2">{icon}</div>
+        <div className="screen-saver" style={{ ...defaultStyle, ...transitionStyle[state] }}>
+          <div className="screen-saver__main">
+            <div className="img-container">{icon}</div>
             <h3 className="mt-2">{text}</h3>
           </div>
         </div>
