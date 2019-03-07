@@ -1,0 +1,9 @@
+.icon-home:before {
+  content: '\e800';
+} /* '' */
+.icon-menu-1:before {
+  content: '\e801';
+} /* '' */
+.icon-cog-1:before {
+  content: '\e802';
+} /* '' */

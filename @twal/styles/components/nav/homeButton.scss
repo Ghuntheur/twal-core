@@ -1,7 +1,14 @@
 .button__home {
-  display: inline-block;
-  border: solid 1px $dark;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   left: 10px;
   bottom: 10px;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 30px;
+  background: $light;
+  border-radius: 50%;
+  @include size(60px);
 }

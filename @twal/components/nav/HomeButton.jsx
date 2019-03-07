@@ -6,7 +6,7 @@ import '@twal/styles/components/nav/homeButton.scss';
 
 const HomeButton = ({ t, onClick }) => (
   <div onClick={onClick} className="button button__home">
-    {t('menu')}
+    <i className="icon-home" />
   </div>
 );
 
