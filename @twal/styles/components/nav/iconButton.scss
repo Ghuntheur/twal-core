@@ -1,0 +1,25 @@
+%icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: $light;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 30px;
+  @include size(60px);
+  z-index: 999;
+}
+
+.button__home {
+  @extend %icon-button;
+  left: 10px;
+  bottom: 10px;
+}
+
+.button__settings {
+  @extend %icon-button;
+  right: 10px;
+  bottom: 10px;
+}

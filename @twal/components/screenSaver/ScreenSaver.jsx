@@ -5,7 +5,7 @@ import IdleTimer from 'react-idle-timer';
 import { withTranslation } from 'react-i18next';
 import DefaultScreenSaver from './DefaultScreenSaver';
 
-const ScreenSaver = ({ component, timeout, unit, toggleScreenSaver }) => {
+const ScreenSaver = ({ componPent, timeout, unit, toggleScreenSaver }) => {
   const idleTimer = useRef(null);
   const [isIdle, setIdle] = useState(false);
 
