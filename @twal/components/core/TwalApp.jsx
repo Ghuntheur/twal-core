@@ -7,8 +7,8 @@ class TwalApp extends React.Component {
   render() {
     return (
       <main>
-        <MainNav />
-        <MainContent />
+        <MainNav {...this.props} />
+        <MainContent {...this.props} />
       </main>
     );
   }

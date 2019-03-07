@@ -12,8 +12,8 @@ module.exports = {
     }
   },
   routes: [
+    { component: 'Remaining', contentKey: 'hello', default: true },
     { component: 'History', contentKey: 'history' },
-    { component: 'Rooms', contentKey: 'rooms' },
-    { component: 'Remaining', contentKey: 'hello' }
+    { component: 'Rooms', contentKey: 'rooms' }
   ]
 };
