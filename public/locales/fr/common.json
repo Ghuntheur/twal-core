@@ -2,5 +2,6 @@
   "hello": "Bonjour",
   "remaining": "Il reste {{counter}} jours avant le rendu",
   "history": "Histoire",
-  "rooms": "Salles"
+  "rooms": "Salles",
+  "menu": "Menu"
 }

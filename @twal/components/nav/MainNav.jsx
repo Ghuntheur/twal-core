@@ -16,9 +16,8 @@ class MainNav extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (!this.props.screenSaverPrinted && prevProps && prevProps.screenSaverPrinted) {
-      this.setState({ isOpened: true });
-    }
+    if (!this.props.screenSaverPrinted && prevProps && prevProps.screenSaverPrinted)
+      this.setOpen(true);
   }
 
   setOpen = value => this.setState({ isOpened: value });
@@ -29,13 +28,19 @@ class MainNav extends React.Component {
     const { routes } = twalConfig;
 
     return (
-      <>
-        <HomeButton onClick={() => this.setOpen(!isOpened)} />
+      <div className="main-nav">
+        <div className="button-container">
+          <HomeButton onClick={() => this.setOpen(!isOpened)} />
+        </div>
         {isOpened && (
-          <nav>
-            <ul>
+          <nav className="navigation nav">
+            <ul className="navigation list">
               {routes.map(route => (
-                <li key={route.component} onClick={() => this.setOpen(!isOpened)}>
+                <li
+                  key={route.component}
+                  className="navigation list-element"
+                  onClick={() => this.setOpen(!isOpened)}
+                >
                   <NavLink to={`/${route.component.toLowerCase()}`}>
                     {t(`${namespace}:${route.contentKey}`)}
                   </NavLink>
@@ -44,7 +49,7 @@ class MainNav extends React.Component {
             </ul>
           </nav>
         )}
-      </>
+      </div>
     );
   }
 }

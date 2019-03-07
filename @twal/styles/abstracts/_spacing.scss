@@ -1,0 +1,29 @@
+@mixin margin-vertical($margin: 0px) {
+  margin-top: $margin;
+  margin-bottom: $margin;
+}
+
+@mixin margin-horizontal($margin: 0px) {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+@mixin padding-vertical($padding: 0px) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+@mixin padding-horizontal($padding: 0px) {
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+@mixin full {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin size($size: 0px) {
+  width: $size;
+  height: $size;
+}
