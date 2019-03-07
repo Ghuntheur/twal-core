@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ScreenSaver from './ScreenSaver';
 
 /**
@@ -8,16 +8,19 @@ import ScreenSaver from './ScreenSaver';
  * @param {string} options.unit
  */
 const withScreenSaver = options => BaseComponent => {
-  class WithScreenSaver extends React.Component {
-    render() {
-      return (
-        <>
-          <ScreenSaver {...options} />
-          <BaseComponent />
-        </>
-      );
-    }
-  }
+  const WithScreenSaver = () => {
+    const [screenSaverPrinted, setScreenSaverPrinted] = useState(false);
+
+    const toggleScreenSaver = value => setScreenSaverPrinted(value);
+
+    return (
+      <>
+        <ScreenSaver toggleScreenSaver={toggleScreenSaver} {...options} />
+        <BaseComponent screenSaverPrinted={screenSaverPrinted} />
+      </>
+    );
+  };
+
   return WithScreenSaver;
 };
 
