@@ -11,9 +11,12 @@ module.exports = {
       unit: 's'
     }
   },
-  routes: [
-    { component: 'Remaining', contentKey: 'hello', default: true },
-    { component: 'History', contentKey: 'history' },
-    { component: 'Rooms', contentKey: 'rooms' }
-  ]
+  routing: {
+    useRoot: true,
+    routes: [
+      { component: 'Remaining', contentKey: 'hello', default: true },
+      { component: 'History', contentKey: 'history' },
+      { component: 'Rooms', contentKey: 'rooms' }
+    ]
+  }
 };

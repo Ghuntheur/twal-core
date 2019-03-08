@@ -15,8 +15,10 @@ class MainNav extends React.Component {
   }
 
   render() {
-    const { namespace, t, setOpen, navOpened } = this.props;
-    const { routes } = twalConfig;
+    const { namespace, t, navOpened, setOpen } = this.props;
+    const {
+      routing: { routes }
+    } = twalConfig;
 
     return (
       <div className="main-nav">
@@ -25,17 +27,18 @@ class MainNav extends React.Component {
           <AbsoluteContent className="nav">
             <nav className="navigation nav">
               <ul className="navigation list">
-                {routes.map(route => (
-                  <li
-                    key={route.component}
-                    className="navigation list-element"
-                    onClick={() => setOpen(!navOpened)}
-                  >
-                    <NavLink to={`/${route.component.toLowerCase()}`}>
-                      {t(`${namespace}:${route.contentKey}`)}
-                    </NavLink>
-                  </li>
-                ))}
+                {routes &&
+                  routes.map(route => (
+                    <li
+                      key={route.component}
+                      className="navigation list-element"
+                      onClick={() => setOpen(!navOpened)}
+                    >
+                      <NavLink to={`/${route.component.toLowerCase()}`}>
+                        {t(`${namespace}:${route.contentKey}`)}
+                      </NavLink>
+                    </li>
+                  ))}
               </ul>
             </nav>
           </AbsoluteContent>
