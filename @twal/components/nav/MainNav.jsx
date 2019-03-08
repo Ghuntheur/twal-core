@@ -9,43 +9,36 @@ import AbsoluteContent from '../ui/AbsoluteContent';
 import twalConfig from '@root/twal.config';
 
 class MainNav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpened: false
-    };
-  }
-
   componentDidUpdate(prevProps) {
-    if (!this.props.screenSaverPrinted && prevProps && prevProps.screenSaverPrinted)
-      this.setOpen(true);
+    const { screenSaverPrinted, setOpen } = this.props;
+    if (!screenSaverPrinted && prevProps && prevProps.screenSaverPrinted) setOpen(true);
   }
-
-  setOpen = value => this.setState({ isOpened: value });
 
   render() {
-    const { isOpened } = this.state;
-    const { namespace, t } = this.props;
-    const { routes } = twalConfig;
+    const { namespace, t, navOpened, setOpen } = this.props;
+    const {
+      routing: { routes }
+    } = twalConfig;
 
     return (
       <div className="main-nav">
-        <IconButton onClick={() => this.setOpen(!isOpened)} icon="home" className="button__home" />
-        {isOpened && (
+        <IconButton onClick={() => setOpen(!navOpened)} icon="home" className="button__home" />
+        {navOpened && (
           <AbsoluteContent className="nav">
             <nav className="navigation nav">
               <ul className="navigation list">
-                {routes.map(route => (
-                  <li
-                    key={route.component}
-                    className="navigation list-element"
-                    onClick={() => this.setOpen(!isOpened)}
-                  >
-                    <NavLink to={`/${route.component.toLowerCase()}`}>
-                      {t(`${namespace}:${route.contentKey}`)}
-                    </NavLink>
-                  </li>
-                ))}
+                {routes &&
+                  routes.map(route => (
+                    <li
+                      key={route.component}
+                      className="navigation list-element"
+                      onClick={() => setOpen(!navOpened)}
+                    >
+                      <NavLink to={`/${route.component.toLowerCase()}`}>
+                        {t(`${namespace}:${route.contentKey}`)}
+                      </NavLink>
+                    </li>
+                  ))}
               </ul>
             </nav>
           </AbsoluteContent>
@@ -58,6 +51,8 @@ class MainNav extends React.Component {
 MainNav.propTypes = {
   namespace: PropTypes.string,
   screenSaverPrinted: PropTypes.bool,
+  setOpen: PropTypes.func.isRequired,
+  navOpened: PropTypes.bool.isRequired,
   t: PropTypes.func.isRequired
 };
 

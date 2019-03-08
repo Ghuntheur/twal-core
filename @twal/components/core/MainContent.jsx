@@ -7,7 +7,9 @@ import Home from '@twal/components/ui/Home';
 import twalConfig from '@root/twal.config';
 
 const MainContent = () => {
-  const { routes } = twalConfig;
+  const {
+    routing: { routes }
+  } = twalConfig;
 
   const defaultRoute = routes && (routes.find(route => route.default) || routes[0]);
 
