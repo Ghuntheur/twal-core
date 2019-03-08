@@ -6,7 +6,7 @@ import Language from './Language';
 import twalConfig from '@root/twal.config';
 
 const Languages = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   return (
     <div>

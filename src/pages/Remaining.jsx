@@ -12,7 +12,6 @@ const Remaining = ({ t }) => {
   return (
     <>
       <h1>{t('remaining', { counter: diffDays })}</h1>
-      <Languages />
     </>
   );
 };
