@@ -11,8 +11,6 @@ const Settings = () => {
       <IconButton icon="cog-1" onClick={() => setOpened(!isOpened)} className="button__settings" />
       {isOpened && (
         <AbsoluteContent className="settings">
-          <h1>Settings 1</h1>
-          <h1>Settings 2</h1>
           <Languages />
         </AbsoluteContent>
       )}
