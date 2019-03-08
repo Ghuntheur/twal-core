@@ -6,7 +6,9 @@
   z-index: 9999;
   overflow: hidden;
   color: $light;
+  @include full;
   &__main {
+    @include full;
     display: flex;
     flex-direction: column;
     justify-content: center;
