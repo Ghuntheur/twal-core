@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
-import IconButton from '../ui/IconButton';
-import AbsoluteContent from '../ui/AbsoluteContent';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Settings = () => {
-  const [isOpened, setOpened] = useState(false);
+import IconButton from '@twal/components/ui/IconButton';
+import AbsoluteContent from '@twal/components/ui/AbsoluteContent';
 
+const Settings = ({ settingsOpened, setOpen }) => {
   return (
     <div className="main-settings">
-      <IconButton icon="cog-1" onClick={() => setOpened(!isOpened)} className="button__settings" />
-      {isOpened && (
+      <IconButton
+        icon="cog-1"
+        onClick={() => setOpen(!settingsOpened)}
+        className="button__settings"
+      />
+      {settingsOpened && (
         <AbsoluteContent className="settings">
           <h1>Settings 1</h1>
           <h1>Settings 2</h1>
@@ -16,6 +20,11 @@ const Settings = () => {
       )}
     </div>
   );
+};
+
+Settings.propTypes = {
+  settingsOpened: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired
 };
 
 export default Settings;
