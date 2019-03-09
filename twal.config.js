@@ -5,7 +5,7 @@ module.exports = {
     namespaces: []
   },
   screenSaver: {
-    enabled: true,
+    enabled: false,
     options: {
       timeout: 4,
       unit: 's'

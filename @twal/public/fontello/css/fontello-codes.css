@@ -1,9 +1,12 @@
 .icon-home:before {
   content: '\e800';
 } /* '' */
-.icon-menu-1:before {
+.icon-menu:before {
   content: '\e801';
 } /* '' */
-.icon-cog-1:before {
+.icon-cog:before {
   content: '\e802';
 } /* '' */
+.icon-cancel:before {
+  content: '\e803';
+} /* '' */
