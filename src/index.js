@@ -3,4 +3,12 @@ import ReactDOM from 'react-dom';
 
 import Twal from '@twal/components/core/Twal';
 
-ReactDOM.render(<Twal />, document.getElementById('root'));
+const startApp = () => {
+  ReactDOM.render(<Twal />, document.getElementById('root'));
+};
+
+if (window.cordova) {
+  document.addEventListener('deviceready', startApp, false);
+} else {
+  startApp();
+}
