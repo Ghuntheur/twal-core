@@ -5,6 +5,8 @@ import IconButton from '@twal/components/ui/IconButton';
 import MainNav from '@twal/components/nav/MainNav';
 import Settings from '@twal/components/settings/Settings';
 
+import twalConfig from '@root/twal.config';
+
 class MainMenus extends React.Component {
   static NAV_OPENED = 'navOpened';
   static SETTINGS_OPENED = 'settingsOpened';
@@ -17,10 +19,15 @@ class MainMenus extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.screenSaverPrinted && !this.props.screenSaverPrinted) {
       // open navigation when screen saver come out and close settings
-      // this.setState({
-      //   [MainMenus.NAV_OPENED]: true,
-      //   [MainMenus.SETTINGS_OPENED]: false
-      // });
+      const {
+        screenSaver: { openNavOnUnmount }
+      } = twalConfig;
+      if (openNavOnUnmount || openNavOnUnmount === undefined) {
+        this.setState({
+          [MainMenus.NAV_OPENED]: true,
+          [MainMenus.SETTINGS_OPENED]: false
+        });
+      }
     }
   }
 

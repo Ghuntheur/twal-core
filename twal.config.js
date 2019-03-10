@@ -7,6 +7,7 @@ module.exports = {
   },
   screenSaver: {
     enabled: true,
+    openNavOnUnmount: false,
     options: {
       timeout: 4,
       unit: 's'
