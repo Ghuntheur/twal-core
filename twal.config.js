@@ -8,8 +8,9 @@ module.exports = {
   screenSaver: {
     enabled: true,
     openNavOnUnmount: false,
+    backgroundImage: 'imgs/chateau.jpg',
     options: {
-      timeout: 4,
+      timeout: 0.1,
       unit: 's',
       text: "l'ecran de mise en veille"
     }

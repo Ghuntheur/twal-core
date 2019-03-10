@@ -9,12 +9,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    &.with-background {
+      @include full;
+      background-size: cover;
+      background-position: center;
+    }
     .animation-container {
       position: relative;
-      @include size(40vh);
+      @include size(28vh);
+      &.with-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &::before {
+          content: '\F25A';
+          font-family: 'fontello';
+          font-size: 8em;
+          color: $light;
+        }
+      }
       .circle {
+        @include size(98%);
         animation: pulse 8s linear infinite;
-        @include full;
         position: absolute;
         border: solid 3px $light;
         border-radius: 50%;
@@ -25,6 +41,11 @@
           }
         }
       }
+    }
+    .text-container {
+      margin-top: 8%;
+      font-family: 'Roboto';
+      font-size: 2rem;
     }
   }
 }

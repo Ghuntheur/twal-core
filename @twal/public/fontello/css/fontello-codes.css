@@ -10,3 +10,6 @@
 .icon-cancel:before {
   content: '\e803';
 } /* '' */
+.icon-touch:before {
+  content: '\f25a';
+} /* '' */
