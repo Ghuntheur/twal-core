@@ -1,10 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
+
+import AbsoluteContent from '@twal/components/ui/AbsoluteContent';
 
 import '@twal/styles/components/screenSaver/screenSaver.scss';
 
-const DefaultScreenSaver = ({ icon, text }) => {
+const DefaultScreenSaver = () => {
   const duration = 200;
 
   const defaultStyle = {
@@ -20,25 +21,22 @@ const DefaultScreenSaver = ({ icon, text }) => {
   return (
     <Transition timeout={duration} appear={true} in={true}>
       {state => (
-        <div className="screen-saver" style={{ ...defaultStyle, ...transitionStyle[state] }}>
+        <AbsoluteContent
+          className="screen-saver"
+          style={{ ...defaultStyle, ...transitionStyle[state] }}
+        >
           <div className="screen-saver__main">
-            <div className="img-container">{icon}</div>
-            <h3 className="mt-2">{text}</h3>
+            <div className="animation-container">
+              <div className="circle" />
+              <div className="circle" />
+              <div className="circle" />
+              <div className="circle" />
+            </div>
           </div>
-        </div>
+        </AbsoluteContent>
       )}
     </Transition>
   );
-};
-
-DefaultScreenSaver.propTypes = {
-  text: PropTypes.string,
-  icon: PropTypes.element
-};
-
-DefaultScreenSaver.defaultProps = {
-  text: 'Mise en veille',
-  icon: <img src="https://picsum.photos/200" alt="icon" />
 };
 
 export default DefaultScreenSaver;

@@ -1,18 +1,44 @@
 .screen-saver {
-  @include full;
   background: rgba($dark, 0.94);
-  position: absolute;
-  left: 0;
-  top: 0;
   z-index: 9999;
   overflow: hidden;
   color: $light;
-  @include full;
   &__main {
     @include full;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    .animation-container {
+      position: relative;
+      @include size(40vh);
+      .circle {
+        animation: pulse 8s linear infinite;
+        @include full;
+        position: absolute;
+        border: solid 3px $light;
+        border-radius: 50%;
+        opacity: 0;
+        @for $i from 1 to 4 {
+          &:nth-child(#{$i}) {
+            animation-delay: $i * 2s;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
   }
 }
