@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { Transition } from 'react-transition-group';
+
+import AbsoluteContent from '@twal/components/ui/AbsoluteContent';
 
 import '@twal/styles/components/screenSaver/screenSaver.scss';
 
-const DefaultScreenSaver = ({ icon, text }) => {
+import twalConfig from '@root/twal.config';
+import { withTranslation } from 'react-i18next';
+
+const DefaultScreenSaver = ({ t }) => {
   const duration = 200;
 
   const defaultStyle = {
@@ -17,28 +23,47 @@ const DefaultScreenSaver = ({ icon, text }) => {
     entered: { opacity: 1 }
   };
 
+  const {
+    screenSaver: { animationEnabled, backgroundImage }
+  } = twalConfig;
+
   return (
     <Transition timeout={duration} appear={true} in={true}>
       {state => (
-        <div className="screen-saver full" style={{ ...defaultStyle, ...transitionStyle[state] }}>
-          <div className="screen-saver__main full">
-            <div className="screen-saver__main img-container mb-2">{icon}</div>
-            <h3 className="mt-2">{text}</h3>
+        <AbsoluteContent
+          className="screen-saver"
+          style={{ ...defaultStyle, ...transitionStyle[state] }}
+        >
+          <div
+            className={classnames('screen-saver__main', {
+              'with-background': backgroundImage !== undefined
+            })}
+            style={{
+              ...(backgroundImage && {
+                backgroundImage: `url(${backgroundImage.replace(/^\//, '')})`
+              })
+            }}
+          >
+            {(animationEnabled || animationEnabled === undefined) && (
+              <div className="animation-container with-icon">
+                <div className="circle" />
+                <div className="circle" />
+                <div className="circle" />
+                <div className="circle" />
+              </div>
+            )}
+            <div className="text-container">
+              <p>{t('screenSaver')}</p>
+            </div>
           </div>
-        </div>
+        </AbsoluteContent>
       )}
     </Transition>
   );
 };
 
 DefaultScreenSaver.propTypes = {
-  text: PropTypes.string,
-  icon: PropTypes.element
+  t: PropTypes.func.isRequired
 };
 
-DefaultScreenSaver.defaultProps = {
-  text: 'Mise en veille',
-  icon: <img src="https://picsum.photos/200" alt="icon" />
-};
-
-export default DefaultScreenSaver;
+export default withTranslation()(DefaultScreenSaver);
