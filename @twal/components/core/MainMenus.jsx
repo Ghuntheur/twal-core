@@ -11,16 +11,16 @@ class MainMenus extends React.Component {
 
   state = {
     [MainMenus.NAV_OPENED]: false,
-    [MainMenus.SETTINGS_OPENED]: true
+    [MainMenus.SETTINGS_OPENED]: false
   };
 
   componentDidUpdate(prevProps) {
     if (prevProps.screenSaverPrinted && !this.props.screenSaverPrinted) {
       // open navigation when screen saver come out and close settings
-      this.setState({
-        [MainMenus.NAV_OPENED]: true,
-        [MainMenus.SETTINGS_OPENED]: false
-      });
+      // this.setState({
+      //   [MainMenus.NAV_OPENED]: true,
+      //   [MainMenus.SETTINGS_OPENED]: false
+      // });
     }
   }
 
