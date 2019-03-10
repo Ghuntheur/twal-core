@@ -1,4 +1,6 @@
 module.exports = {
+  name: 'TWAL',
+  description: 'twal framework',
   i18n: {
     availableLanguages: ['fr', 'en'],
     defaultLanguage: 'fr',
@@ -6,13 +8,12 @@ module.exports = {
     useCountriesFlag: true
   },
   screenSaver: {
-    enabled: true,
-    openNavOnUnmount: false,
+    enabled: false,
+    openNavOnUnmount: true,
     backgroundImage: 'imgs/chateau.jpg',
     options: {
-      timeout: 0.1,
-      unit: 's',
-      text: "l'ecran de mise en veille"
+      timeout: 4,
+      unit: 's'
     }
   },
   routing: {
@@ -23,8 +24,9 @@ module.exports = {
       { component: 'Rooms', contentKey: 'rooms' }
     ]
   },
-  name: 'TWAL',
-  description: 'twal framework',
+  navigation: {
+    buttonsSimultaneity: false
+  },
   build: {
     author: {
       name: 'Twal team',

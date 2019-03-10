@@ -7,7 +7,7 @@ import Icon from './Icon';
 import '@twal/styles/components/nav/iconButton.scss';
 
 const IconButton = ({ icon, className, ...rest }) => (
-  <div className={classnames('button', 'button-icon', className)} {...rest}>
+  <div className={classnames('btn', 'btn-icon', className)} {...rest}>
     <Icon name={icon} />
   </div>
 );

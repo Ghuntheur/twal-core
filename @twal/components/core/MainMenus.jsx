@@ -5,6 +5,8 @@ import IconButton from '@twal/components/ui/IconButton';
 import MainNav from '@twal/components/nav/MainNav';
 import Settings from '@twal/components/settings/Settings';
 
+import '@twal/styles/components/core/mainMenus.scss';
+
 import twalConfig from '@root/twal.config';
 
 class MainMenus extends React.Component {
@@ -32,34 +34,39 @@ class MainMenus extends React.Component {
   }
 
   toggle(name, value = null) {
-    // const secondaryName =
-    // name === MainMenus.NAV_OPENED ? MainMenus.SETTINGS_OPENED : MainMenus.NAV_OPENED;
     this.setState({
       [name]: value === null ? !this.state[name] : value
-      // ...(this.state[secondaryName] && { [secondaryName]: false })
     });
   }
 
   render() {
     const { navOpened, settingsOpened } = this.state;
+    const {
+      navigation: { buttonsSimultaneity }
+    } = twalConfig;
+
+    const showNavButton = buttonsSimultaneity || (!buttonsSimultaneity && !settingsOpened);
+    const showSettingsButton = buttonsSimultaneity || (!buttonsSimultaneity && !navOpened);
+
     return (
       <div className="main-menus">
         <div className="main-buttons">
-          {!settingsOpened && (
+          {showNavButton && (
             <IconButton
               icon={navOpened ? 'cancel' : 'home'}
               onClick={() => this.toggle(MainMenus.NAV_OPENED)}
-              className="button__home"
+              className="btn__home"
             />
           )}
-          {!navOpened && (
+          {showSettingsButton && (
             <IconButton
               icon={settingsOpened ? 'cancel' : 'cog'}
               onClick={() => this.toggle(MainMenus.SETTINGS_OPENED)}
-              className="button__settings"
+              className="btn__settings"
             />
           )}
         </div>
+
         <div className="menu">
           {navOpened && <MainNav opened={navOpened} toggle={this.toggle} />}
           {settingsOpened && <Settings />}

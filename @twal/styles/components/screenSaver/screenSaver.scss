@@ -1,8 +1,8 @@
 .screen-saver {
-  background: rgba($dark, 0.94);
+  background: rgba($dark-twal, 0.94);
   z-index: 9999;
   overflow: hidden;
-  color: $light;
+  color: $light-twal;
   &__main {
     @include full;
     display: flex;
@@ -25,14 +25,14 @@
           content: '\F25A';
           font-family: 'fontello';
           font-size: 8em;
-          color: $light;
+          color: $light-twal;
         }
       }
       .circle {
         @include size(98%);
         animation: pulse 8s linear infinite;
         position: absolute;
-        border: solid 3px $light;
+        border: solid $light-twal 3px;
         border-radius: 50%;
         opacity: 0;
         @for $i from 1 to 4 {

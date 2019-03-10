@@ -1,0 +1,14 @@
+.main-menus {
+  .main-buttons {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+    .btn__home {
+      float: left;
+    }
+    .btn__settings {
+      float: right;
+    }
+  }
+}
