@@ -5,11 +5,21 @@ import IdleTimer from 'react-idle-timer';
 import { withTranslation } from 'react-i18next';
 import DefaultScreenSaver from './DefaultScreenSaver';
 
-const ScreenSaver = ({ component, timeout, unit, toggleScreenSaver }) => {
+import twalConfig from '@root/twal.config';
+
+const ScreenSaver = ({ timeout, unit, toggleScreenSaver }) => {
   const idleTimer = useRef(null);
   const [isIdle, setIdle] = useState(false);
 
   const time = 1000 * timeout * (unit === 'min' ? 60 : 1) || 1000 * 60;
+
+  const {
+    screenSaver: { component }
+  } = twalConfig;
+
+  const ScreenSaverComponent = component
+    ? require(`@root/src/${component.replace(/^\//, '')}.jsx`).default
+    : DefaultScreenSaver;
 
   return (
     <IdleTimer
@@ -25,13 +35,12 @@ const ScreenSaver = ({ component, timeout, unit, toggleScreenSaver }) => {
         toggleScreenSaver(false);
       }}
     >
-      {isIdle && (component || <DefaultScreenSaver />)}
+      {isIdle && <ScreenSaverComponent isIdle={isIdle} />}
     </IdleTimer>
   );
 };
 
 ScreenSaver.propTypes = {
-  component: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   timeout: PropTypes.number,
   unit: PropTypes.oneOf(['s', 'min']),
   t: PropTypes.func.isRequired,
