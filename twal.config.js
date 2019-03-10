@@ -2,7 +2,8 @@ module.exports = {
   i18n: {
     availableLanguages: ['fr', 'en'],
     defaultLanguage: 'fr',
-    namespaces: []
+    namespaces: [],
+    useCountriesFlag: true
   },
   screenSaver: {
     enabled: false,

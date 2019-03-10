@@ -25,7 +25,7 @@ i18n
     load: 'languageOnly',
     lng: twalI18n.defaultLanguage,
     fallbackLng: twalI18n.availableLanguages,
-    ns: ['common', ...twalI18n.namespaces],
+    ns: ['common', 'languages', ...twalI18n.namespaces],
     defaultNS: 'common',
     fallbackNS: ['common'],
     backend: {

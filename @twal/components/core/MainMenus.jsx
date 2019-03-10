@@ -11,7 +11,7 @@ class MainMenus extends React.Component {
 
   state = {
     [MainMenus.NAV_OPENED]: false,
-    [MainMenus.SETTINGS_OPENED]: false
+    [MainMenus.SETTINGS_OPENED]: true
   };
 
   componentDidUpdate(prevProps) {

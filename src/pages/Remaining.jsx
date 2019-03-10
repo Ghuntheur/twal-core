@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import Languages from '@twal/components/languages/Languages';
 
 const Remaining = ({ t }) => {
   const oneDay = 24 * 60 * 60 * 1000;
