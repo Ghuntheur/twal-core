@@ -5,6 +5,8 @@ import IconButton from '@twal/components/ui/IconButton';
 import MainNav from '@twal/components/nav/MainNav';
 import Settings from '@twal/components/settings/Settings';
 
+import '@twal/styles/components/core/mainMenus.scss';
+
 import twalConfig from '@root/twal.config';
 
 class MainMenus extends React.Component {
@@ -53,17 +55,18 @@ class MainMenus extends React.Component {
             <IconButton
               icon={navOpened ? 'cancel' : 'home'}
               onClick={() => this.toggle(MainMenus.NAV_OPENED)}
-              className="button__home"
+              className="btn__home"
             />
           )}
           {showSettingsButton && (
             <IconButton
               icon={settingsOpened ? 'cancel' : 'cog'}
               onClick={() => this.toggle(MainMenus.SETTINGS_OPENED)}
-              className="button__settings"
+              className="btn__settings"
             />
           )}
         </div>
+
         <div className="menu">
           {navOpened && <MainNav opened={navOpened} toggle={this.toggle} />}
           {settingsOpened && <Settings />}

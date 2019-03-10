@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import Twal from '@twal/components/core/Twal';
 
+import './styles/index.scss';
+
 const startApp = () => {
   ReactDOM.render(<Twal />, document.getElementById('root'));
 };

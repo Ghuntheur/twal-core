@@ -1,13 +1,13 @@
 .btn-language {
   cursor: pointer;
-  border: solid 2px;
+  border: solid 2px $light-twal;
   border-radius: 8px;
   padding: 24px 60px;
   background: transparent;
   outline: none;
-  box-shadow: 0px 4px 4px rgba(black, 0.25);
+  @include box-shadow;
   &.active {
-    background: $dark-twal;
+    background: $light-twal;
     .language-code {
       color: $dark-twal;
     }
