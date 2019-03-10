@@ -1,0 +1,32 @@
+.btn-language {
+  cursor: pointer;
+  border: solid 2px $light;
+  border-radius: 8px;
+  padding: 24px 60px;
+  background: transparent;
+  outline: none;
+  box-shadow: 0px 4px 4px rgba(black, 0.25);
+  &.active {
+    background: $light;
+    .language-code {
+      color: $dark;
+    }
+  }
+  .flag-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+    height: 100px;
+    width: 160px;
+    img {
+      object-fit: contain;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .language-code {
+    color: $light;
+    font-family: 'Roboto';
+    font-size: 1.5rem;
+  }
+}

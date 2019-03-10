@@ -14,15 +14,21 @@
     },
     {
       "uid": "bc64550dd022ce21604f97309b346cea",
-      "css": "cog-1",
+      "css": "cog",
       "code": 59394,
       "src": "entypo"
     },
     {
       "uid": "2cfb3f2b46b34a1790aec0aa846297b6",
-      "css": "menu-1",
+      "css": "menu",
       "code": 59393,
       "src": "entypo"
+    },
+    {
+      "uid": "06301c50d89b5d3e651bd07ebd6d7de7",
+      "css": "cancel",
+      "code": 59395,
+      "src": "mfglabs"
     }
   ]
 }

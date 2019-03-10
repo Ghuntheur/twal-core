@@ -1,7 +1,6 @@
 {
   "hello": "hello",
-  "remaining": "The final countdown : {{counter}} days",
-  "history": "History",
-  "rooms": "Rooms",
-  "menu": "Menu"
+  "remaining": "The final countdown: {{counter}} days",
+  "history": "Histoire",
+  "rooms": "Salles"
 }
