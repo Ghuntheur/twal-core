@@ -1,17 +1,13 @@
 import React from 'react';
 
-import MainNav from '@twal/components/nav/MainNav';
 import MainContent from '@twal/components/core/MainContent';
+import MainMenus from '@twal/components/core/MainMenus';
 
-class TwalApp extends React.Component {
-  render() {
-    return (
-      <main>
-        <MainNav />
-        <MainContent />
-      </main>
-    );
-  }
-}
+const TwalApp = ({ ...rest }) => (
+  <main>
+    <MainMenus {...rest} />
+    <MainContent />
+  </main>
+);
 
 export default TwalApp;

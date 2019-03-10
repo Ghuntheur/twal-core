@@ -16,7 +16,7 @@ class Twal extends React.Component {
     const { screenSaver } = twalConfig;
 
     const Main =
-      screenSaver && screenSaver.enabled
+      screenSaver.enabled || screenSaver.enabled === undefined
         ? withScreenSaver(screenSaver.options || {})(TwalApp)
         : TwalApp;
     return (

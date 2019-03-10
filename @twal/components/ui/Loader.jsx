@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '@twal/styles/ui/loader.scss';
+import '@twal/styles/components/ui/loader.scss';
 
 const Loader = () => (
   <div className="loader-container full">

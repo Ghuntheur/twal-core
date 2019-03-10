@@ -8,7 +8,11 @@ const Remaining = ({ t }) => {
   const final = new Date(2019, 2, 27);
   const diffDays = Math.round(Math.abs((today.getTime() - final.getTime()) / oneDay));
 
-  return <h1>{t('remaining', { counter: diffDays })}</h1>;
+  return (
+    <>
+      <h1>{t('remaining', { counter: diffDays })}</h1>
+    </>
+  );
 };
 
 Remaining.propTypes = {
