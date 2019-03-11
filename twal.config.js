@@ -15,7 +15,7 @@ module.exports = {
     unit: 's'
   },
   routing: {
-    useRoot: true,
+    useRoot: false,
     routes: [
       { component: 'Remaining', contentKey: 'hello', default: true },
       { component: 'History', contentKey: 'history' },
