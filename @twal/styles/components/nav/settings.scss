@@ -1,0 +1,7 @@
+.settings {
+  @include page-hover;
+  background: $dark-twal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

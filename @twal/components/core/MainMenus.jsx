@@ -5,6 +5,8 @@ import IconButton from '@twal/components/ui/IconButton';
 import MainNav from '@twal/components/nav/MainNav';
 import Settings from '@twal/components/settings/Settings';
 
+import { CSSTransition } from 'react-transition-group';
+
 import '@twal/styles/components/core/mainMenus.scss';
 
 import twalConfig from '@root/twal.config';
@@ -55,29 +57,46 @@ class MainMenus extends React.Component {
     const showSettingsButton = buttonsSimultaneity || (!buttonsSimultaneity && !navOpened);
 
     return (
-      <div className="main-menus">
-        <div className="main-buttons">
+      <>
+        <CSSTransition
+          in={navOpened}
+          timeout={300}
+          classNames="main-menu-left"
+          unmountOnExit
+        >
+          <MainNav opened={navOpened} toggle={() => this.toggle(MainMenus.NAV_OPENED)} />
+        </CSSTransition>
+        <CSSTransition
+          in={settingsOpened}
+          timeout={300}
+          classNames="main-menu-right"
+          unmountOnExit
+        >
+          <Settings />
+        </CSSTransition>
+
+        <nav className="main-menus">
           {showNavButton && (
             <IconButton
               icon={navOpened ? 'cancel' : 'home'}
               onClick={() => this.toggle(MainMenus.NAV_OPENED)}
-              className="btn__home"
+              className=""
             />
           )}
+
+          {/* potentiel sub menu here */}
+
+          <div>Test | menu</div>
+
           {showSettingsButton && (
             <IconButton
               icon={settingsOpened ? 'cancel' : 'cog'}
               onClick={() => this.toggle(MainMenus.SETTINGS_OPENED)}
-              className="btn__settings"
+              className=""
             />
           )}
-        </div>
-
-        <div className="menu">
-          {navOpened && <NavComponent toggle={() => this.toggle(MainMenus.NAV_OPENED)} />}
-          {settingsOpened && <SettingsComponent />}
-        </div>
-      </div>
+        </nav>
+      </>
     );
   }
 }

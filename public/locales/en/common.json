@@ -2,6 +2,7 @@
   "hello": "hello",
   "remaining": "The final countdown: {{counter}} days",
   "screenSaver": "Bienvenu à l'exposition",
-  "history": "Histoire",
-  "rooms": "Salles"
+  "history": "History",
+  "rooms": "Rooms",
+  "ui": "UI"
 }

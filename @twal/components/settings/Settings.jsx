@@ -1,13 +1,14 @@
 import React from 'react';
 
-import AbsoluteContent from '@twal/components/ui/AbsoluteContent';
 import Languages from '@twal/components/languages/Languages';
+
+import '@twal/styles/components/nav/settings.scss';
 
 const Settings = () => {
   return (
-    <AbsoluteContent className="settings">
+    <section className="settings">
       <Languages />
-    </AbsoluteContent>
+    </section>
   );
 };
 

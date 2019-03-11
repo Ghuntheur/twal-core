@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Transition } from 'react-transition-group';
 
-import AbsoluteContent from '@twal/components/ui/AbsoluteContent';
-
 import '@twal/styles/components/screenSaver/screenSaver.scss';
 
 import twalConfig from '@root/twal.config';
@@ -30,33 +28,28 @@ const DefaultScreenSaver = ({ t }) => {
   return (
     <Transition timeout={duration} appear={true} in={true}>
       {state => (
-        <AbsoluteContent
-          className="screen-saver"
-          style={{ ...defaultStyle, ...transitionStyle[state] }}
+        <section
+          className={classnames('screen-saver__main', {
+            'with-background': backgroundImage !== undefined
+          })}
+          style={{
+            ...(backgroundImage && {
+              backgroundImage: `url(${backgroundImage.replace(/^\//, '')})`
+            })
+          }}
         >
-          <div
-            className={classnames('screen-saver__main', {
-              'with-background': backgroundImage !== undefined
-            })}
-            style={{
-              ...(backgroundImage && {
-                backgroundImage: `url(${backgroundImage.replace(/^\//, '')})`
-              })
-            }}
-          >
-            {(animationEnabled || animationEnabled === undefined) && (
-              <div className="animation-container with-icon">
-                <div className="circle" />
-                <div className="circle" />
-                <div className="circle" />
-                <div className="circle" />
-              </div>
-            )}
-            <div className="text-container">
-              <p>{t('screenSaver')}</p>
+          {(animationEnabled || animationEnabled === undefined) && (
+            <div className="animation-container with-icon">
+              <div className="circle" />
+              <div className="circle" />
+              <div className="circle" />
+              <div className="circle" />
             </div>
+          )}
+          <div className="text-container">
+            <p>{t('screenSaver')}</p>
           </div>
-        </AbsoluteContent>
+        </section>
       )}
     </Transition>
   );

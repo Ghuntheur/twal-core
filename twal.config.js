@@ -10,7 +10,7 @@ module.exports = {
   screenSaver: {
     enabled: false,
     openNavOnUnmount: true,
-    backgroundImage: 'imgs/chateau.jpg',
+    backgroundImage: 'imgs/made-with-twal.png',
     timeout: 4,
     unit: 's'
   },
@@ -18,9 +18,9 @@ module.exports = {
     useRoot: false,
     linksNamespace: 'nav',
     routes: [
-      { component: 'Remaining', i18nKey: 'remaining', default: true },
-      { component: 'History', i18nKey: 'history' },
-      { component: 'Rooms', i18nKey: 'rooms' }
+      { component: 'Remaining', contentKey: 'hello', default: true },
+      { component: 'History', contentKey: 'history' },
+      { component: 'Ui', contentKey: 'ui' }
     ]
   },
   navigation: {

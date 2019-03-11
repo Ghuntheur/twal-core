@@ -3,5 +3,6 @@
   "remaining": "Temps restant : {{counter}} jours",
   "screenSaver": "Welcome to the exposition",
   "history": "History",
-  "rooms": "Rooms"
+  "rooms": "Rooms",
+  "ui": "UI"
 }
