@@ -4,7 +4,7 @@ module.exports = {
   i18n: {
     availableLanguages: ['fr', 'en'],
     defaultLanguage: 'fr',
-    namespaces: [],
+    namespaces: ['nav'],
     useCountriesFlag: true
   },
   screenSaver: {
@@ -16,10 +16,11 @@ module.exports = {
   },
   routing: {
     useRoot: false,
+    linksNamespace: 'nav',
     routes: [
-      { component: 'Remaining', contentKey: 'hello', default: true },
-      { component: 'History', contentKey: 'history' },
-      { component: 'Rooms', contentKey: 'rooms' }
+      { component: 'Remaining', i18nKey: 'remaining', default: true },
+      { component: 'History', i18nKey: 'history' },
+      { component: 'Rooms', i18nKey: 'rooms' }
     ]
   },
   navigation: {

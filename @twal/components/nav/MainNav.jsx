@@ -10,8 +10,8 @@ import Languages from '../languages/Languages';
 
 const MainNav = ({ toggle, t }) => {
   const {
-    routing: { routes },
-    navigation: { showLanguages }
+    routing: { routes, linksNamespace } = {},
+    navigation: { showLanguages } = {}
   } = twalConfig;
 
   // routes are required
@@ -26,7 +26,10 @@ const MainNav = ({ toggle, t }) => {
             routes.map(route => (
               <li key={route.component} className="navigation list-element" onClick={toggle}>
                 <NavLink to={`${route.path || route.component}`.toLowerCase()}>
-                  {t(`common:${route.contentKey}`)}
+                  {t(
+                    `${linksNamespace || 'common'}:${route.i18nKey ||
+                      route.component.toLowerCase()}`
+                  )}
                 </NavLink>
               </li>
             ))}
