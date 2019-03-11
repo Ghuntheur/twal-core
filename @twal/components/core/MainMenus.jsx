@@ -42,8 +42,16 @@ class MainMenus extends React.Component {
   render() {
     const { navOpened, settingsOpened } = this.state;
     const {
-      navigation: { buttonsSimultaneity }
+      navigation: { buttonsSimultaneity, navComponent, settingsComponent }
     } = twalConfig;
+
+    const NavComponent = navComponent
+      ? require(`@root/src/${navComponent.replace(/^\//, '')}.jsx`).default
+      : MainNav;
+
+    const SettingsComponent = settingsComponent
+      ? require(`@root/src/${settingsComponent.replace(/^\//, '')}.jsx`).default
+      : Settings;
 
     const showNavButton = buttonsSimultaneity || (!buttonsSimultaneity && !settingsOpened);
     const showSettingsButton = buttonsSimultaneity || (!buttonsSimultaneity && !navOpened);
@@ -68,8 +76,8 @@ class MainMenus extends React.Component {
         </div>
 
         <div className="menu">
-          {navOpened && <MainNav opened={navOpened} toggle={this.toggle} />}
-          {settingsOpened && <Settings />}
+          {navOpened && <NavComponent opened={navOpened} toggle={this.toggle} />}
+          {settingsOpened && <SettingsComponent />}
         </div>
       </div>
     );
