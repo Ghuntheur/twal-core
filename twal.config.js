@@ -11,10 +11,8 @@ module.exports = {
     enabled: false,
     openNavOnUnmount: true,
     backgroundImage: 'imgs/chateau.jpg',
-    options: {
-      timeout: 4,
-      unit: 's'
-    }
+    timeout: 4,
+    unit: 's'
   },
   routing: {
     useRoot: true,
@@ -26,9 +24,7 @@ module.exports = {
   },
   navigation: {
     buttonsSimultaneity: false,
-    showLanguages: true,
-    navComponent: 'components/CustomNav',
-    settingsComponent: 'components/CustomNav'
+    showLanguages: true
   },
   build: {
     author: {

@@ -7,9 +7,11 @@ import Home from '@twal/components/ui/Home';
 import twalConfig from '@root/twal.config';
 
 const MainContent = () => {
-  const {
-    routing: { routes }
-  } = twalConfig;
+  const { routing: { routes } = {} } = twalConfig;
+
+  // routes are required
+  if (!routes)
+    throw new Error('Provide an array of routes in your configuration file. Reffer the doc');
 
   const defaultRoute = routes && (routes.find(route => route.default) || routes[0]);
 
@@ -20,7 +22,7 @@ const MainContent = () => {
         path="/"
         render={() =>
           defaultRoute ? (
-            <Redirect to={`/${defaultRoute.component.toLowerCase()}`} />
+            <Redirect to={`/${defaultRoute.path || defaultRoute.component}`.toLowerCase()} />
           ) : (
             <Page>
               <Home />
@@ -34,7 +36,7 @@ const MainContent = () => {
           return (
             <Route
               key={route.component}
-              path={`/${route.component}`}
+              path={`/${route.path || route.component}`.toLowerCase()}
               component={() => (
                 <Page>
                   <Component />

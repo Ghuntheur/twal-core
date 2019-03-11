@@ -21,9 +21,7 @@ class MainMenus extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.screenSaverPrinted && !this.props.screenSaverPrinted) {
       // open navigation when screen saver come out and close settings
-      const {
-        screenSaver: { openNavOnUnmount }
-      } = twalConfig;
+      const { screenSaver: { openNavOnUnmount } = {} } = twalConfig;
       if (openNavOnUnmount || openNavOnUnmount === undefined) {
         this.setState({
           [MainMenus.NAV_OPENED]: true,
@@ -42,7 +40,7 @@ class MainMenus extends React.Component {
   render() {
     const { navOpened, settingsOpened } = this.state;
     const {
-      navigation: { buttonsSimultaneity, navComponent, settingsComponent }
+      navigation: { buttonsSimultaneity, navComponent, settingsComponent } = {}
     } = twalConfig;
 
     const NavComponent = navComponent
@@ -76,7 +74,7 @@ class MainMenus extends React.Component {
         </div>
 
         <div className="menu">
-          {navOpened && <NavComponent opened={navOpened} toggle={this.toggle} />}
+          {navOpened && <NavComponent toggle={() => this.toggle(MainMenus.NAV_OPENED)} />}
           {settingsOpened && <SettingsComponent />}
         </div>
       </div>
