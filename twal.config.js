@@ -25,7 +25,10 @@ module.exports = {
     ]
   },
   navigation: {
-    buttonsSimultaneity: false
+    buttonsSimultaneity: false,
+    showLanguages: true,
+    navComponent: 'components/CustomNav',
+    settingsComponent: 'components/CustomNav'
   },
   build: {
     author: {
