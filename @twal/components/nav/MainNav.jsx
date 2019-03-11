@@ -6,10 +6,12 @@ import { withTranslation } from 'react-i18next';
 import AbsoluteContent from '../ui/AbsoluteContent';
 
 import twalConfig from '@root/twal.config';
+import Languages from '../languages/Languages';
 
 const MainNav = ({ toggle, t }) => {
   const {
-    routing: { routes }
+    routing: { routes },
+    navigation: { showLanguages }
   } = twalConfig;
 
   return (
@@ -30,6 +32,8 @@ const MainNav = ({ toggle, t }) => {
             ))}
         </ul>
       </nav>
+
+      {(showLanguages || showLanguages === undefined) && <Languages />}
     </AbsoluteContent>
   );
 };

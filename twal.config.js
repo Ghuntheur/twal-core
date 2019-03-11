@@ -25,7 +25,8 @@ module.exports = {
     ]
   },
   navigation: {
-    buttonsSimultaneity: false
+    buttonsSimultaneity: false,
+    showLanguages: true
   },
   build: {
     author: {
