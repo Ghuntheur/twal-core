@@ -4,31 +4,28 @@ module.exports = {
   i18n: {
     availableLanguages: ['fr', 'en'],
     defaultLanguage: 'fr',
-    namespaces: [],
+    namespaces: ['nav'],
     useCountriesFlag: true
   },
   screenSaver: {
     enabled: false,
     openNavOnUnmount: true,
     backgroundImage: 'imgs/chateau.jpg',
-    options: {
-      timeout: 4,
-      unit: 's'
-    }
+    timeout: 4,
+    unit: 's'
   },
   routing: {
-    useRoot: true,
+    useRoot: false,
+    linksNamespace: 'nav',
     routes: [
-      { component: 'Remaining', contentKey: 'hello', default: true },
-      { component: 'History', contentKey: 'history' },
-      { component: 'Rooms', contentKey: 'rooms' }
+      { component: 'Remaining', i18nKey: 'remaining', default: true },
+      { component: 'History', i18nKey: 'history' },
+      { component: 'Rooms', i18nKey: 'rooms' }
     ]
   },
   navigation: {
     buttonsSimultaneity: false,
-    showLanguages: true,
-    navComponent: 'components/CustomNav',
-    settingsComponent: 'components/CustomNav'
+    showLanguages: true
   },
   build: {
     author: {

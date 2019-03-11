@@ -10,9 +10,13 @@ import Languages from '../languages/Languages';
 
 const MainNav = ({ toggle, t }) => {
   const {
-    routing: { routes },
-    navigation: { showLanguages }
+    routing: { routes, linksNamespace } = {},
+    navigation: { showLanguages } = {}
   } = twalConfig;
+
+  // routes are required
+  if (!routes)
+    throw new Error('Provide an array of routes in your configuration file. Reffer the doc');
 
   return (
     <AbsoluteContent className="nav">
@@ -20,13 +24,12 @@ const MainNav = ({ toggle, t }) => {
         <ul className="navigation list">
           {routes &&
             routes.map(route => (
-              <li
-                key={route.component}
-                className="navigation list-element"
-                onClick={() => toggle()}
-              >
-                <NavLink to={`/${route.component.toLowerCase()}`}>
-                  {t(`common:${route.contentKey}`)}
+              <li key={route.component} className="navigation list-element" onClick={toggle}>
+                <NavLink to={`${route.path || route.component}`.toLowerCase()}>
+                  {t(
+                    `${linksNamespace || 'common'}:${route.i18nKey ||
+                      route.component.toLowerCase()}`
+                  )}
                 </NavLink>
               </li>
             ))}
