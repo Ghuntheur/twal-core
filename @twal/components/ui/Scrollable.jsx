@@ -1,6 +1,8 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
+import SimpleBar from 'simplebar-react';
+
+import 'simplebar/dist/simplebar.min.css';
 
 class Scrollable extends React.PureComponent {
   state = {
@@ -12,12 +14,11 @@ class Scrollable extends React.PureComponent {
     overflow: 'auto'
   };
 
-  element = null;
-
-  handleScroll = () => {
-    const scrollTop = this.element.scrollTop;
-    const scrollHeight = this.element.scrollHeight;
-    const offsetHeight = this.element.offsetHeight;
+  handleScroll = ev => {
+    const elm = ev.target;
+    const scrollTop = elm.scrollTop;
+    const scrollHeight = elm.scrollHeight;
+    const offsetHeight = elm.offsetHeight;
 
     this.setState({ fullyScrolled: scrollTop >= scrollHeight - offsetHeight });
   };
@@ -26,14 +27,13 @@ class Scrollable extends React.PureComponent {
     const { children, ...rest } = this.props;
     const { fullyScrolled } = this.state;
     return (
-      <div
+      <SimpleBar
         onScroll={this.handleScroll}
-        ref={elm => (this.element = elm)}
         style={{ ...this.style, background: fullyScrolled ? 'blue' : 'red' }}
         {...rest}
       >
         {children}
-      </div>
+      </SimpleBar>
     );
   }
 }
