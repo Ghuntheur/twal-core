@@ -12,20 +12,18 @@ const Languages = () => {
   const { i18n: twalI18n } = twalConfig;
 
   return (
-    <div className="languages">
-      <ul className="languages__list">
-        {twalI18n &&
-          twalI18n.availableLanguages.map(lang => (
-            <li key={lang} className="language__element">
-              <Language
-                active={i18n.language === lang}
-                code={lang}
-                onClick={() => i18n.changeLanguage(lang)}
-              />
-            </li>
-          ))}
-      </ul>
-    </div>
+    <ul className="languages">
+      {twalI18n &&
+        twalI18n.availableLanguages.map(lang => (
+          <li key={lang} className="language-element">
+            <Language
+              active={i18n.language === lang}
+              code={lang}
+              onClick={() => i18n.changeLanguage(lang)}
+            />
+          </li>
+        ))}
+    </ul>
   );
 };
 

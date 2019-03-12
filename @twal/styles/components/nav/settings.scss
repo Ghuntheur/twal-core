@@ -1,0 +1,12 @@
+.settings {
+  @include page-hover;
+  background: $purple-twal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .cancel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+}

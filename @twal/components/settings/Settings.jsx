@@ -1,13 +1,20 @@
 import React from 'react';
 
-import AbsoluteContent from '@twal/components/ui/AbsoluteContent';
 import Languages from '@twal/components/languages/Languages';
+import IconButton from '@twal/components/ui/IconButton';
 
-const Settings = () => {
+import '@twal/styles/components/nav/settings.scss';
+
+const Settings = ({ toggle, t }) => {
   return (
-    <AbsoluteContent className="settings">
+    <section className="settings">
       <Languages />
-    </AbsoluteContent>
+      <IconButton
+        icon="cancel"
+        onClick={() => toggle('navOpened')}
+        className="cancel"
+      />
+    </section>
   );
 };
 

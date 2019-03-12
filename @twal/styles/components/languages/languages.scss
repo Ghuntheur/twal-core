@@ -1,13 +1,10 @@
 .languages {
   display: flex;
   justify-content: center;
-  &__list {
-    width: 90%;
-    display: inline-flex;
-    justify-content: center;
-    .language__element {
-      margin: 0 30px;
-      text-align: center;
-    }
+  flex-wrap: wrap;
+  .language-element {
+    margin: 0 10px 10px 0;
+    text-align: center;
   }
+
 }

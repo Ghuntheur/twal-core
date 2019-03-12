@@ -8,19 +8,20 @@ module.exports = {
     useCountriesFlag: true
   },
   screenSaver: {
-    enabled: false,
+    enabled: true,
     openNavOnUnmount: true,
-    backgroundImage: 'imgs/chateau.jpg'
-    // timeout: 4,
-    // unit: 's'
+    backgroundImage: '',
+    timeout: 4,
+    unit: 's'
   },
   routing: {
-    useRoot: false,
+    useRoot: true,
+    rootComponent: '/components/Home',
     linksNamespace: 'nav',
     routes: [
-      { component: 'Remaining', i18nKey: 'remaining', default: true },
-      { component: 'History', i18nKey: 'history' },
-      { component: 'Rooms', i18nKey: 'rooms' }
+      { component: 'Remaining', contentKey: 'hello', default: true },
+      { component: 'History', contentKey: 'history' },
+      { component: 'Ui', contentKey: 'ui' }
     ]
   },
   navigation: {
