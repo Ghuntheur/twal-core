@@ -27,7 +27,7 @@
         }
       }
       .circle {
-        @include click-twal;
+        @include click-twal();
       }
     }
     .text-container {
@@ -43,7 +43,7 @@
 }
 
 .test {
-  @include appear();
+  @include appear(200ms);
 }
 
 
