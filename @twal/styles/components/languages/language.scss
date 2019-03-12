@@ -1,27 +1,23 @@
+$padding: 24px 24px;
+
 .btn-language {
-  cursor: pointer;
-  border: solid 2px $light-twal;
-  border-radius: 8px;
-  padding: 24px 60px;
-  background: transparent;
-  outline: none;
-  @include box-shadow;
+  @include rect-button(none, $dark-twal);
+  border: $light-twal 2px solid;
+  padding: $padding;
+  color: $dark-twal;
+  flex-direction: column;
+  justify-content: center;
+  img {
+    object-fit: contain;
+    height: 50px;
+    margin-bottom: 10px;
+  }
   &.active {
-    background: $light-twal;
+    @include rect-button($light-twal, $light-twal);
+    padding: $padding;
+    // background: $light-twal;
     .language-code {
       color: $dark-twal;
-    }
-  }
-  .flag-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 16px;
-    height: 100px;
-    width: 160px;
-    img {
-      object-fit: contain;
-      height: 100%;
-      width: 100%;
     }
   }
   .language-code {
