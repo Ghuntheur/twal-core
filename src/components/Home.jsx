@@ -5,7 +5,7 @@ import '@twal/styles/exemple.scss';
 const Home = () => (
   <section className="made-w-twal">
     <h1>Made with Twal</h1>
-    <img src='twal.svg' alt='twal logo' />
+    <img src='imgs/twal.svg' alt='twal logo' />
   </section>
 );
 

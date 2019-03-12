@@ -1,7 +1,7 @@
 {
   "hello": "Bonjour",
   "remaining": "Temps restant : {{counter}} jours",
-  "screenSaver": "Welcome to the exposition",
+  "screenSaver": "Bienvenu à l'exposition",
   "history": "Histoire",
   "rooms": "Pièces",
   "ui": "UI"

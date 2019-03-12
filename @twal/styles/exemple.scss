@@ -5,8 +5,8 @@
   align-items: center;
   justify-content: center;
   color: $purple-twal;
-  background: url('../public/twal/twal-bg.png');
-  background-size: contain;
+  background: url('../public/twal/twal-bg.png') no-repeat;
+  background-size: cover;
   @include full;
   h1 {
     font-weight: bolder;
