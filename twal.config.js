@@ -8,9 +8,9 @@ module.exports = {
     useCountriesFlag: true
   },
   screenSaver: {
-    enabled: false,
+    enabled: true,
     openNavOnUnmount: true,
-    backgroundImage: 'imgs/made-with-twal.png',
+    backgroundImage: '',
     timeout: 4,
     unit: 's'
   },

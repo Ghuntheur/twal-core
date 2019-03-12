@@ -1,4 +1,5 @@
 .screensaver {
+
   background: rgba($dark-twal, 0.94);
   @include page-hover(9999);
   overflow: hidden;
@@ -39,6 +40,10 @@
       height: 100px;
     }
 
+}
+
+.test {
+  @include appear();
 }
 
 

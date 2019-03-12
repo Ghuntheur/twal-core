@@ -83,19 +83,19 @@
   }
 }
 
-@mixin appear(){
+@mixin appear($time:300ms){
   &-enter {
     opacity: 0;
   }
   &-enter-active{
     opacity: 1;
-    transition: all $time ease-out;
+    transition: opacity $time ease-in;
   }
   &-exit {
     opacity: 1;
   }
   &-exit-active{
     opacity: 0;
-    transition: all $time ease-out;
+    transition: opacity $time ease-out;
   }
 }
