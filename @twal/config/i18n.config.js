@@ -6,16 +6,31 @@ import twalConfig from '@root/twal.config';
 
 import CommonUtils from '@twal/utils/CommonUtils';
 
-if (
-  !twalConfig.i18n ||
-  !twalConfig.i18n.availableLanguages.length ||
-  !twalConfig.i18n.defaultLanguage ||
-  !twalConfig.i18n.namespaces.length
-) {
-  console.error('Provide an i18n object in twal.config.js file. Reffer to the doc');
-}
+const {
+  i18n: { availableLanguages, defaultLanguage, namespaces } = {},
+  i18n: twalI18n
+} = twalConfig;
 
-const twalI18n = twalConfig.i18n;
+if (!twalI18n) CommonUtils.throwError('Provide an i18n object in configuration file');
+
+if (!availableLanguages || !availableLanguages.length)
+  CommonUtils.throwError(
+    'Provide languages in configuration file',
+    'Example',
+    `${JSON.stringify({
+      i18n: {
+        availableLanguages: ['fr', 'en', 'es']
+      }
+    })}`
+  );
+
+if (!defaultLanguage)
+  CommonUtils.throwError(
+    'Provide a default language',
+    `${JSON.stringify({
+      i18n: { defaultLanguage: 'fr' }
+    })}`
+  );
 
 i18n
   .use(XHR)
@@ -23,9 +38,9 @@ i18n
   .init({
     debug: CommonUtils.isDev(),
     load: 'languageOnly',
-    lng: twalI18n.defaultLanguage,
-    fallbackLng: twalI18n.availableLanguages,
-    ns: ['common', 'languages', ...twalI18n.namespaces],
+    lng: defaultLanguage,
+    fallbackLng: availableLanguages,
+    ns: ['common', 'languages', ...(namespaces || [])],
     defaultNS: 'common',
     fallbackNS: ['common'],
     backend: {
