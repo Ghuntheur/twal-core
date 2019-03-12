@@ -1,0 +1,17 @@
+.made-w-twal {
+  background: $light-twal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $purple-twal;
+  background: url('../public/twal/twal-bg.png');
+  background-size: contain;
+  @include full;
+  h1 {
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size:2em;
+    margin-bottom: 25px;
+  }
+}

@@ -15,7 +15,8 @@ module.exports = {
     unit: 's'
   },
   routing: {
-    useRoot: false,
+    useRoot: true,
+    rootComponent: '/components/Home',
     linksNamespace: 'nav',
     routes: [
       { component: 'Remaining', contentKey: 'hello', default: true },
