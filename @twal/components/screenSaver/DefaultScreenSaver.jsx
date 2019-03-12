@@ -29,7 +29,7 @@ const DefaultScreenSaver = ({ t }) => {
     <Transition timeout={duration} appear={true} in={true}>
       {state => (
         <section
-          className={classnames('screen-saver__main', {
+          className={classnames('screensaver', {
             'with-background': backgroundImage !== undefined
           })}
           style={{
@@ -49,6 +49,7 @@ const DefaultScreenSaver = ({ t }) => {
           <div className="text-container">
             <p>{t('screenSaver')}</p>
           </div>
+          <img src="imgs/twal.svg" alt="twal logo" />
         </section>
       )}
     </Transition>

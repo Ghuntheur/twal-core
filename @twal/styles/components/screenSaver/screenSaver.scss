@@ -1,16 +1,13 @@
-.screen-saver {
+.screensaver {
   background: rgba($dark-twal, 0.94);
-  z-index: 9999;
+  @include page-hover(9999);
   overflow: hidden;
   color: $light-twal;
-  &__main {
-    @include full;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
     &.with-background {
-      @include full;
       background-size: cover;
       background-position: center;
     }
@@ -24,22 +21,12 @@
         &::before {
           content: '\F25A';
           font-family: 'fontello';
-          font-size: 8em;
+          font-size: 6em;
           color: $light-twal;
         }
       }
       .circle {
-        @include size(98%);
-        animation: pulse 8s linear infinite;
-        position: absolute;
-        border: solid $light-twal 3px;
-        border-radius: 50%;
-        opacity: 0;
-        @for $i from 1 to 4 {
-          &:nth-child(#{$i}) {
-            animation-delay: $i * 2s;
-          }
-        }
+        @include click-twal;
       }
     }
     .text-container {
@@ -47,19 +34,11 @@
       font-family: 'Roboto';
       font-size: 2rem;
     }
-  }
+    img {
+      margin-top:50px;
+      height: 100px;
+    }
+
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1.8);
-    opacity: 0;
-  }
-}
+
