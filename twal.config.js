@@ -8,7 +8,7 @@ module.exports = {
     useCountriesFlag: true
   },
   screenSaver: {
-    enabled: true,
+    enabled: false,
     openNavOnUnmount: true,
     backgroundImage: '',
     timeout: 4,
