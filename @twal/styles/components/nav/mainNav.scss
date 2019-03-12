@@ -1,27 +1,39 @@
 .main-nav {
   @include page-hover;
-  background: $dark-twal;
+  overflow: hidden;
+  background: $purple-twal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  .cancel {
+    position: fixed;
+    bottom:20px;
+    left:20px;
+  }
   .nav-list {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
-    @include full;
+    // justify-content: space-evenly;
+    // @include full;
     > li {
       > a {
         &.active {
-
-            @include rect-button($green-twal);
-
+            border-bottom:8px solid $yellow-twal;
         }
-        @include rect-button($purple-twal);
+        @include rect-button($red-twal, none);
+        border-style: inset;
+        font-size: 1.3em;
+        display: block;
+        box-sizing: border-box;
         text-align: center;
         padding: 8px;
-        line-height: 100px;
+        line-height: 50px;
         width: 300px;
+        margin-bottom: 25px;
         &:hover {
-          @include rect-button($green-twal);
+          border-bottom:8px solid $yellow-twal;
         }
         color: $light-twal;
         @include default-link;
