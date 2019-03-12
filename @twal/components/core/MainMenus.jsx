@@ -33,11 +33,9 @@ class MainMenus extends React.Component {
     }
   }
 
-  toggle(name, value = null) {
-    this.setState({
+  toggle = name => (value = null) => this.setState({
       [name]: value === null ? !this.state[name] : value
     });
-  }
 
   render() {
     const { navOpened, settingsOpened } = this.state;
@@ -53,48 +51,34 @@ class MainMenus extends React.Component {
       ? require(`@root/src/${settingsComponent.replace(/^\//, '')}.jsx`).default
       : Settings;
 
-    const showNavButton = buttonsSimultaneity || (!buttonsSimultaneity && !settingsOpened);
-    const showSettingsButton = buttonsSimultaneity || (!buttonsSimultaneity && !navOpened);
+    // const showNavButton = buttonsSimultaneity || (!buttonsSimultaneity && !settingsOpened);
+    // const showSettingsButton = buttonsSimultaneity || (!buttonsSimultaneity && !navOpened);
 
     return (
       <>
-        <CSSTransition
-          in={navOpened}
-          timeout={300}
-          classNames="main-menu-left"
-          unmountOnExit
-        >
-          <MainNav opened={navOpened} toggle={() => this.toggle(MainMenus.NAV_OPENED)} />
+        <CSSTransition in={navOpened} timeout={300} classNames="main-menu-left" unmountOnExit>
+          <NavComponent opened={navOpened} toggle={() => this.toggle(MainMenus.NAV_OPENED)()} />
         </CSSTransition>
-        <CSSTransition
-          in={settingsOpened}
-          timeout={300}
-          classNames="main-menu-right"
-          unmountOnExit
-        >
-          <Settings />
+        <CSSTransition in={settingsOpened} timeout={300} classNames="main-menu-right" unmountOnExit>
+          <SettingsComponent toggle={() => this.toggle(MainMenus.SETTINGS_OPENED)()} />
         </CSSTransition>
 
         <nav className="main-menus">
-          {showNavButton && (
-            <IconButton
-              icon={navOpened ? 'cancel' : 'home'}
-              onClick={() => this.toggle(MainMenus.NAV_OPENED)}
-              className=""
-            />
-          )}
+          <IconButton
+            icon="home"
+            onClick={() => this.toggle(MainMenus.NAV_OPENED)()}
+            className=""
+          />
 
           {/* potentiel sub menu here */}
 
           <div>Test | menu</div>
 
-          {showSettingsButton && (
-            <IconButton
-              icon={settingsOpened ? 'cancel' : 'cog'}
-              onClick={() => this.toggle(MainMenus.SETTINGS_OPENED)}
-              className=""
-            />
-          )}
+          <IconButton
+            icon="cog"
+            onClick={() => this.toggle(MainMenus.SETTINGS_OPENED)()}
+            className=""
+          />
         </nav>
       </>
     );

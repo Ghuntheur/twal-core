@@ -6,6 +6,7 @@ import '@twal/styles/components/nav/mainNav.scss';
 
 import twalConfig from '@root/twal.config';
 import Languages from '../languages/Languages';
+import IconButton from '@twal/components/ui/IconButton';
 
 const MainNav = ({ toggle, t }) => {
   const {
@@ -22,19 +23,16 @@ const MainNav = ({ toggle, t }) => {
       <ul className="nav-list">
         {routes &&
           routes.map(route => (
-            <li
-              key={route.component}
-              className="nav-list-elem"
-              onClick={() => toggle('navOpened')}
-            >
+            <li key={route.component} className="nav-list-elem" onClick={() => toggle()}>
               <NavLink to={`/${route.component.toLowerCase()}`}>
                 {t(`common:${route.contentKey}`)}
               </NavLink>
             </li>
           ))}
       </ul>
+      <Languages />
+      <IconButton icon="cancel" onClick={() => toggle()} className="cancel" />
     </nav>
-
   );
 };
 
