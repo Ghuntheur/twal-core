@@ -13,12 +13,13 @@ import twalConfig from '@root/twal.config';
 
 class Twal extends React.Component {
   render() {
-    const { screenSaver } = twalConfig;
+    const { screenSaver: { enabled, timeout, unit } = {} } = twalConfig;
+    const options = {
+      ...(timeout && { timeout }),
+      ...(unit && { unit })
+    };
 
-    const Main =
-      screenSaver.enabled || screenSaver.enabled === undefined
-        ? withScreenSaver(screenSaver.options || {})(TwalApp)
-        : TwalApp;
+    const Main = enabled || enabled === undefined ? withScreenSaver(options)(TwalApp) : TwalApp;
     return (
       <Suspense fallback={<Loader />}>
         <HashRouter>

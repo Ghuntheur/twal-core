@@ -10,9 +10,9 @@ module.exports = {
   screenSaver: {
     enabled: false,
     openNavOnUnmount: true,
-    backgroundImage: 'imgs/chateau.jpg',
-    timeout: 4,
-    unit: 's'
+    backgroundImage: 'imgs/chateau.jpg'
+    // timeout: 4,
+    // unit: 's'
   },
   routing: {
     useRoot: false,
