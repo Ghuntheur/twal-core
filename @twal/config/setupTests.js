@@ -1,4 +1,4 @@
-import './@twal/config/jest/matchMedia.mock';
+import './jest/matchMedia.js';
 import 'jest-enzyme';
 
 import { configure } from 'enzyme';
