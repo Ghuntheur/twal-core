@@ -1,7 +1,10 @@
+$mainfont: 'roboto';
+$secondaryfont: 'times new roman';
+
 * {
   box-sizing: border-box;
   font-size: 1em;
-  font-family: "Roboto";
+  font-family: $mainfont;
 }
 
 html,
@@ -10,8 +13,10 @@ body {
   background: $light-twal;
 }
 
-body {
-  #root {
-    @include full;
-  }
+img {
+  width:100%;
+}
+
+.page {
+  @include full;
 }
