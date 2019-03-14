@@ -18,7 +18,7 @@ const Language = ({ code, active, t, ...rest }) => {
   return (
     <button className={classnames('btn-language', { active })} {...props}>
       {(useCountriesFlag || useCountriesFlag === undefined) && (
-        <img src={`/flags/${code}.svg`} alt={`${code} flag`} />
+        <img src={`flags/${code}.svg`} alt={`${code} flag`} />
       )}
       <span className="language-code">{t(code)}</span>
     </button>
