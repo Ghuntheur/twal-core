@@ -10,9 +10,12 @@
   ],
   "dependencies": {
     "classnames": "^2.2.6",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
     "fontello-cli": "^0.4.0",
     "i18next": "^15.0.4",
     "i18next-xhr-backend": "^2.0.1",
+    "jest-enzyme": "^7.0.2",
     "node-sass": "^4.11.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.3",
@@ -22,6 +25,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
     "react-slick": "^0.23.2",
+    "react-test-renderer": "^16.8.4",
     "react-transition-group": "^2.6.0",
     "sass-resources-loader": "^2.0.0",
     "slick-carousel": "^1.8.1"
