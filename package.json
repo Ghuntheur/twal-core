@@ -21,8 +21,10 @@
     "react-idle-timer": "^4.2.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
+    "react-slick": "^0.23.2",
     "react-transition-group": "^2.6.0",
-    "sass-resources-loader": "^2.0.0"
+    "sass-resources-loader": "^2.0.0",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",
