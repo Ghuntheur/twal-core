@@ -19,4 +19,5 @@ img {
 
 .page {
   @include full;
+  display: flex;
 }
