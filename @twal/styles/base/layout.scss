@@ -1,0 +1,37 @@
+.column-container {
+  display: flex;
+  justify-content: space-around;
+  align-content: stretch;
+  width: 100%;
+  &> .panel-equal {
+    flex: 1 1 0;
+    color: $dark-twal;
+    display: flex;
+    flex-direction: column;
+  }
+  .one, .two, .four {
+    display: flex;
+    flex-direction: column;
+  }
+  .one {
+    flex: 1 1 0;
+  }
+  .two {
+    flex: 2 2 0;
+  }
+  .four{
+    flex: 3 3 0;
+    // background: $grey-twal;
+  }
+}
+.text-panel {
+  padding: 45px 5%;
+  h1 {
+    font-size: 2em;
+    font-family: $secondaryfont;
+    margin-bottom: 25px;
+  }
+  > p {
+    @include mainParagraph;
+  }
+}
