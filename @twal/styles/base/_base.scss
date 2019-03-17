@@ -6,7 +6,9 @@ $secondaryfont: 'times new roman';
   font-size: 1em;
   font-family: $mainfont;
 }
-
+html {
+  -webkit-tap-highlight-color: transparent;
+}
 html,
 body {
   @include full;

@@ -3,35 +3,72 @@
   justify-content: space-around;
   align-content: stretch;
   width: 100%;
-  &> .panel-equal {
-    flex: 1 1 0;
-    color: $dark-twal;
+  .panel-one, .panel-two, .panel-four {
     display: flex;
     flex-direction: column;
+    // padding-bottom: 150px;
+    height: 100%;
+    // background: pink;
   }
-  .one, .two, .four {
-    display: flex;
-    flex-direction: column;
-  }
-  .one {
+  .panel-one {
     flex: 1 1 0;
   }
-  .two {
+  .panel-two {
     flex: 2 2 0;
   }
-  .four{
+  .panel-four{
     flex: 3 3 0;
     // background: $grey-twal;
   }
 }
 .text-panel {
   padding: 45px 5%;
+  // height: 100%;
   h1 {
     font-size: 2em;
     font-family: $secondaryfont;
     margin-bottom: 25px;
   }
-  > p {
+  &> p {
     @include mainParagraph;
   }
+}
+
+.page {
+  &> .column-container {
+    &>.panel-one, &>.panel-two, &>.panel-four {
+      overflow: auto;
+      &>.text-panel {
+        padding-bottom: 150px;
+      }
+    }
+  }
+}
+.simplebar-content {
+  &>.panel {
+    padding-bottom: 160px;
+    overflow-y: hidden;
+    // &:after {
+    //   content:'';
+    //   z-index:9999;
+    //   position: absolute;
+    //   bottom:100px;
+    //   display: block;
+    //   height: 300px;
+    //   width: 100%;
+    //   margin-top: -150px;
+    //   background: rgb(255,255,255) fixed;
+    //   background: linear-gradient(0deg,rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+    // }
+  }
+}
+.gradient-overlay {
+  z-index:9998;
+  position: fixed;
+  bottom:0px;
+  display: block;
+  height: 180px;
+  width: 100%;
+  background: $light-twal fixed;
+  background: linear-gradient(0deg, rgba($light-twal,1) 50%, rgba($light-twal,0) 100%);
 }
