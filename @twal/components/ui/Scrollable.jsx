@@ -3,15 +3,11 @@ import PropTypes from 'prop-types';
 import SimpleBar from 'simplebar-react';
 
 import 'simplebar/dist/simplebar.min.css';
+import '@twal/styles/base/layout.scss';
 
 class Scrollable extends React.PureComponent {
   state = {
     fullyScrolled: false
-  };
-
-  style = {
-    height: 500,
-    overflow: 'auto'
   };
 
   handleScroll = ev => {
@@ -27,12 +23,9 @@ class Scrollable extends React.PureComponent {
     const { children, ...rest } = this.props;
     const { fullyScrolled } = this.state;
     return (
-      <SimpleBar
-        onScroll={this.handleScroll}
-        style={{ ...this.style, background: fullyScrolled ? 'blue' : 'red' }}
-        {...rest}
-      >
+      <SimpleBar onScroll={this.handleScroll} {...rest}>
         {children}
+        {!fullyScrolled && <div className="gradient-overlay" />}
       </SimpleBar>
     );
   }
