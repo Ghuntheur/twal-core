@@ -1,5 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { SubRoute1, SubRoute2, SubRoute3, SubRoute4 } from 'components/Test/Test';
 
-const Rooms = () => <h1>Rooms</h1>;
+import { createSubRoutes } from '@twal/components/nav/createSubRoutes';
+
+const Rooms = ({ match }) => {
+  const components = [SubRoute1, SubRoute2, SubRoute3, SubRoute4];
+  const [routes, links] = createSubRoutes(match, components);
+
+  return (
+    <>
+      {routes}
+      {links}
+    </>
+  );
+};
+
+Rooms.propTypes = {
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired
+  }).isRequired
+};
 
 export default Rooms;

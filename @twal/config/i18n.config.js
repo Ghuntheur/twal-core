@@ -4,17 +4,17 @@ import { initReactI18next } from 'react-i18next';
 
 import twalConfig from '@root/twal.config';
 
-import CommonUtils from '@twal/utils/CommonUtils';
+import { isDev, throwError } from '@twal/utils/CommonUtils';
 
 const {
   i18n: { availableLanguages, defaultLanguage, namespaces } = {},
   i18n: twalI18n
 } = twalConfig;
 
-if (!twalI18n) CommonUtils.throwError('Provide an i18n object in configuration file');
+if (!twalI18n) throwError('Provide an i18n object in configuration file');
 
 if (!availableLanguages || !availableLanguages.length)
-  CommonUtils.throwError(
+  throwError(
     'Provide languages in configuration file',
     'Example',
     `${JSON.stringify({
@@ -25,7 +25,7 @@ if (!availableLanguages || !availableLanguages.length)
   );
 
 if (!defaultLanguage)
-  CommonUtils.throwError(
+  throwError(
     'Provide a default language',
     `${JSON.stringify({
       i18n: { defaultLanguage: 'fr' }
@@ -36,7 +36,7 @@ i18n
   .use(XHR)
   .use(initReactI18next)
   .init({
-    debug: CommonUtils.isDev(),
+    debug: isDev(),
     load: 'languageOnly',
     lng: defaultLanguage,
     fallbackLng: availableLanguages,

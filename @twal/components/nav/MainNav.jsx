@@ -25,7 +25,7 @@ const MainNav = ({ toggle, t }) => {
           {routes &&
             routes.map(route => (
               <li key={route.component} className="navigation list-element" onClick={toggle}>
-                <NavLink to={`${route.path || route.component}`.toLowerCase()}>
+                <NavLink to={`/${route.path || route.component}`.toLowerCase()}>
                   {t(
                     `${linksNamespace || 'common'}:${route.i18nKey ||
                       route.component.toLowerCase()}`
