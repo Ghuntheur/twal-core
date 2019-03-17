@@ -20,10 +20,14 @@ export const createSubRoutes = (match, components, namespace = null) => {
   components.forEach((comp, index) => {
     const uid = uniqid();
     routes.push(
-      <Route key={`${comp.name}--${uid}--route`} path={`${match.path}/${index}`} component={comp} />
+      <Route
+        key={`${comp.name}--${uid}--route`}
+        path={`${match.path}/${index + 1}`}
+        component={comp}
+      />
     );
     links.push(
-      <NavLink key={`${comp.name}--${uid}--link`} to={`${match.url}/${index}`}>
+      <NavLink key={`${comp.name}--${uid}--link`} to={`${match.url}/${index + 1}`}>
         {t(`${namespace || match.url.replace(/^\//, '')}:${comp.name.toLowerCase()}`)}
       </NavLink>
     );
