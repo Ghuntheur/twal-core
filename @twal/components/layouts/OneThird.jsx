@@ -4,24 +4,20 @@ import '@twal/styles/base/layout.scss';
 
 const OneThirdLayout = ({ Small, Big, smallFirst }) => (
   <div className="column-container">
-    {smallFirst && (
-      <div className="panel-one">
-        <Small />
-      </div>
-    )}
-    <div className="panel-two ">
-      <Big />
-    </div>
-    {!smallFirst && (
-      <div className="panel-one">
-        <Small />
-      </div>
-    )}
+    <h1>{smallFirst ? 'true' : 'false'}</h1>
+    <div className="panel-one">{smallFirst ? <Small /> : <Big />}</div>
+    <div className="panel-two">{smallFirst ? <Big /> : <Small />}</div>
   </div>
 );
+
 OneThirdLayout.propTypes = {
   Small: PropTypes.func.isRequired,
   Big: PropTypes.func.isRequired,
   smallFirst: PropTypes.bool
 };
+
+OneThirdLayout.defaultProps = {
+  smallFirst: true
+};
+
 export default OneThirdLayout;

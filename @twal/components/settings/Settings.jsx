@@ -1,21 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Languages from '@twal/components/languages/Languages';
-import IconButton from '@twal/components/ui/IconButton';
 
 import '@twal/styles/components/nav/settings.scss';
 
-const Settings = ({ toggle, t }) => {
+const Settings = ({ toggle }) => {
   return (
     <section className="settings">
       <Languages />
-      <IconButton
-        icon="cancel"
-        onClick={() => toggle('navOpened')}
-        className="cancel"
-      />
     </section>
   );
+};
+
+Settings.propTypes = {
+  toggle: PropTypes.func.isRequired
 };
 
 export default Settings;

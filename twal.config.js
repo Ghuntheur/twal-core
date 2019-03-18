@@ -16,12 +16,11 @@ module.exports = {
   },
   routing: {
     useRoot: true,
-    rootComponent: '/components/Home',
     linksNamespace: 'nav',
     routes: [
-      { component: 'Remaining', i18nKey: 'remaining' },
-      { component: 'History', i18nKey: 'history' },
-      { component: 'Rooms', i18nKey: 'rooms', default: true }
+      { component: 'Remaining' },
+      { component: 'History' },
+      { component: 'Rooms', default: true }
     ]
   },
   navigation: {
