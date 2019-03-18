@@ -1,11 +1,13 @@
 * {
   box-sizing: border-box;
   font-size: 1em;
+  font-family: "Roboto";
 }
 
 html,
 body {
   @include full;
+  background: $light-twal;
 }
 
 body {

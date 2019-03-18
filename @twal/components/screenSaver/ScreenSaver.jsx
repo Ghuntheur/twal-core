@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import IdleTimer from 'react-idle-timer';
+import { CSSTransition } from 'react-transition-group';
 
 import { withTranslation } from 'react-i18next';
 import DefaultScreenSaver from './DefaultScreenSaver';
@@ -35,7 +36,9 @@ const ScreenSaver = ({ timeout, unit, toggleScreenSaver }) => {
         toggleScreenSaver(false);
       }}
     >
-      {isIdle && <ScreenSaverComponent isIdle={isIdle} />}
+      <CSSTransition in={isIdle} timeout={300} classNames="test" unmountOnExit>
+        <ScreenSaverComponent isIdle={isIdle} />
+      </CSSTransition>
     </IdleTimer>
   );
 };

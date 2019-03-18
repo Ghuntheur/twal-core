@@ -21,7 +21,8 @@ const addSassResourcesLoader = () => config => {
           resources: [
             path.join(CUSTOM_PATHS.TWAL, 'styles', 'abstracts', '_colors.scss'),
             path.join(CUSTOM_PATHS.TWAL, 'styles', 'abstracts', '_variables.scss'),
-            path.join(CUSTOM_PATHS.TWAL, 'styles', 'abstracts', '_mixins.scss')
+            path.join(CUSTOM_PATHS.TWAL, 'styles', 'abstracts', '_mixins.scss'),
+            path.join(CUSTOM_PATHS.TWAL, 'styles', 'abstracts', '_animations.scss')
           ]
         }
       });

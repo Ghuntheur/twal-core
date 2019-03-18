@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
-
-import AbsoluteContent from '../ui/AbsoluteContent';
+import '@twal/styles/components/nav/mainNav.scss';
 
 import twalConfig from '@root/twal.config';
 import Languages from '../languages/Languages';
+import IconButton from '@twal/components/ui/IconButton';
 
 const MainNav = ({ toggle, t }) => {
   const {
