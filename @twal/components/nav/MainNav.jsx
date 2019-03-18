@@ -6,7 +6,7 @@ import '@twal/styles/components/nav/mainNav.scss';
 
 import twalConfig from '@root/twal.config';
 import Languages from '../languages/Languages';
-import IconButton from '@twal/components/ui/IconButton';
+import { throwError } from '@twal/utils/CommonUtils';
 
 const MainNav = ({ toggle, t }) => {
   const {
@@ -15,8 +15,7 @@ const MainNav = ({ toggle, t }) => {
   } = twalConfig;
 
   // routes are required
-  if (!routes)
-    throw new Error('Provide an array of routes in your configuration file. Reffer the doc');
+  if (!routes) throwError('Provide an array of routes in your configuration file.');
 
   return (
     <nav className="main-nav">
@@ -25,13 +24,14 @@ const MainNav = ({ toggle, t }) => {
           routes.map(route => (
             <li key={route.component} className="nav-list-elem" onClick={() => toggle()}>
               <NavLink to={`/${route.component.toLowerCase()}`}>
-                {t(`${linksNamespace || 'common'}:${route.i18nKey}`)}
+                {t(
+                  `${linksNamespace || 'common'}:${route.i18nKey || route.component.toLowerCase()}`
+                )}
               </NavLink>
             </li>
           ))}
       </ul>
       {(showLanguages || showLanguages === undefined) && <Languages />}
-      <IconButton icon="cancel" onClick={() => toggle()} className="cancel" />
     </nav>
   );
 };

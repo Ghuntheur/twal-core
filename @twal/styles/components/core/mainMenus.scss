@@ -3,8 +3,24 @@
   width: 100%;
   position: fixed;
   bottom: 0;
-  z-index: 9997;
+  z-index: 900;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .btn-home {
+    &:not(.btn-simult) {
+      &.settings-opened {
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+  }
+  .btn-settings {
+    &:not(.btn-simult) {
+      &.nav-opened {
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import IconButton from '@twal/components/ui/IconButton';
 import MainNav from '@twal/components/nav/MainNav';
@@ -33,7 +34,8 @@ class MainMenus extends React.Component {
     }
   }
 
-  toggle = name => (value = null) => this.setState({
+  toggle = name => (value = null) =>
+    this.setState({
       [name]: value === null ? !this.state[name] : value
     });
 
@@ -51,8 +53,14 @@ class MainMenus extends React.Component {
       ? require(`@root/src/${settingsComponent.replace(/^\//, '')}.jsx`).default
       : Settings;
 
-    // const showNavButton = buttonsSimultaneity || (!buttonsSimultaneity && !settingsOpened);
-    // const showSettingsButton = buttonsSimultaneity || (!buttonsSimultaneity && !navOpened);
+    const classNames = className => {
+      console.log(className);
+      return classnames(className, {
+        'nav-opened': navOpened,
+        'settings-opened': settingsOpened,
+        'btn-simult': buttonsSimultaneity
+      });
+    };
 
     return (
       <>
@@ -63,23 +71,18 @@ class MainMenus extends React.Component {
           <SettingsComponent toggle={() => this.toggle(MainMenus.SETTINGS_OPENED)()} />
         </CSSTransition>
 
-        <nav className="main-menus">
+        <div className="main-menus">
           <IconButton
-            icon="home"
+            icon={navOpened ? 'cancel' : 'home'}
+            className={classNames('btn-home')}
             onClick={() => this.toggle(MainMenus.NAV_OPENED)()}
-            className=""
           />
-
-          {/* potentiel sub menu here */}
-
-          <div>Test | menu</div>
-
           <IconButton
-            icon="cog"
+            icon={settingsOpened ? 'cancel' : 'cog'}
+            className={classNames('btn-settings')}
             onClick={() => this.toggle(MainMenus.SETTINGS_OPENED)()}
-            className=""
           />
-        </nav>
+        </div>
       </>
     );
   }
