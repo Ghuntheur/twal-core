@@ -2,30 +2,13 @@ module.exports = {
   name: 'TWAL',
   description: 'twal framework',
   i18n: {
-    availableLanguages: ['fr', 'en'],
+    availableLanguages: ['fr'],
     defaultLanguage: 'fr',
-    namespaces: ['nav', 'history-links', 'history-content'],
-    useCountriesFlag: true
-  },
-  screenSaver: {
-    enabled: false,
-    openNavOnUnmount: true,
-    backgroundImage: '',
-    timeout: 4,
-    unit: 's'
+    namespaces: ['nav-links', 'museum-links', 'museum-content']
   },
   routing: {
-    useRoot: true,
-    linksNamespace: 'nav',
-    routes: [
-      { component: 'Remaining' },
-      { component: 'History' },
-      { component: 'Rooms', default: true }
-    ]
-  },
-  navigation: {
-    buttonsSimultaneity: false,
-    showLanguages: true
+    linksNamespace: 'nav-links',
+    routes: [{ component: 'Museum', default: true }]
   },
   build: {
     author: {

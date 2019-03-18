@@ -14,9 +14,7 @@ const ScreenSaver = ({ timeout, unit, toggleScreenSaver }) => {
 
   const time = 1000 * timeout * (unit === 'min' ? 60 : 1) || 1000 * 60;
 
-  const {
-    screenSaver: { component }
-  } = twalConfig;
+  const { screenSaver: { component } = {} } = twalConfig;
 
   const ScreenSaverComponent = component
     ? require(`@root/src/${component.replace(/^\//, '')}.jsx`).default

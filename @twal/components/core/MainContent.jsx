@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 import { Page } from '@twal';
-import Home from '@twal/components/ui/Home';
+import Home from '@twal/components/core/Home';
 
 import twalConfig from '@root/twal.config';
 
