@@ -15,7 +15,7 @@ OneFourthLayout.propTypes = {
   smallFirst: PropTypes.bool
 };
 
-OneFourthLayout.defaultValues = {
+OneFourthLayout.defaultProps = {
   smallFirst: true
 };
 
