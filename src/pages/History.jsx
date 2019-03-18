@@ -6,7 +6,6 @@ import Quote from '@twal/components/ui/Quote';
 import OneFourthLayout from '@twal/components/layouts/OnFourthLayout';
 // import ColumnLayout from '@twal/components/layouts/ColumnLayout';
 import Scrollable from '@twal/components/ui/Scrollable';
-// import OneThirdLayout from '@twal/components/layouts/OneThird';
 
 const Left = () => (
   <Scrollable>
@@ -75,7 +74,7 @@ const Small = () => (
 const History = ({ t }) => (
   <>
     {/* <OneThirdLayout Small={Small} Big={Left} smallFirst={true} /> */}
-    <OneFourthLayout Small={Small} Big={Left} smallFirst={true} />
+    <OneFourthLayout Small={Small} Big={Left} />
   </>
   // <ColumnLayout>
   //   <Left />
