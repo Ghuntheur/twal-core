@@ -1,15 +1,15 @@
-@mixin click-twal(){
+@mixin click-twal() {
   @include size(98%);
-    animation: pulse 8s linear infinite;
-    position: absolute;
-    border: solid $light-twal 3px;
-    border-radius: 50%;
-    opacity: 0;
-    @for $i from 1 to 4 {
-      &:nth-child(#{$i}) {
-        animation-delay: $i * 2s;
-      }
+  animation: pulse 8s linear infinite;
+  position: absolute;
+  border: solid $light-twal 3px;
+  border-radius: 50%;
+  opacity: 0;
+  @for $i from 1 to 4 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 2s;
     }
+  }
 }
 
 @keyframes pulse {
@@ -26,7 +26,7 @@
   }
 }
 
-@mixin move-corner( $origin:bottom left, $time:300ms) {
+@mixin move-corner($origin: bottom left, $time: 300ms) {
   &-enter {
     opacity: 0.01;
     transform: scale(0);
@@ -49,86 +49,86 @@
   }
 }
 
-@mixin move-up($time:300ms) {
+@mixin move-up($time: 300ms) {
   &-enter {
     transform: translateY(100%);
   }
-  &-enter-active{
+  &-enter-active {
     transform: translateY(0);
     transition: all $time ease-out;
   }
   &-exit {
     transform: translateY(0);
   }
-  &-exit-active{
+  &-exit-active {
     transform: translateY(100%);
     transition: all $time ease-out;
   }
 }
 
-@mixin move-down($time:300ms) {
+@mixin move-down($time: 300ms) {
   &-enter {
     transform: translateY(-100%);
   }
-  &-enter-active{
+  &-enter-active {
     transform: translateY(0);
     transition: all $time ease-out;
   }
   &-exit {
     transform: translateY(0);
   }
-  &-exit-active{
+  &-exit-active {
     transform: translateY(-100%);
     transition: all $time ease-out;
   }
 }
 
-@mixin move-left($time:300ms) {
+@mixin move-left($time: 300ms) {
   &-enter {
     transform: translateX(-100%);
   }
-  &-enter-active{
+  &-enter-active {
     transform: translateX(0);
     transition: all $time ease-out;
   }
   &-exit {
     transform: translateX(0);
   }
-  &-exit-active{
+  &-exit-active {
     transform: translateX(-100%);
     transition: all $time ease-out;
   }
 }
 
-@mixin move-right($time:300ms) {
+@mixin move-right($time: 300ms) {
   &-enter {
     transform: translateX(100%);
   }
-  &-enter-active{
+  &-enter-active {
     transform: translateX(0);
     transition: all $time ease-out;
   }
   &-exit {
     transform: translateX(0);
   }
-  &-exit-active{
+  &-exit-active {
     transform: translateX(100%);
     transition: all $time ease-out;
   }
 }
 
-@mixin appear($time:300ms){
+@mixin appear($time: 300ms) {
   &-enter {
     opacity: 0;
   }
-  &-enter-active{
+  &-enter-active {
     opacity: 1;
     transition: opacity $time ease-in;
   }
   &-exit {
     opacity: 1;
   }
-  &-exit-active{
+  &-exit-active {
     opacity: 0;
     transition: opacity $time ease-out;
   }

@@ -1,10 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Quote = ({ content, author }) => (
+const Quote = ({ children, author }) => (
   <blockquote className="quote" cite="">
-    <p className="quote-content">{content}</p>
-    <p className="quote-author">{author}</p>
+    <p className="quote-content">{children}</p>
+    {author && <cite className="quote-author">{author}</cite>}
   </blockquote>
 );
+
+Quote.propTypes = {
+  children: PropTypes.string.isRequired,
+  author: PropTypes.string
+};
 
 export default Quote;

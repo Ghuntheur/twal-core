@@ -27,7 +27,7 @@ const Left = () => (
         multiplices et siquae alites capi per aucupium possint, et plerosque mos vidimus frumenti
         usum et vini penitus ignorantes.
       </p>
-      <Quote author="gaetan" content="ghostbuster to rule them all yop hi lol" />
+      <Quote author="gaetan">ghostbuster to rule them all yop hi lol</Quote>
       <Paraph />
       <Paraph />
       <Paraph />
@@ -53,7 +53,7 @@ const Right = () => (
   <article className="panel text-panel">
     <img src="imgs/twal.svg" alt="logo" />
     <p style={{ textAlign: 'center', margin: '45px 0' }}>Salut</p>
-    <Quote author="gaetan" content="ghostbuster to rule them all yop hi lol" />
+    <Quote author="gaetan">ghostbuster to rule them all yop hi lol</Quote>
     <Paraph />
     <Paraph />
     <Paraph />
