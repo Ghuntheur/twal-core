@@ -1,0 +1,8 @@
+.settings {
+  @include page-hover;
+  background: $purple-twal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 800;
+}

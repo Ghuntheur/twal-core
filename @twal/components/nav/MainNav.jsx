@@ -2,35 +2,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
-
-import AbsoluteContent from '../ui/AbsoluteContent';
+import '@twal/styles/components/nav/mainNav.scss';
 
 import twalConfig from '@root/twal.config';
+import Languages from '../languages/Languages';
+import { throwError } from '@twal/utils/CommonUtils';
 
 const MainNav = ({ toggle, t }) => {
   const {
-    routing: { routes }
+    routing: { routes, linksNamespace } = {},
+    navigation: { showLanguages } = {}
   } = twalConfig;
 
+  // routes are required
+  if (!routes) throwError('Provide an array of routes in your configuration file.');
+
   return (
-    <AbsoluteContent className="nav">
-      <nav className="navigation nav">
-        <ul className="navigation list">
-          {routes &&
-            routes.map(route => (
-              <li
-                key={route.component}
-                className="navigation list-element"
-                onClick={() => toggle()}
-              >
-                <NavLink to={`/${route.component.toLowerCase()}`}>
-                  {t(`common:${route.contentKey}`)}
-                </NavLink>
-              </li>
-            ))}
-        </ul>
-      </nav>
-    </AbsoluteContent>
+    <nav className="main-nav">
+      <ul className="nav-list">
+        {routes &&
+          routes.map(route => (
+            <li key={route.component} className="nav-list-elem" onClick={() => toggle()}>
+              <NavLink to={`/${route.component.toLowerCase()}`}>
+                {t(
+                  `${linksNamespace || 'common'}:${route.i18nKey || route.component.toLowerCase()}`
+                )}
+              </NavLink>
+            </li>
+          ))}
+      </ul>
+      {(showLanguages || showLanguages === undefined) && <Languages />}
+    </nav>
   );
 };
 

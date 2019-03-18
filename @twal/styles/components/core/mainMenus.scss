@@ -1,14 +1,26 @@
 .main-menus {
-  .main-buttons {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    z-index: 999;
-    .btn__home {
-      float: left;
+  padding: 20px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 900;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .btn-home {
+    &:not(.btn-simult) {
+      &.settings-opened {
+        visibility: hidden;
+        pointer-events: none;
+      }
     }
-    .btn__settings {
-      float: right;
+  }
+  .btn-settings {
+    &:not(.btn-simult) {
+      &.nav-opened {
+        visibility: hidden;
+        pointer-events: none;
+      }
     }
   }
 }

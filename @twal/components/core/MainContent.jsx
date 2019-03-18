@@ -2,16 +2,22 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 import { Page } from '@twal';
-import Home from '@twal/components/ui/Home';
+import Home from '@twal/components/core/Home';
 
 import twalConfig from '@root/twal.config';
 
 const MainContent = () => {
-  const {
-    routing: { routes }
-  } = twalConfig;
+  const { routing: { routes, useRoot, rootComponent } = {} } = twalConfig;
+
+  // routes are required
+  if (!routes)
+    throw new Error('Provide an array of routes in your configuration file. Reffer the doc');
 
   const defaultRoute = routes && (routes.find(route => route.default) || routes[0]);
+
+  const RootComponent = rootComponent
+    ? require(`@root/src/${rootComponent.replace(/^\//, '')}.jsx`).default
+    : Home;
 
   return (
     <>
@@ -19,12 +25,12 @@ const MainContent = () => {
         exact
         path="/"
         render={() =>
-          defaultRoute ? (
-            <Redirect to={`/${defaultRoute.component.toLowerCase()}`} />
-          ) : (
+          useRoot || useRoot === undefined ? (
             <Page>
-              <Home />
+              <RootComponent />
             </Page>
+          ) : (
+            <Redirect to={`/${defaultRoute.path || defaultRoute.component}`.toLowerCase()} />
           )
         }
       />
@@ -34,7 +40,7 @@ const MainContent = () => {
           return (
             <Route
               key={route.component}
-              path={`/${route.component}`}
+              path={`/${route.path || route.component}`.toLowerCase()}
               component={() => (
                 <Page>
                   <Component />

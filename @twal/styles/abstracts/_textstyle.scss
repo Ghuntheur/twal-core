@@ -1,0 +1,49 @@
+$mainfont: 'roboto';
+$secondaryfont: 'times new roman';
+
+@mixin mainParagraph($align: justify){
+  margin-bottom: 15px;
+  line-height: 25px;
+  color: $dark-twal;
+  text-align: $align;
+  font-family: $mainfont;
+}
+
+@mixin quotes($bgcolor: $grey-twal, $color: $dark-twal) {
+  position: relative;
+  font-style: italic;
+  background: $bgcolor;
+  border-left: rgba($dark-twal, 0.5) 10px solid;
+  margin: 7% auto ;
+  width: fit-content;
+  padding: 20px 50px 20px 40px;
+  box-sizing: border-box;
+  .quote-author {
+    font-family: $secondaryfont;
+    text-align: right;
+    color: $color;
+  }
+  .quote-content {
+    @include mainParagraph;
+    text-indent: 30px;
+    color: $color;
+    &:before, &:after {
+      position: absolute;
+      height: 30px;
+      line-height: 48px;
+      font-size: 4em;
+      opacity: .2;
+    }
+    &:before {
+      content: '\201C';
+      // margin-left: -28px;
+      left: 0;
+    }
+
+    &:after {
+      content: '\201D';
+      margin-left: -25px;
+    }
+  }
+
+}

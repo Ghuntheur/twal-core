@@ -1,14 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import AbsoluteContent from '@twal/components/ui/AbsoluteContent';
 import Languages from '@twal/components/languages/Languages';
 
-const Settings = () => {
+import '@twal/styles/components/nav/settings.scss';
+
+const Settings = ({ toggle }) => {
   return (
-    <AbsoluteContent className="settings">
+    <section className="settings">
       <Languages />
-    </AbsoluteContent>
+    </section>
   );
+};
+
+Settings.propTypes = {
+  toggle: PropTypes.func.isRequired
 };
 
 export default Settings;
