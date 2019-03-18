@@ -17,9 +17,6 @@
     align-items: center;
     > li {
       > a {
-        // &.active, &:hover {
-        //     border-bottom:8px solid $yellow-twal;
-        // }
         @include rect-button($red-twal, none);
         border-style: inset;
         font-size: 1.3em;
@@ -40,8 +37,8 @@
 }
 
 .main-menu-left {
-  @include move-corner(bottom left)
+  @include appear;
 }
 .main-menu-right {
-  @include move-corner(bottom right)
+  @include appear;
 }

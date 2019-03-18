@@ -83,6 +83,40 @@
   }
 }
 
+@mixin move-left($time:300ms) {
+  &-enter {
+    transform: translateX(-100%);
+  }
+  &-enter-active{
+    transform: translateX(0);
+    transition: all $time ease-out;
+  }
+  &-exit {
+    transform: translateX(0);
+  }
+  &-exit-active{
+    transform: translateX(-100%);
+    transition: all $time ease-out;
+  }
+}
+
+@mixin move-right($time:300ms) {
+  &-enter {
+    transform: translateX(100%);
+  }
+  &-enter-active{
+    transform: translateX(0);
+    transition: all $time ease-out;
+  }
+  &-exit {
+    transform: translateX(0);
+  }
+  &-exit-active{
+    transform: translateX(100%);
+    transition: all $time ease-out;
+  }
+}
+
 @mixin appear($time:300ms){
   &-enter {
     opacity: 0;

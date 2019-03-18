@@ -25,12 +25,12 @@ const MainNav = ({ toggle, t }) => {
           routes.map(route => (
             <li key={route.component} className="nav-list-elem" onClick={() => toggle()}>
               <NavLink to={`/${route.component.toLowerCase()}`}>
-                {t(`common:${route.contentKey}`)}
+                {t(`${linksNamespace || 'common'}:${route.i18nKey}`)}
               </NavLink>
             </li>
           ))}
       </ul>
-      <Languages />
+      {(showLanguages || showLanguages === undefined) && <Languages />}
       <IconButton icon="cancel" onClick={() => toggle()} className="cancel" />
     </nav>
   );

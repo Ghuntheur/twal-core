@@ -1,17 +1,25 @@
+$mainfont: 'roboto';
+$secondaryfont: 'times new roman';
+
 * {
   box-sizing: border-box;
   font-size: 1em;
-  font-family: "Roboto";
+  font-family: $mainfont;
 }
-
+html {
+  -webkit-tap-highlight-color: transparent;
+}
 html,
 body {
   @include full;
   background: $light-twal;
 }
 
-body {
-  #root {
-    @include full;
-  }
+img {
+  width:100%;
+}
+
+.page {
+  @include full;
+  display: flex;
 }
