@@ -73,7 +73,7 @@ class MainMenus extends React.Component {
 
         <div className="main-menus">
           <IconButton
-            icon={navOpened ? 'cancel' : 'home'}
+            icon={navOpened ? 'cancel' : 'menu'}
             className={classNames('btn-home')}
             onClick={() => this.toggle(MainMenus.NAV_OPENED)()}
           />
