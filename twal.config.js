@@ -16,7 +16,6 @@ module.exports = {
   },
   routing: {
     useRoot: true,
-    rootComponent: '/components/Home',
     linksNamespace: 'nav',
     routes: [
       { component: 'Remaining' },

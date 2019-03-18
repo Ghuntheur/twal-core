@@ -5,23 +5,23 @@
   align-items: center;
   justify-content: center;
   color: $purple-twal;
-  background: url('../public/twal/twal-bg.png') no-repeat;
+  background: url('../../../public/twal/twal-bg.png') no-repeat;
   background-size: cover;
   @include full;
   h1 {
     font-weight: bolder;
     text-transform: uppercase;
-    font-size:2em;
+    font-size: 2em;
     margin-bottom: 25px;
   }
   p {
-    margin-top:15px;
+    margin-top: 15px;
   }
   img {
     width: 65%;
   }
 }
 
-blockquote  {
+blockquote {
   @include quotes();
 }
