@@ -53,14 +53,28 @@ class MainMenus extends React.Component {
       ? require(`@root/src/${settingsComponent.replace(/^\//, '')}.jsx`).default
       : Settings;
 
-    const classNames = className => {
-      console.log(className);
-      return classnames(className, {
+    const classNames = className =>
+      classnames(className, {
         'nav-opened': navOpened,
         'settings-opened': settingsOpened,
         'btn-simult': buttonsSimultaneity
       });
-    };
+
+    const HomeButton = () => (
+      <IconButton
+        icon={navOpened ? 'cancel' : 'menu'}
+        className={classNames('btn-home')}
+        onClick={() => this.toggle(MainMenus.NAV_OPENED)()}
+      />
+    );
+
+    const SettingsButton = () => (
+      <IconButton
+        icon={settingsOpened ? 'cancel' : 'cog'}
+        className={classNames('btn-settings')}
+        onClick={() => this.toggle(MainMenus.SETTINGS_OPENED)()}
+      />
+    );
 
     return (
       <>
@@ -72,16 +86,8 @@ class MainMenus extends React.Component {
         </CSSTransition>
 
         <div className="main-menus">
-          <IconButton
-            icon={navOpened ? 'cancel' : 'menu'}
-            className={classNames('btn-home')}
-            onClick={() => this.toggle(MainMenus.NAV_OPENED)()}
-          />
-          <IconButton
-            icon={settingsOpened ? 'cancel' : 'cog'}
-            className={classNames('btn-settings')}
-            onClick={() => this.toggle(MainMenus.SETTINGS_OPENED)()}
-          />
+          <HomeButton />
+          <SettingsButton />
         </div>
       </>
     );
