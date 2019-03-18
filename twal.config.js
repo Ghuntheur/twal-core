@@ -4,7 +4,7 @@ module.exports = {
   i18n: {
     availableLanguages: ['fr', 'en'],
     defaultLanguage: 'fr',
-    namespaces: ['nav', 'rooms'],
+    namespaces: ['nav', 'history-links', 'history-content'],
     useCountriesFlag: true
   },
   screenSaver: {

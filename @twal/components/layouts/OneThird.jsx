@@ -4,7 +4,6 @@ import '@twal/styles/base/layout.scss';
 
 const OneThirdLayout = ({ Small, Big, smallFirst }) => (
   <div className="column-container">
-    <h1>{smallFirst ? 'true' : 'false'}</h1>
     <div className="panel-one">{smallFirst ? <Small /> : <Big />}</div>
     <div className="panel-two">{smallFirst ? <Big /> : <Small />}</div>
   </div>

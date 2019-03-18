@@ -1,44 +1,60 @@
 import React from 'react';
-import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
+import { Route, NavLink, Switch, Redirect, withRouter } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import uniqid from 'uniqid';
 
 import { throwError } from '@twal/utils/CommonUtils';
 
-export const createSubRoutes = (match, components, namespace = null) => {
+export const createSubRoutes = (baseUrl, render, linksCount = 0) => {
   // check
-  if (!Array.isArray(components)) throwError('You have to provide array of components');
-  if (!match || !match.path || !match.url)
-    throwError('You have to provide react router match object');
-  if (namespace && typeof namespace !== 'string') throwError('namespace must be a string');
+  if (!Array.isArray(render) && typeof render !== 'function')
+    throwError('You have to provide array of components or a component');
+  if (!baseUrl || typeof baseUrl !== 'string') throwError('You have to provide base url string');
+  if (typeof linksCount !== 'number' || linksCount < 0)
+    throwError('linksCount must be a positive number');
 
-  const routes = [];
-  const links = [];
-
+  // create
   const { t } = useTranslation();
 
-  components.forEach((comp, index) => {
-    const uid = uniqid();
-    routes.push(
-      <Route
-        key={`${comp.name}--${uid}--route`}
-        path={`${match.path}/${index + 1}`}
-        component={comp}
-      />
-    );
-    links.push(
-      <NavLink key={`${comp.name}--${uid}--link`} to={`${match.url}/${index + 1}`}>
-        {t(`${namespace || match.url.replace(/^\//, '')}:${comp.name.toLowerCase()}`)}
-      </NavLink>
-    );
-  });
+  if (Array.isArray(render)) {
+    const routes = [];
+    const links = [];
 
-  const Routes = () => (
-    <Switch>
-      {routes}
-      <Route path="*" component={() => <Redirect to={`${match.url}/1`} />} />
-    </Switch>
-  );
+    render.forEach((comp, index) => {
+      const uid = uniqid();
+      routes.push(
+        <Route
+          key={`${comp.name}--${uid}--route`}
+          path={`${baseUrl}/${index + 1}`}
+          component={comp}
+        />
+      );
+      links.push(
+        <NavLink key={`${comp.name}--${uid}--link`} to={`${baseUrl}/${index + 1}`}>
+          {t(`${baseUrl.replace(/^\//, '')}-links:${index + 1}`)}
+        </NavLink>
+      );
+    });
+
+    const Routes = () => (
+      <Switch>
+        {routes}
+        <Route path="*" component={() => <Redirect to={`${baseUrl}/1`} />} />
+      </Switch>
+    );
+
+    return [Routes, links];
+  }
+
+  const Component = withRouter(render);
+  const Routes = () => <Route path={`${baseUrl}/:id`} component={Component} />;
+  const links = Array(linksCount)
+    .fill()
+    .map((_, index) => (
+      <NavLink key={`${uniqid()}--link`} to={`${baseUrl}/${index + 1}`}>
+        {t(`${baseUrl.replace(/^\//, '')}-links:${index + 1}`)}
+      </NavLink>
+    ));
 
   return [Routes, links];
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect, withRouter } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import { Page } from '@twal';
 import Home from '@twal/components/ui/Home';
@@ -36,7 +36,7 @@ const MainContent = () => {
       />
       {routes &&
         routes.map(route => {
-          const Component = withRouter(require(`@root/src/pages/${route.component}`).default);
+          const Component = require(`@root/src/pages/${route.component}`).default;
           return (
             <Route
               key={route.component}

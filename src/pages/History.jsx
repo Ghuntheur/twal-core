@@ -6,12 +6,12 @@ import { createSubRoutes } from '@twal/components/nav/createSubRoutes';
 import OneThirdLayout from '@twal/components/layouts/OneThird';
 import Scrollable from '@twal/components/ui/Scrollable';
 
-import { COMPONENTS } from '../components/history/components';
+import BaseComponent, { COMPONENTS } from '../components/history/components';
 
 import '../styles/index.scss';
 
-const History = ({ t, match }) => {
-  const [Routes, links] = createSubRoutes(match, COMPONENTS);
+const History = ({ t }) => {
+  const [Routes, links] = createSubRoutes('/history', BaseComponent, 5);
 
   const Links = () => (
     <Scrollable>
