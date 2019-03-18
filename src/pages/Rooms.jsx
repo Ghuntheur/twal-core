@@ -6,11 +6,11 @@ import { createSubRoutes } from '@twal/components/nav/createSubRoutes';
 
 const Rooms = ({ match }) => {
   const components = [SubRoute1, SubRoute2, SubRoute3, SubRoute4];
-  const [routes, links] = createSubRoutes(match, components);
+  const [Routes, links] = createSubRoutes(match, components);
 
   return (
     <>
-      {routes}
+      <Routes />
       {links}
     </>
   );

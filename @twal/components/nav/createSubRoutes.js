@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import uniqid from 'uniqid';
 
@@ -33,5 +33,12 @@ export const createSubRoutes = (match, components, namespace = null) => {
     );
   });
 
-  return [routes, links];
+  const Routes = () => (
+    <Switch>
+      {routes}
+      <Route path="*" component={() => <Redirect to={`${match.url}/1`} />} />
+    </Switch>
+  );
+
+  return [Routes, links];
 };
