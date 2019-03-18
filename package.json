@@ -27,8 +27,9 @@
     "react-slick": "^0.23.2",
     "react-test-renderer": "^16.8.4",
     "react-transition-group": "^2.6.0",
+    "slick-carousel": "^1.8.1",
     "sass-resources-loader": "^2.0.0",
-    "slick-carousel": "^1.8.1"
+    "video-react": "^0.13.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",
