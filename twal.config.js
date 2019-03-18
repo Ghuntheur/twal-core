@@ -18,7 +18,7 @@ module.exports = {
     },
     folderName: 'cordova',
     id: 'io.twal.demo',
-    FullScreen: false,
+    fullScreen: false,
     orientation: 'landscape',
     platforms: [{ name: 'android', spec: '@7.1.4' }, { name: 'browser', spec: '@latest' }]
   }
