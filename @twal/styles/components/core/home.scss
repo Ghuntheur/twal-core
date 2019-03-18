@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   color: $purple-twal;
-  background: url('../../../public/twal/twal-bg.png') no-repeat;
+  background: url('../../../public/imgs/twal-bg.png') no-repeat;
   background-size: cover;
   @include full;
   h1 {
@@ -20,8 +20,4 @@
   img {
     width: 65%;
   }
-}
-
-blockquote {
-  @include quotes();
 }

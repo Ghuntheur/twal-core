@@ -1,5 +1,4 @@
 .screensaver {
-
   background: rgba($dark-twal, 0.94);
   @include page-hover(9999);
   overflow: hidden;
@@ -8,42 +7,39 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-    &.with-background {
-      background-size: cover;
-      background-position: center;
-    }
-    .animation-container {
-      position: relative;
-      @include size(28vh);
-      &.with-icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &::before {
-          content: '\F25A';
-          font-family: 'fontello';
-          font-size: 6em;
-          color: $light-twal;
-        }
-      }
-      .circle {
-        @include click-twal();
+  &.with-background {
+    background-size: cover;
+    background-position: center;
+  }
+  .animation-container {
+    position: relative;
+    @include size(28vh);
+    &.with-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &::before {
+        content: '\F25A';
+        font-family: 'fontello';
+        font-size: 6em;
+        color: $light-twal;
       }
     }
-    .text-container {
-      margin-top: 8%;
-      font-family: 'Roboto';
-      font-size: 2rem;
+    .circle {
+      @include click-twal();
     }
-    img {
-      margin-top:50px;
-      height: 100px;
-    }
-
+  }
+  .text-container {
+    margin-top: 8%;
+    font-family: 'Roboto';
+    font-size: 2rem;
+  }
+  img {
+    margin-top: 50px;
+    height: 100px;
+  }
 }
 
 .test {
   @include appear(200ms);
 }
-
-
