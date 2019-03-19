@@ -2,6 +2,7 @@ import React from 'react';
 import IconButton from '@twal/components/ui/IconButton';
 import Carousel from '@twal/components/plugins/carousel/Carousel';
 import VideoFullscreen from '@twal/components/plugins/videoFullscreen/VideoFullscreen';
+import Gallery from '@twal/components/plugins/gallery/Gallery';
 
 const carouselProps = {
   dots: true,
@@ -18,6 +19,10 @@ const videoFullScreenProps = {
   poster: '../assets/img/poster.jpg',
   src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4'
 };
+
+const lightboxImages = [
+  { src: 'http://wallpoper.com/images/00/44/65/60/sunshine-ocean_00446560.jpg' }
+];
 
 const Ui = () => (
   <section>
@@ -39,6 +44,7 @@ const Ui = () => (
     </Carousel>
 
     <VideoFullscreen settings={videoFullScreenProps} />
+    <Gallery images={lightboxImages} />
   </section>
 );
 
