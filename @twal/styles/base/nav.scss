@@ -1,0 +1,148 @@
+/**
+* Timeline css
+**/
+
+@mixin tick($bg-color: $purple-twal, $border-color:$light-twal, $border-size: 3px) {
+  position: absolute;
+  text-align: center;
+  left: 51px;
+  align-self: center;
+  background: $bg-color;
+  border: $border-size solid $border-color;
+  box-sizing: content-box;
+}
+
+@mixin tickround($bg-color: $purple-twal, $border-color:$light-twal) {
+  border-radius: 75%;
+  width: 15px;
+  height: 15px;
+  @include tick($bg-color, $border-color);
+}
+
+@mixin tickstick($bg-color: $grey-twal, $border-color:$light-twal){
+  width: 20px;
+  height: 4px;
+  transform: rotate(0deg);
+  @include tick($bg-color, $border-color, 0);
+}
+
+@mixin ticksquare($bg-color: $purple-twal, $border-color:$light-twal) {
+  border-radius: 4px;
+  width: 15px;
+  height: 15px;
+  transform: rotate(0deg);
+  @include tick($bg-color, $border-color);
+}
+
+@mixin tickdiamond($bg-color: $purple-twal, $border-color:$light-twal) {
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+  border-radius: 4px;
+  @include tick($bg-color, $border-color);
+}
+
+.timeline {
+  // border-right: 4px solid rgba($purple-twal, 1);
+  min-height: 100%;
+  overflow: auto;
+  position: relative;
+
+  h2{
+    min-height: 75px;
+    text-align: center;
+    font-family: $secondaryfont;
+    font-size:1.7em;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tick {
+    @include tickdiamond;
+  }
+  li {
+    min-height: 75px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    &:before {
+      position: absolute;
+      content: '';
+      height: 75px;
+      width: 1px;
+      left: 59px;
+      display: inline-block;
+      border-right: 3px solid $grey-twal;
+    }
+    &:nth-child(2n+1) {
+      background: rgba($purple-twal, 0.1);
+    }
+    a {
+      width: 100%;
+      padding-left: 95px;
+      text-decoration: none;
+      color: $dark-twal;
+      align-self: stretch;
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      &.active {
+        background: $purple-twal;
+        color: $light-twal;
+      }
+      &:visited {
+        color: none;
+      }
+    }
+  }
+}
+
+
+.bottom-nav{
+  position: absolute;
+  bottom:20px;
+  z-index:9998;
+  width: 100%;
+  height: 60px;
+  padding:0 100px;
+  ul {
+    width: 75%;
+    display: flex;
+    margin: auto;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    overflow: hidden;
+    li{
+      flex: 1 1 0;
+      text-align: center;
+      background: #dedde4;
+      align-self: stretch;
+      border-left: 2px solid $grey-twal;
+      &:first-child {
+        border-left: none;
+      }
+      a {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: $dark-twal;
+        &:visited, &:focus, &:active {
+          color: $dark-twal;
+        }
+        &.active {
+          background: $red-twal;
+          color: $light-twal;
+        }
+      }
+
+
+    }
+  }
+}
+

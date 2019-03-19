@@ -8,9 +8,10 @@ import Scrollable from '@twal/components/ui/Scrollable';
 
 import BaseComponent from '../components/Museum/BaseComponent';
 import Timeline from '@twal/components/nav/Timeline';
+import BottomNav from '@twal/components/nav/BottomNav';
 
 const Museum = ({ t }) => {
-  const [Routes, links] = createSubRoutes('/museum', BaseComponent, 5);
+  const [Routes, links] = createSubRoutes('/museum', BaseComponent, 12);
 
   const Links = () => (
     <Scrollable>
@@ -22,9 +23,20 @@ const Museum = ({ t }) => {
     </Scrollable>
   );
 
-  const test = () => <Timeline links={links} />;
+  // links.map(link => console.log(link));
 
-  return <OneFourthLayout Small={test} Big={Routes} />;
+  const test = () => (
+    <Scrollable>
+      <Timeline name="Timeline" links={links} />
+    </Scrollable>
+  );
+
+  return (
+    <>
+      <BottomNav links={links.slice(0,3)} />
+      <OneFourthLayout Small={test} Big={Routes} />
+    </>
+  );
 };
 
 Museum.propTypes = {

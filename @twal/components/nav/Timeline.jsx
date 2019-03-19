@@ -1,15 +1,20 @@
 import React from 'react';
-import '@twal/styles/base/timeline.scss';
+import classnames from 'classnames';
 
-const Timeline = ({ links }) => (
-  <ul className="timeline">
-    {links.map(link => (
-      <li key={link.key}>
-        <div className="tick" />
-        {link}
-      </li>
-    ))}
-  </ul>
+import '@twal/styles/base/nav.scss';
+
+const Timeline = ({ links, name, className }) => (
+  <section className={classnames('timeline', 'panel', className)}>
+    <h2>{name}</h2>
+    <ul>
+      {links.map(link => (
+        <li key={link.key}>
+          <div className="tick" />
+          {link}
+        </li>
+      ))}
+    </ul>
+  </section>
 );
 
 export default Timeline;
