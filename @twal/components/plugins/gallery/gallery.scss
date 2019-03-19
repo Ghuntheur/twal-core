@@ -1,5 +1,7 @@
 $gutterSmall: 2;
-$gutterLarge: 4 .gallery {
+$gutterLarge: 4;
+
+.gallery {
   margin-right: -$gutterSmall;
   overflow: hidden;
 
@@ -21,10 +23,6 @@ $gutterLarge: 4 .gallery {
     padding-right: $gutterLarge;
     padding-bottom: $gutterLarge;
   }
-}
-
-.gallery-landscape {
-  width: 30%;
 }
 
 .gallery-square {

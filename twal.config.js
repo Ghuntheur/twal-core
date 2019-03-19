@@ -11,7 +11,7 @@ module.exports = {
     enabled: true,
     openNavOnUnmount: true,
     backgroundImage: '',
-    timeout: 4,
+    timeout: 4000,
     unit: 's'
   },
   routing: {

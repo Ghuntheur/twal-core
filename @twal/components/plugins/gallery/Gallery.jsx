@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Lightbox from 'react-images';
 
+import './gallery.scss';
 /*
  * Component Gallery is based on react-images
  * All props and methods can be found here: http://jossmac.github.io/react-images/
@@ -58,7 +59,6 @@ class Gallery extends Component {
     const { images } = this.props;
 
     if (!images) return;
-    console.log(images);
 
     const gallery = images.map((obj, i) => {
       return (
