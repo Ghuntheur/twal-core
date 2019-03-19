@@ -32,6 +32,8 @@ if (!defaultLanguage)
     })}`
   );
 
+const namespacesAvailable = [...new Set(['common', 'languages', ...(namespaces || [])])];
+
 i18n
   .use(XHR)
   .use(initReactI18next)
@@ -40,7 +42,7 @@ i18n
     load: 'languageOnly',
     lng: defaultLanguage,
     fallbackLng: availableLanguages,
-    ns: ['common', 'languages', ...(namespaces || [])],
+    ns: namespacesAvailable,
     defaultNS: 'common',
     fallbackNS: ['common'],
     backend: {

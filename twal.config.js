@@ -2,7 +2,7 @@ module.exports = {
   name: 'TWAL',
   description: 'twal framework',
   i18n: {
-    availableLanguages: ['fr'],
+    availableLanguages: ['fr', 'en'],
     defaultLanguage: 'fr',
     namespaces: ['nav-links', 'museum-links', 'museum-content']
   },
@@ -18,7 +18,7 @@ module.exports = {
     },
     folderName: 'cordova',
     id: 'io.twal.demo',
-    fullScreen: false,
+    fullScreen: true,
     orientation: 'landscape',
     platforms: [{ name: 'android', spec: '@7.1.4' }, { name: 'browser', spec: '@latest' }]
   }
