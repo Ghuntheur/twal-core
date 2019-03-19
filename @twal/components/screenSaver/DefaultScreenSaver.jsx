@@ -1,16 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import TwalLogo from './../../public/imgs/twal.svg';
-import { Transition } from 'react-transition-group';
 
 import '@twal/styles/components/screenSaver/screenSaver.scss';
 
 import twalConfig from '@root/twal.config';
-import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-const DefaultScreenSaver = ({ t }) => {
-  const { screenSaver: { animationEnabled, backgroundImage } = {} } = twalConfig;
+const DefaultScreenSaver = () => {
+  const { screenSaver: { animationEnabled, backgroundImage, namespace } = {} } = twalConfig;
+
+  const { t } = useTranslation(namespace || 'common');
 
   return (
     <section
@@ -39,8 +39,4 @@ const DefaultScreenSaver = ({ t }) => {
   );
 };
 
-DefaultScreenSaver.propTypes = {
-  t: PropTypes.func.isRequired
-};
-
-export default withTranslation()(DefaultScreenSaver);
+export default DefaultScreenSaver;

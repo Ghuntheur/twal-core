@@ -42,7 +42,15 @@ class MainMenus extends React.Component {
   render() {
     const { navOpened, settingsOpened } = this.state;
     const {
-      navigation: { buttonsSimultaneity, navComponent, settingsComponent } = {}
+      navigation: {
+        buttonsSimultaneity,
+        navComponent,
+        settingsComponent,
+        navIconOpen,
+        navIconClose,
+        settingsIconOpen,
+        settingsIconClose
+      } = {}
     } = twalConfig;
 
     const NavComponent = navComponent
@@ -62,7 +70,7 @@ class MainMenus extends React.Component {
 
     const HomeButton = () => (
       <IconButton
-        icon={navOpened ? 'cancel' : 'menu'}
+        icon={navOpened ? navIconClose || 'cancel' : navIconOpen || 'menu'}
         className={classNames('btn-home')}
         onClick={() => this.toggle(MainMenus.NAV_OPENED)()}
       />
@@ -70,7 +78,7 @@ class MainMenus extends React.Component {
 
     const SettingsButton = () => (
       <IconButton
-        icon={settingsOpened ? 'cancel' : 'cog'}
+        icon={settingsOpened ? settingsIconClose || 'cancel' : settingsIconOpen || 'cog'}
         className={classNames('btn-settings')}
         onClick={() => this.toggle(MainMenus.SETTINGS_OPENED)()}
       />
