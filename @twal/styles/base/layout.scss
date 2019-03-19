@@ -18,15 +18,16 @@
   }
   .panel-four{
     flex: 3 3 0;
-    // background: $grey-twal;
   }
 }
+
 .text-panel {
   padding: 45px 5%;
-  // height: 100%;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $secondaryfont;
+  }
   h1 {
     font-size: 2em;
-    font-family: $secondaryfont;
     margin-bottom: 25px;
   }
   &> p {
