@@ -41,8 +41,34 @@
   border-radius: 4px;
   @include tick($bg-color, $border-color);
 }
-
 .timeline {
+  .tick {
+    @include tickdiamond;
+  }
+  li {
+    &:before {
+      position: absolute;
+      content: '';
+      height: 75px;
+      width: 1px;
+      left: 59px;
+      display: inline-block;
+      border-right: 3px solid $grey-twal;
+    }
+    a {
+      padding-left: 95px;
+    }
+  }
+}
+
+.sidemenu {
+  li{
+    a{
+      justify-content: center;
+    }
+  }
+}
+.timeline, .sidemenu {
   border-right: 4px solid rgba($purple-twal, 1);
   min-height: 100%;
   overflow: auto;
@@ -57,34 +83,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 25px 15px;
   }
-  .tick {
-    @include tickdiamond;
-  }
+
   li {
     min-height: 75px;
     align-items: center;
     display: flex;
     justify-content: center;
     position: relative;
-    &:before {
-      position: absolute;
-      content: '';
-      height: 75px;
-      width: 1px;
-      left: 59px;
-      display: inline-block;
-      border-right: 3px solid $grey-twal;
-    }
     &:nth-child(2n+1) {
       background: rgba($purple-twal, 0.1);
     }
     a {
       width: 100%;
-      padding-left: 95px;
       text-decoration: none;
       color: $dark-twal;
-      align-self: stretch;
       align-self: stretch;
       display: flex;
       align-items: center;
@@ -98,7 +112,6 @@
     }
   }
 }
-
 
 .bottom-nav{
   position: absolute;

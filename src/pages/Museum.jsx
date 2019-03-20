@@ -7,8 +7,8 @@ import OneFourthLayout from '@twal/components/layouts/OneFourthLayout';
 import Scrollable from '@twal/components/ui/Scrollable';
 
 import BaseComponent from '../components/Museum/BaseComponent';
-import Timeline from '@twal/components/nav/Timeline';
 import BottomNav from '@twal/components/nav/BottomNav';
+import SideMenu from '@twal/components/nav/SideMenu';
 
 const Museum = ({ t }) => {
   const [Routes, links] = createSubRoutes('/museum', BaseComponent, 5);
@@ -25,13 +25,13 @@ const Museum = ({ t }) => {
 
   const timeline = () => (
     <Scrollable>
-      <Timeline name="Timeline" links={links} />
+      <SideMenu links={links} name="Menu exemple" type="timeline" />
     </Scrollable>
   );
 
   return (
     <>
-      <BottomNav links={links.slice(0, 3)} />
+      <BottomNav links={links.slice(0, 5)} />
       <OneFourthLayout Small={timeline} Big={Routes} />
     </>
   );
