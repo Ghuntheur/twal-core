@@ -8,7 +8,7 @@ import '@twal/styles/base/layout.scss';
 
 class Scrollable extends React.PureComponent {
   state = {
-    fullyScrolled: false
+    fullyScrolled: true
   };
 
   handleScroll = ev => {

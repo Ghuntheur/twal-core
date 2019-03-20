@@ -43,7 +43,7 @@
 }
 
 .timeline {
-  // border-right: 4px solid rgba($purple-twal, 1);
+  border-right: 4px solid rgba($purple-twal, 1);
   min-height: 100%;
   overflow: auto;
   position: relative;
@@ -103,12 +103,14 @@
 .bottom-nav{
   position: absolute;
   bottom:20px;
-  z-index:9998;
-  width: 100%;
+  z-index:9997;
+  width: 90%;
   height: 60px;
   padding:0 100px;
+  left:50%;
+  transform: translateX(-50%);
   ul {
-    width: 75%;
+    width: 100%;
     display: flex;
     margin: auto;
     height: 100%;

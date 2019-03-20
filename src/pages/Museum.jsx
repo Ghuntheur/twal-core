@@ -11,7 +11,7 @@ import Timeline from '@twal/components/nav/Timeline';
 import BottomNav from '@twal/components/nav/BottomNav';
 
 const Museum = ({ t }) => {
-  const [Routes, links] = createSubRoutes('/museum', BaseComponent, 12);
+  const [Routes, links] = createSubRoutes('/museum', BaseComponent, 5);
 
   const Links = () => (
     <Scrollable>
@@ -23,9 +23,7 @@ const Museum = ({ t }) => {
     </Scrollable>
   );
 
-  // links.map(link => console.log(link));
-
-  const test = () => (
+  const timeline = () => (
     <Scrollable>
       <Timeline name="Timeline" links={links} />
     </Scrollable>
@@ -33,8 +31,8 @@ const Museum = ({ t }) => {
 
   return (
     <>
-      <BottomNav links={links.slice(0,3)} />
-      <OneFourthLayout Small={test} Big={Routes} />
+      <BottomNav links={links.slice(0, 3)} />
+      <OneFourthLayout Small={timeline} Big={Routes} />
     </>
   );
 };
