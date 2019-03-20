@@ -1,10 +1,10 @@
 $padding: 10px;
 
 .btn-language {
-  @include rect-button(none, $dark-twal);
-  border: $light-twal 2px solid;
+  @include rect-button(none, $dark);
+  border: $light 2px solid;
   padding: $padding;
-  color: $dark-twal;
+  color: $dark;
   flex-direction: column;
   justify-content: center;
   img {
@@ -13,15 +13,15 @@ $padding: 10px;
     margin-bottom: 10px;
   }
   &.active {
-    @include rect-button($light-twal, $light-twal);
+    @include rect-button($light, $light);
     padding: $padding;
-    // background: $light-twal;
+    // background: $light;
     .language-code {
-      color: $dark-twal;
+      color: $dark;
     }
   }
   .language-code {
-    color: $light-twal;
+    color: $light;
     font-family: 'Roboto';
     font-size: 1.5rem;
   }

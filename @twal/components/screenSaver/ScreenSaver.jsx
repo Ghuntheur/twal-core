@@ -34,7 +34,7 @@ const ScreenSaver = ({ timeout, unit, toggleScreenSaver }) => {
         toggleScreenSaver(false);
       }}
     >
-      <CSSTransition in={isIdle} timeout={300} classNames="test" unmountOnExit>
+      <CSSTransition in={isIdle} timeout={300} classNames="screensaver-container" unmountOnExit>
         <ScreenSaverComponent isIdle={isIdle} />
       </CSSTransition>
     </IdleTimer>

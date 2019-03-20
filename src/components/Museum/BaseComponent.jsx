@@ -5,7 +5,11 @@ import { withTranslation } from 'react-i18next';
 const BaseComponent = ({ match, t }) => {
   const id = match.params.id;
 
-  return <h1>{t(`${id}.title`)}</h1>;
+  return (
+    <div className="text-panel">
+      <h1>{t(`${id}.title`)}</h1>
+    </div>
+  );
 };
 
 BaseComponent.propTypes = {

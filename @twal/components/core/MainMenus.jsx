@@ -92,11 +92,8 @@ class MainMenus extends React.Component {
         <CSSTransition in={settingsOpened} timeout={300} classNames="main-menu-right" unmountOnExit>
           <SettingsComponent toggle={() => this.toggle(MainMenus.SETTINGS_OPENED)()} />
         </CSSTransition>
-
-        <div className="main-menus">
-          <HomeButton />
-          <SettingsButton />
-        </div>
+        <HomeButton />
+        <SettingsButton />
       </>
     );
   }
