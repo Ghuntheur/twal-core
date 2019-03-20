@@ -1,9 +1,11 @@
 import React from 'react';
 import { Route, NavLink, Switch, Redirect, withRouter } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { useTranslation } from 'react-i18next';
 import uniqid from 'uniqid';
 
 import { throwError } from '@twal/utils/CommonUtils';
+import '@twal/styles/base/nav.scss';
 
 export const createSubRoutes = (baseUrl, render, linksCount = 0) => {
   // check
@@ -47,11 +49,28 @@ export const createSubRoutes = (baseUrl, render, linksCount = 0) => {
   }
 
   const Component = withRouter(render);
+
   const Routes = () => (
-    <Switch>
-      <Route path={`${baseUrl}/:id`} component={Component} />
-      <Route path="*" component={() => <Redirect to={`${baseUrl}/1`} />} />
-    </Switch>
+    <Route
+      render={({ location }) => (
+        <TransitionGroup component={null}>
+          <CSSTransition
+            key={location.pathname}
+            timeout={300}
+            classNames="fade"
+            in={true}
+            appear={true}
+            unmountOnExit
+            mountOnEnter
+          >
+            <Switch key={location.pathname} location={location}>
+              <Route path={`${baseUrl}/:id`} component={Component} />
+              <Route path="*" component={() => <Redirect to={`${baseUrl}/1`} />} />
+            </Switch>
+          </CSSTransition>
+        </TransitionGroup>
+      )}
+    />
   );
 
   const links = Array(linksCount)

@@ -27,12 +27,12 @@
 }
 
 @mixin move-corner($origin: bottom left, $time: 300ms) {
-  &-enter {
+  &-enter, &-appear {
     opacity: 0.01;
     transform: scale(0);
     transform-origin: $origin;
   }
-  &-enter-active {
+  &-enter-active, &-appear-active  {
     opacity: 1;
     transform: scale(1);
     transition: all $time ease-out;
@@ -50,10 +50,10 @@
 }
 
 @mixin move-up($time: 300ms) {
-  &-enter {
+  &-enter, &-appear {
     transform: translateY(100%);
   }
-  &-enter-active {
+  &-enter-active, &-appear-active {
     transform: translateY(0);
     transition: all $time ease-out;
   }
@@ -67,10 +67,10 @@
 }
 
 @mixin move-down($time: 300ms) {
-  &-enter {
+  &-enter, &-appear {
     transform: translateY(-100%);
   }
-  &-enter-active {
+  &-enter-active, &-appear-active {
     transform: translateY(0);
     transition: all $time ease-out;
   }
@@ -84,10 +84,10 @@
 }
 
 @mixin move-left($time: 300ms) {
-  &-enter {
+  &-enter, &-appear {
     transform: translateX(-100%);
   }
-  &-enter-active {
+  &-enter-active, &-appear-active {
     transform: translateX(0);
     transition: all $time ease-out;
   }
@@ -101,10 +101,10 @@
 }
 
 @mixin move-right($time: 300ms) {
-  &-enter {
+  &-enter, &-appear {
     transform: translateX(100%);
   }
-  &-enter-active {
+  &-enter-active, &-appear-active {
     transform: translateX(0);
     transition: all $time ease-out;
   }
@@ -118,10 +118,10 @@
 }
 
 @mixin appear($time: 300ms) {
-  &-enter {
+  &-enter, &-appear {
     opacity: 0;
   }
-  &-enter-active {
+  &-enter-active, &-appear-active {
     opacity: 1;
     transition: opacity $time ease-in;
   }

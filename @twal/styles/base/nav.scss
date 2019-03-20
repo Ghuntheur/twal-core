@@ -155,9 +155,11 @@
           color: $light;
         }
       }
-
-
     }
   }
+}
+
+.fade {
+  @include appear;
 }
 
