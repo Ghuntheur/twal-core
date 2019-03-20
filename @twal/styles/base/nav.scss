@@ -2,7 +2,7 @@
 * Timeline css
 **/
 
-@mixin tick($bg-color: $purple-twal, $border-color:$light-twal, $border-size: 3px) {
+@mixin tick($bg-color: $primarycolor, $border-color:$light, $border-size: 3px) {
   position: absolute;
   text-align: center;
   left: 51px;
@@ -12,21 +12,21 @@
   box-sizing: content-box;
 }
 
-@mixin tickround($bg-color: $purple-twal, $border-color:$light-twal) {
+@mixin tickround($bg-color: $primarycolor, $border-color:$light) {
   border-radius: 75%;
   width: 15px;
   height: 15px;
   @include tick($bg-color, $border-color);
 }
 
-@mixin tickstick($bg-color: $grey-twal, $border-color:$light-twal){
+@mixin tickstick($bg-color: $grey, $border-color:$light){
   width: 20px;
   height: 4px;
   transform: rotate(0deg);
   @include tick($bg-color, $border-color, 0);
 }
 
-@mixin ticksquare($bg-color: $purple-twal, $border-color:$light-twal) {
+@mixin ticksquare($bg-color: $primarycolor, $border-color:$light) {
   border-radius: 4px;
   width: 15px;
   height: 15px;
@@ -34,7 +34,7 @@
   @include tick($bg-color, $border-color);
 }
 
-@mixin tickdiamond($bg-color: $purple-twal, $border-color:$light-twal) {
+@mixin tickdiamond($bg-color: $primarycolor, $border-color:$light) {
   width: 15px;
   height: 15px;
   transform: rotate(45deg);
@@ -53,7 +53,7 @@
       width: 1px;
       left: 59px;
       display: inline-block;
-      border-right: 3px solid $grey-twal;
+      border-right: 3px solid $grey;
     }
     a {
       padding-left: 95px;
@@ -69,7 +69,7 @@
   }
 }
 .timeline, .sidemenu {
-  border-right: 4px solid rgba($purple-twal, 1);
+  border-right: 4px solid rgba($primarycolor, 1);
   min-height: 100%;
   overflow: auto;
   position: relative;
@@ -93,18 +93,18 @@
     justify-content: center;
     position: relative;
     &:nth-child(2n+1) {
-      background: rgba($purple-twal, 0.1);
+      background: rgba($primarycolor, 0.1);
     }
     a {
       width: 100%;
       text-decoration: none;
-      color: $dark-twal;
+      color: $dark;
       align-self: stretch;
       display: flex;
       align-items: center;
       &.active {
-        background: $purple-twal;
-        color: $light-twal;
+        background: $primarycolor;
+        color: $light;
       }
       &:visited {
         color: none;
@@ -136,7 +136,7 @@
       text-align: center;
       background: #dedde4;
       align-self: stretch;
-      border-left: 2px solid $grey-twal;
+      border-left: 2px solid $grey;
       &:first-child {
         border-left: none;
       }
@@ -146,13 +146,13 @@
         align-items: center;
         justify-content: center;
         text-decoration: none;
-        color: $dark-twal;
+        color: $dark;
         &:visited, &:focus, &:active {
-          color: $dark-twal;
+          color: $dark;
         }
         &.active {
-          background: $red-twal;
-          color: $light-twal;
+          background: $secondarycolor;
+          color: $light;
         }
       }
 

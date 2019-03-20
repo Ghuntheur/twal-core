@@ -2,7 +2,7 @@
   @include size(98%);
   animation: pulse 8s linear infinite;
   position: absolute;
-  border: solid $light-twal 3px;
+  border: solid $light 3px;
   border-radius: 50%;
   opacity: 0;
   @for $i from 1 to 4 {
