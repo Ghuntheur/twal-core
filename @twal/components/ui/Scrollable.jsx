@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SimpleBar from 'simplebar-react';
+import classnames from 'classnames';
 
 import 'simplebar/dist/simplebar.min.css';
 import '@twal/styles/base/layout.scss';
@@ -22,10 +23,10 @@ class Scrollable extends React.PureComponent {
   render() {
     const { children, ...rest } = this.props;
     const { fullyScrolled } = this.state;
+    const scrollOverlay = !fullyScrolled;
     return (
-      <SimpleBar onScroll={this.handleScroll} {...rest}>
+      <SimpleBar onScroll={this.handleScroll} className={classnames({ scrollOverlay })} {...rest}>
         {children}
-        {!fullyScrolled && <div className="gradient-overlay" />}
       </SimpleBar>
     );
   }
