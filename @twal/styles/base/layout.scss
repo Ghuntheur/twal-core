@@ -18,15 +18,16 @@
   }
   .panel-four{
     flex: 3 3 0;
-    // background: $grey-twal;
   }
 }
+
 .text-panel {
   padding: 45px 5%;
-  // height: 100%;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $secondaryfont;
+  }
   h1 {
     font-size: 2em;
-    font-family: $secondaryfont;
     margin-bottom: 25px;
   }
   &> p {
@@ -44,7 +45,10 @@
     }
   }
 }
+
 .simplebar-content {
+  position: relative;
+  width: 100%;
   &>.panel {
     padding-bottom: 160px;
     overflow-y: hidden;
@@ -62,13 +66,17 @@
     // }
   }
 }
-.gradient-overlay {
-  z-index:9998;
-  position: fixed;
-  bottom:0px;
-  display: block;
-  height: 180px;
-  width: 100%;
-  background: $light-twal fixed;
-  background: linear-gradient(0deg, rgba($light-twal,1) 50%, rgba($light-twal,0) 100%);
+
+.scrollOverlay{
+  &:after{
+    content:'';
+    position: absolute;
+    bottom:0px;
+    display: block;
+    height: 180px;
+    width: 100%;
+    background: $light fixed;
+    background: linear-gradient(0deg, rgba($light,1) 50%, rgba($light,0) 100%);
+
+  }
 }

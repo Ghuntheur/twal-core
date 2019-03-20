@@ -41,7 +41,7 @@ const MainContent = () => {
             <Route
               key={route.component}
               path={`/${route.path || route.component}`.toLowerCase()}
-              component={() => (
+              render={() => (
                 <Page>
                   <Component />
                 </Page>

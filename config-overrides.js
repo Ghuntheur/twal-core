@@ -45,6 +45,12 @@ module.exports = {
   ),
   // return config;
   jest: function(config) {
+    config.testMatch.push(
+      '<rootDir>/@twal/**/__tests__/**/*.{js,jsx,ts,tsx}',
+      '<rootDir>/@twal/**/?(*.)(spec|test).{js,jsx,ts,tsx}'
+    );
+    config.setupTestFrameworkScriptFile = '<rootDir>/@twal/config/setupTests.js';
+
     config.moduleNameMapper['^@twal(.*)$'] = '<rootDir>/@twal$1';
 
     return config;

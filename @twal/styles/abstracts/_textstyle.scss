@@ -4,16 +4,16 @@ $secondaryfont: 'times new roman';
 @mixin mainParagraph($align: justify){
   margin-bottom: 15px;
   line-height: 25px;
-  color: $dark-twal;
+  color: $dark;
   text-align: $align;
   font-family: $mainfont;
 }
 
-@mixin quotes($bgcolor: $grey-twal, $color: $dark-twal) {
+@mixin quotes($bgcolor: $grey, $color: $dark) {
   position: relative;
   font-style: italic;
   background: $bgcolor;
-  border-left: rgba($dark-twal, 0.5) 10px solid;
+  border-left: rgba($dark, 0.5) 10px solid;
   margin: 7% auto ;
   width: fit-content;
   padding: 20px 50px 20px 40px;

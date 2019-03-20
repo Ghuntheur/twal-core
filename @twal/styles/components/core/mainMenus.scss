@@ -1,26 +1,24 @@
-.main-menus {
-  padding: 20px;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  z-index: 900;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .btn-home {
-    &:not(.btn-simult) {
-      &.settings-opened {
-        visibility: hidden;
-        pointer-events: none;
-      }
+.btn-home {
+  position: absolute;
+  bottom:20px;
+  left: 20px;
+  z-index:9998;
+  &:not(.btn-simult) {
+    &.settings-opened {
+      visibility: hidden;
+      pointer-events: none;
     }
   }
-  .btn-settings {
-    &:not(.btn-simult) {
-      &.nav-opened {
-        visibility: hidden;
-        pointer-events: none;
-      }
+}
+.btn-settings {
+  position: absolute;
+  bottom:20px;
+  right: 20px;
+  z-index:9998;
+  &:not(.btn-simult) {
+    &.nav-opened {
+      visibility: hidden;
+      pointer-events: none;
     }
   }
 }

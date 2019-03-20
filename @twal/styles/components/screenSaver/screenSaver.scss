@@ -1,8 +1,8 @@
 .screensaver {
-  background: rgba($dark-twal, 0.94);
+  background: rgba($dark, 0.94);
   @include page-hover(9999);
   overflow: hidden;
-  color: $light-twal;
+  color: $light;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,7 +22,7 @@
         content: '\F25A';
         font-family: 'fontello';
         font-size: 6em;
-        color: $light-twal;
+        color: $light;
       }
     }
     .circle {
@@ -40,6 +40,6 @@
   }
 }
 
-.test {
+.screensaver-container {
   @include appear(200ms);
 }
