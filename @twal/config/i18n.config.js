@@ -38,7 +38,7 @@ i18n
   .use(XHR)
   .use(initReactI18next)
   .init({
-    debug: isDev(),
+    debug: false,
     load: 'languageOnly',
     lng: defaultLanguage,
     fallbackLng: availableLanguages,
