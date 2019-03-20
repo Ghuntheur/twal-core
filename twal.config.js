@@ -6,6 +6,9 @@ module.exports = {
     defaultLanguage: 'fr',
     namespaces: ['nav-links', 'museum-links', 'museum-content']
   },
+  plugins: {
+    currentPlugins: ['carousel', 'videofullscreen', 'gallery']
+  },
   routing: {
     linksNamespace: 'nav-links',
     routes: [{ component: 'Museum', default: true }]

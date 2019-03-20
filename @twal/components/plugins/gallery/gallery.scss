@@ -1,0 +1,43 @@
+$gutterSmall: 2;
+$gutterLarge: 4;
+
+.gallery {
+  margin-right: -$gutterSmall;
+  overflow: hidden;
+
+  @media (min-width: 500px) {
+    marginright: -$gutterLarge;
+  }
+}
+
+.gallery-thumbnail {
+  box-sizing: border-box;
+  display: block;
+  float: left;
+  line-height: 0;
+  padding-right: $gutterSmall;
+  padding-bottom: $gutterSmall;
+  overflow: hidden;
+
+  @media (min-width: 500px) {
+    padding-right: $gutterLarge;
+    padding-bottom: $gutterLarge;
+  }
+}
+
+.gallery-square {
+  padding-bottom: 0;
+  width: 40%;
+
+  @media (min-width: 500px) {
+    padding-bottom: 0;
+  }
+}
+
+.gallery-source {
+  border: 0;
+  display: block;
+  height: auto;
+  max-width: 100%;
+  width: auto;
+}
