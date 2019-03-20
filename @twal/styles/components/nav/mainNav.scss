@@ -1,7 +1,7 @@
 .main-nav {
-  @include page-hover;
+  @include page-hover(9998);
   overflow: hidden;
-  background: $purple-twal;
+  background: $primarycolor;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -18,7 +18,7 @@
     align-items: center;
     > li {
       > a {
-        @include rect-button($red-twal, none);
+        @include rect-button($secondarycolor, none);
         border-style: inset;
         font-size: 1.3em;
         display: block;
@@ -28,7 +28,7 @@
         line-height: 50px;
         width: 300px;
         margin-bottom: 25px;
-        color: $light-twal;
+        color: $light;
         @include default-link;
       }
     }

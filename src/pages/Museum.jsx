@@ -7,7 +7,6 @@ import OneFourthLayout from '@twal/components/layouts/OneFourthLayout';
 import Scrollable from '@twal/components/ui/Scrollable';
 
 import BaseComponent from '../components/Museum/BaseComponent';
-import BottomNav from '@twal/components/nav/BottomNav';
 import SideMenu from '@twal/components/nav/SideMenu';
 
 const Museum = ({ t }) => {

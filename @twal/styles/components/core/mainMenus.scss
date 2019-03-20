@@ -2,7 +2,7 @@
   position: absolute;
   bottom:20px;
   left: 20px;
-  z-index:9999;
+  z-index:9998;
   &:not(.btn-simult) {
     &.settings-opened {
       visibility: hidden;
@@ -14,7 +14,7 @@
   position: absolute;
   bottom:20px;
   right: 20px;
-  z-index:9999;
+  z-index:9998;
   &:not(.btn-simult) {
     &.nav-opened {
       visibility: hidden;
