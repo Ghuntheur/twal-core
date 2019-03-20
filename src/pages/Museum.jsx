@@ -11,30 +11,15 @@ import BottomNav from '@twal/components/nav/BottomNav';
 import SideMenu from '@twal/components/nav/SideMenu';
 
 const Museum = ({ t }) => {
-  const [Routes, links] = createSubRoutes('/museum', BaseComponent, 5);
-
-  const Links = () => (
-    <Scrollable>
-      <ul>
-        {links.map(link => (
-          <li key={link.key}>{link}</li>
-        ))}
-      </ul>
-    </Scrollable>
-  );
+  const [Routes, links] = createSubRoutes('/museum', BaseComponent, 20);
 
   const timeline = () => (
     <Scrollable>
-      <SideMenu links={links} name="Menu exemple" type="timeline" />
+      <SideMenu links={links} type="timeline" name="Menu exemple" />
     </Scrollable>
   );
 
-  return (
-    <>
-      <BottomNav links={links.slice(0, 5)} />
-      <OneFourthLayout Small={timeline} Big={Routes} />
-    </>
-  );
+  return <OneFourthLayout Small={timeline} Big={Routes} />;
 };
 
 Museum.propTypes = {
