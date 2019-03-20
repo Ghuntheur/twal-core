@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { NavLink as Link, withRouter, Route } from 'react-router-dom';
 
-const NavLink = ({ children, to, location, className, ...rest }) => (
+const NavLink = ({ children, to, location, staticContext, className, ...rest }) => (
   <Route
     path={to}
     children={({ match }) => (
@@ -25,7 +25,8 @@ NavLink.propTypes = {
   className: PropTypes.string,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
+  staticContext: PropTypes.any
 };
 
 export default withRouter(NavLink);

@@ -10,10 +10,7 @@ const SideMenu = ({ links, name, type, className }) => {
       {name && <h2>{name}</h2>}
       <ul>
         {links.map(link => (
-          <li key={link.key}>
-            {/* {type === 'timeline' && <div className="tick" />} */}
-            {link}
-          </li>
+          <li key={link.key}>{link}</li>
         ))}
       </ul>
     </section>
