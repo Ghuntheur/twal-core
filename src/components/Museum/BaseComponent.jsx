@@ -21,4 +21,4 @@ BaseComponent.propTypes = {
   t: PropTypes.func.isRequired
 };
 
-export default withTranslation('museum-content')(BaseComponent);
+export default withTranslation('museum')(BaseComponent);
