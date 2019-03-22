@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, NavLink, Switch, Redirect, withRouter } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import uniqid from 'uniqid';
+import twalConfig from '@root/twal.config';
 
 import { throwError } from '@twal/utils/CommonUtils';
 
@@ -13,7 +14,8 @@ export const createSubRoutes = (baseUrl, render, linksCount = 0) => {
   if (typeof linksCount !== 'number' || linksCount < 0)
     throwError('linksCount must be a positive number');
 
-  // create
+  const { navigation: { linkLabelKey } = {} } = twalConfig;
+  const labelKey = linkLabelKey || 'linkLabel';
   const { t } = useTranslation();
 
   if (Array.isArray(render)) {
@@ -31,7 +33,7 @@ export const createSubRoutes = (baseUrl, render, linksCount = 0) => {
       );
       links.push(
         <NavLink key={`${comp.name}--${uid}--link`} to={`${baseUrl}/${index + 1}`}>
-          {t(`${baseUrl.replace(/^\//, '')}-links:${index + 1}`)}
+          {t(`${baseUrl.replace(/^\//, '')}:${index + 1}.${labelKey}`)}
         </NavLink>
       );
     });
@@ -58,7 +60,7 @@ export const createSubRoutes = (baseUrl, render, linksCount = 0) => {
     .fill()
     .map((_, index) => (
       <NavLink key={`${uniqid()}--link`} to={`${baseUrl}/${index + 1}`}>
-        {t(`${baseUrl.replace(/^\//, '')}-links:${index + 1}`)}
+        {t(`${baseUrl.replace(/^\//, '')}:${index + 1}.${labelKey}`)}
       </NavLink>
     ));
 

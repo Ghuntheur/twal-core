@@ -4,7 +4,7 @@ module.exports = {
   i18n: {
     availableLanguages: ['fr', 'en'],
     defaultLanguage: 'fr',
-    namespaces: ['nav-links', 'museum-links', 'museum-content']
+    namespaces: ['nav-links', 'museum']
   },
   plugins: {
     currentPlugins: ['carousel', 'videofullscreen', 'gallery']
