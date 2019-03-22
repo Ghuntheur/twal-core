@@ -4,12 +4,23 @@ import SimpleBar from 'simplebar-react';
 import classnames from 'classnames';
 
 import 'simplebar/dist/simplebar.min.css';
-import '@twal/styles/base/layout.scss';
+import '@twal/styles/components/ui/scrollable.scss';
 
-class Scrollable extends React.PureComponent {
+class Scrollable extends React.Component {
   state = {
-    fullyScrolled: true
+    fullyScrolled: true,
+    scrollable: React.createRef()
   };
+
+  componentDidMount() {
+    const elm = this.state.scrollable.current.firstChild;
+    const scrollTop = elm.scrollTop;
+    const scrollHeight = elm.scrollHeight;
+    const offsetHeight = elm.offsetHeight;
+
+    this.setState({ fullyScrolled: scrollTop >= scrollHeight - offsetHeight });
+    console.log(this.state.fullyScrolled);
+  }
 
   handleScroll = ev => {
     const elm = ev.target;
@@ -18,16 +29,24 @@ class Scrollable extends React.PureComponent {
     const offsetHeight = elm.offsetHeight;
 
     this.setState({ fullyScrolled: scrollTop >= scrollHeight - offsetHeight });
+    console.log(this.state.fullyScrolled);
   };
 
   render() {
     const { children, ...rest } = this.props;
-    const { fullyScrolled } = this.state;
+    const { fullyScrolled, scrollable } = this.state;
     const scrollOverlay = !fullyScrolled;
+    console.log(scrollOverlay);
     return (
-      <SimpleBar onScroll={this.handleScroll} className={classnames({ scrollOverlay })} {...rest}>
-        {children}
-      </SimpleBar>
+      <div ref={scrollable}>
+        <SimpleBar
+          onScroll={this.handleScroll}
+          className={classnames('scrollable', { scrollOverlay })}
+          {...rest}
+        >
+          {children}
+        </SimpleBar>
+      </div>
     );
   }
 }

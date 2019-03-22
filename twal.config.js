@@ -6,6 +6,9 @@ module.exports = {
     defaultLanguage: 'fr',
     namespaces: ['nav-links', 'museum-links', 'museum-content']
   },
+  screenSaver: {
+    enabled: false
+  },
   routing: {
     linksNamespace: 'nav-links',
     routes: [{ component: 'Museum', default: true }]

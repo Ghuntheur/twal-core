@@ -3,7 +3,9 @@
   justify-content: space-around;
   align-content: stretch;
   width: 100%;
-  .panel-one, .panel-two, .panel-four {
+  .panel-one,
+  .panel-two,
+  .panel-four {
     display: flex;
     flex-direction: column;
     // padding-bottom: 150px;
@@ -16,67 +18,39 @@
   .panel-two {
     flex: 2 2 0;
   }
-  .panel-four{
+  .panel-four {
     flex: 3 3 0;
   }
 }
 
 .text-panel {
   padding: 45px 5%;
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: $secondaryfont;
   }
   h1 {
     font-size: 2em;
     margin-bottom: 25px;
   }
-  &> p {
+  & > p {
     @include mainParagraph;
   }
 }
 
 .page {
-  &> .column-container {
-    &>.panel-one, &>.panel-two, &>.panel-four {
-      overflow: auto;
-      &>.text-panel {
+  & > .column-container {
+    & > .panel-one,
+    & > .panel-two,
+    & > .panel-four {
+      overflow: hidden;
+      & > .text-panel {
         padding-bottom: 150px;
       }
     }
-  }
-}
-
-.simplebar-content {
-  position: relative;
-  width: 100%;
-  &>.panel {
-    padding-bottom: 160px;
-    overflow-y: hidden;
-    // &:after {
-    //   content:'';
-    //   z-index:9999;
-    //   position: absolute;
-    //   bottom:100px;
-    //   display: block;
-    //   height: 300px;
-    //   width: 100%;
-    //   margin-top: -150px;
-    //   background: rgb(255,255,255) fixed;
-    //   background: linear-gradient(0deg,rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
-    // }
-  }
-}
-
-.scrollOverlay{
-  &:after{
-    content:'';
-    position: absolute;
-    bottom:0px;
-    display: block;
-    height: 180px;
-    width: 100%;
-    background: $light fixed;
-    background: linear-gradient(0deg, rgba($light,1) 50%, rgba($light,0) 100%);
-
   }
 }

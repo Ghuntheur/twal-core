@@ -12,13 +12,20 @@ import SideMenu from '@twal/components/nav/SideMenu';
 const Museum = ({ t }) => {
   const [Routes, links] = createSubRoutes('/museum', BaseComponent, 20);
 
-  const timeline = () => (
+  const Timeline = () => (
     <Scrollable>
       <SideMenu links={links} type="timeline" name="Menu exemple" />
     </Scrollable>
   );
 
-  return <OneFourthLayout Small={timeline} Big={Routes} />;
+  return (
+    <>
+      <Timeline />
+      <Routes />
+    </>
+  );
+
+  /* return <OneFourthLayout Small={timeline} Big={Routes} />;*/
 };
 
 Museum.propTypes = {

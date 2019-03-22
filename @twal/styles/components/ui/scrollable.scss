@@ -1,0 +1,32 @@
+.simplebar-content {
+  position: relative;
+  width: 100%;
+  & > .panel {
+    overflow-y: hidden;
+  }
+}
+
+.scrollable {
+  position: relative;
+  height: 100vh;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    transition: all 0.3s;
+    display: block;
+    height: 120px;
+    width: 100%;
+    background: linear-gradient(0deg, rgba($light, 1) 50%, rgba($light, 0) 100%);
+    opacity: 0;
+    transform: translate3D(0, 10%, 0);
+  }
+}
+
+.scrollOverlay {
+  &:after {
+    opacity: 1;
+    transform: translate3D(0, 0, 0);
+  }
+}
