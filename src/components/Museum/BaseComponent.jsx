@@ -7,7 +7,9 @@ const BaseComponent = ({ match, t }) => {
 
   return (
     <div className="text-panel">
-      <h1>{t(`${id}.title`)}</h1>
+      <h1>
+        {id} => {t(`${id}.title`)}
+      </h1>
     </div>
   );
 };
