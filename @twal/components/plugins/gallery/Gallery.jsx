@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Lightbox from 'react-images';
 
-import './gallery.scss';
+import '@twal/styles/vendors/gallery.scss';
 /*
  * Component Gallery is based on react-images
  * All props and methods can be found here: http://jossmac.github.io/react-images/
  */
-class Gallery extends Component {
+class Gallery extends React.Component {
   constructor() {
     super();
 
@@ -22,40 +23,34 @@ class Gallery extends Component {
     this.handleClickImage = this.handleClickImage.bind(this);
     this.openLightbox = this.openLightbox.bind(this);
   }
-  openLightbox(index, event) {
+
+  openLightbox = (index, event) => {
     event.preventDefault();
     this.setState({
       currentImage: index,
       lightboxIsOpen: true
     });
-  }
-  closeLightbox() {
+  };
+
+  closeLightbox = () =>
     this.setState({
       currentImage: 0,
       lightboxIsOpen: false
     });
-  }
-  gotoPrevious() {
-    this.setState({
-      currentImage: this.state.currentImage - 1
-    });
-  }
-  gotoNext() {
-    this.setState({
-      currentImage: this.state.currentImage + 1
-    });
-  }
-  gotoImage(index) {
-    this.setState({
-      currentImage: index
-    });
-  }
-  handleClickImage() {
+
+  gotoPrevious = () => this.setState({ currentImage: this.state.currentImage - 1 });
+
+  gotoNext = () => this.setState({ currentImage: this.state.currentImage + 1 });
+
+  gotoImage = index => this.setState({ currentImage: index });
+
+  handleClickImage = () => {
     if (this.state.currentImage === this.props.images.length - 1) return;
 
     this.gotoNext();
-  }
-  renderGallery() {
+  };
+
+  renderGallery = () => {
     const { images } = this.props;
 
     if (!images) return;
@@ -68,32 +63,42 @@ class Gallery extends Component {
           key={i}
           onClick={e => this.openLightbox(i, e)}
         >
-          <img src={obj.src} className="gallery-source" />
+          <img src={obj.src} alt={obj.alt} className="gallery-source" />
         </a>
       );
     });
 
     return <div className="gallery">{gallery}</div>;
-  }
+  };
+
   render() {
+    const { preventScroll, showThumbnails, images } = this.props;
+    const { currentImage, lightboxIsOpen } = this.state;
+
     return (
       <div className="gallery-section">
         {this.renderGallery()}
         <Lightbox
-          currentImage={this.state.currentImage}
-          images={this.props.images}
-          isOpen={this.state.lightboxIsOpen}
+          currentImage={currentImage}
+          images={images}
+          isOpen={lightboxIsOpen}
           onClickImage={this.handleClickImage}
           onClickNext={this.gotoNext}
           onClickPrev={this.gotoPrevious}
           onClickThumbnail={this.gotoImage}
           onClose={this.closeLightbox}
-          preventScroll={this.props.preventScroll}
-          showThumbnails={this.props.showThumbnails}
+          preventScroll={preventScroll}
+          showThumbnails={showThumbnails}
         />
       </div>
     );
   }
 }
+
+Gallery.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  preventScroll: PropTypes.func.isRequired,
+  showThumbnails: PropTypes.func.isRequired
+};
 
 export default Gallery;
