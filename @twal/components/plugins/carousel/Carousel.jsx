@@ -13,3 +13,5 @@ const Carousel = ({ children, ...rest }) => <Slider {...rest}>{children}</Slider
 Carousel.propTypes = {
   children: PropTypes.node.isRequired
 };
+
+export default Carousel;
