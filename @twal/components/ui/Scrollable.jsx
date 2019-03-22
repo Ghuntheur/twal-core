@@ -25,9 +25,9 @@ class Scrollable extends React.PureComponent {
     const { fullyScrolled } = this.state;
     const scrollOverlay = !fullyScrolled;
     return (
-      <SimpleBar onScroll={this.handleScroll} className={classnames({ scrollOverlay })} {...rest}>
-        {children}
-      </SimpleBar>
+      // <SimpleBar onScroll={this.handleScroll} className={classnames({ scrollOverlay })} {...rest}>
+      children
+      // </SimpleBar>
     );
   }
 }

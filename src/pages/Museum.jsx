@@ -18,24 +18,24 @@ const Museum = ({ t }) => {
     </Scrollable>
   );
 
-  return (
-    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-      <Scrollable style={{ background: 'red', width: '300px', height: '100vh' }}>
-        <ul>
-          {links.map(link => (
-            <li style={{ margin: '40px 0' }} key={link.key}>
-              {link}
-            </li>
-          ))}
-        </ul>
-      </Scrollable>
-      <div style={{ background: 'blue', width: 500 }}>
-        <Routes />
-      </div>
-    </div>
-  );
+  // return (
+  //   <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+  //     <Scrollable style={{ background: 'red', width: '300px', height: '100vh' }}>
+  //       <ul>
+  //         {links.map(link => (
+  //           <li style={{ margin: '40px 0' }} key={link.key}>
+  //             {link}
+  //           </li>
+  //         ))}
+  //       </ul>
+  //     </Scrollable>
+  //     <div style={{ background: 'blue', width: 500 }}>
+  //       <Routes />
+  //     </div>
+  //   </div>
+  // );
 
-  // return <OneFourthLayout Small={timeline} Big={Routes} />;
+  return <OneFourthLayout Small={Timeline} Big={Routes} />;
 };
 
 Museum.propTypes = {
