@@ -77,8 +77,8 @@
 .timeline,
 .sidemenu {
   border-right: 4px solid rgba($primarycolor, 1);
-  min-height: 100%;
-  overflow: auto;
+  height: 100%;
+  overflow: hidden;
   position: relative;
 
   h2 {

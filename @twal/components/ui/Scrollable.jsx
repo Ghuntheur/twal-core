@@ -6,39 +6,42 @@ import classnames from 'classnames';
 import 'simplebar/dist/simplebar.min.css';
 import '@twal/styles/components/ui/scrollable.scss';
 
-class Scrollable extends React.Component {
+class Scrollable extends React.PureComponent {
   state = {
-    fullyScrolled: true,
-    scrollable: React.createRef()
+    scrollable: React.createRef(),
+    fullyScrolled: true
+  };
+
+  handleScrollPosition = elm => {
+    const elem = elm.current.firstChild;
+    const scrollTop = elem.scrollTop;
+    const scrollHeight = elem.scrollHeight;
+    const offsetHeight = elem.offsetHeight;
+
+    this.setState({ fullyScrolled: scrollTop >= scrollHeight - offsetHeight });
   };
 
   componentDidMount() {
-    const elm = this.state.scrollable.current.firstChild;
-    const scrollTop = elm.scrollTop;
-    const scrollHeight = elm.scrollHeight;
-    const offsetHeight = elm.offsetHeight;
-
-    this.setState({ fullyScrolled: scrollTop >= scrollHeight - offsetHeight });
-    console.log(this.state.fullyScrolled);
+    const { scrollable } = this.state;
+    this.handleScrollPosition(scrollable);
   }
 
-  handleScroll = ev => {
-    const elm = ev.target;
-    const scrollTop = elm.scrollTop;
-    const scrollHeight = elm.scrollHeight;
-    const offsetHeight = elm.offsetHeight;
+  componentDidUpdate() {
+    const { scrollable } = this.state;
+    this.handleScrollPosition(scrollable);
+  }
 
-    this.setState({ fullyScrolled: scrollTop >= scrollHeight - offsetHeight });
-    console.log(this.state.fullyScrolled);
+  handleScroll = e => {
+    const { scrollable } = this.state;
+    this.handleScrollPosition(scrollable);
   };
 
   render() {
     const { children, ...rest } = this.props;
     const { fullyScrolled, scrollable } = this.state;
-    const scrollOverlay = !fullyScrolled;
-    console.log(scrollOverlay);
+    const scrollOverlay = fullyScrolled;
     return (
-      <div ref={scrollable}>
+      <div style={{ height: '100%', overflow: 'hidden' }} ref={scrollable}>
         <SimpleBar
           onScroll={this.handleScroll}
           className={classnames('scrollable', { scrollOverlay })}
