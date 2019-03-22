@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, NavLink, Switch, Redirect, withRouter } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import Link from './Link';
 import { useTranslation } from 'react-i18next';
 import uniqid from 'uniqid';
@@ -16,6 +16,7 @@ export const createSubRoutes = (baseUrl, render, linksCount = 0) => {
 
   // create
   const { t } = useTranslation();
+  const url = baseUrl.replace(/^\//, '').toLowerCase();
 
   if (Array.isArray(render)) {
     const routes = [];
@@ -24,45 +25,42 @@ export const createSubRoutes = (baseUrl, render, linksCount = 0) => {
     render.forEach((comp, index) => {
       const uid = uniqid();
       routes.push(
-        <Route
-          key={`${comp.name}--${uid}--route`}
-          path={`${baseUrl}/${index + 1}`}
-          component={comp}
-        />
+        <Route key={`${comp.name}--${uid}--route`} path={`/${url}/${index + 1}`} component={comp} />
       );
       links.push(
         <Link
           className="submenu-link"
           key={`${comp.name}--${uid}--link`}
-          to={`${baseUrl}/${index + 1}`}
+          to={`/${url}/${index + 1}`}
         >
-          {t(`${baseUrl.replace(/^\//, '')}-links:${index + 1}`)}
+          {t(`${url}-links:${index + 1}`)}
         </Link>
       );
     });
 
-    const Routes = () =>
-      // <Switch>
-      routes;
-    // <Route path="*" render={() => <Redirect to={`${baseUrl}/1`} />} /> */}
-    // </Switch>
+    const Routes = () => (
+      <Switch>
+        {routes}
+        <Route path="*" render={() => <Redirect to={`/${url}/1`} />} /> */}
+      </Switch>
+    );
 
     return [Routes, links];
   }
 
   const Component = withRouter(render);
   const Routes = () => (
-    // <Switch>
-    <Route path={`${baseUrl}/:id`} component={Component} />
-    // <Route path="*" render={() => <Redirect to={`${baseUrl}/1`} />} />
-    // </Switch>
+    <Switch>
+      <Route path={`/${url}/:id`} component={Component} />
+      <Route path="*" render={() => <Redirect to={`/${url}/1`} />} />
+    </Switch>
   );
 
   const links = Array(linksCount)
     .fill()
     .map((_, index) => (
-      <Link className="submenu-link" key={`${uniqid()}--link`} to={`${baseUrl}/${index + 1}`}>
-        {t(`${baseUrl.replace(/^\//, '')}-links:${index + 1}`)}
+      <Link className="submenu-link" key={`${uniqid()}--link`} to={`/${url}/${index + 1}`}>
+        {t(`${url}-links:${index + 1}`)}
       </Link>
     ));
 
