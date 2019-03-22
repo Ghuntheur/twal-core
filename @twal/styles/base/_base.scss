@@ -20,6 +20,8 @@ img {
 }
 
 .page {
-  @include full;
+  width: 100%;
+  // height: calc(100vh - #{$bottomNavHeight});
+  height: 100vh;
   display: flex;
 }

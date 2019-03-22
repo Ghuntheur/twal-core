@@ -1,3 +1,13 @@
+.main-menu {
+  background: rgba(255, 255, 255, 0.5);
+  height: $bottomNavHeight;
+  width: 100%;
+  z-index:9996;
+  position: fixed;
+  bottom: 0;
+  // border-top: 1px solid rgba($dark, 0.5);
+  @include box-shadow;
+}
 .btn-home {
   position: absolute;
   bottom:20px;

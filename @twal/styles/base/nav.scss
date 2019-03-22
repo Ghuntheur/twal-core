@@ -129,18 +129,29 @@
     height: 100%;
     justify-content: center;
     align-items: center;
-    border-radius: 4px;
-    overflow: hidden;
+    border-radius: 75px;
+    // overflow: hidden;
+
     li{
+
       flex: 1 1 0;
       text-align: center;
-      background: #dedde4;
       align-self: stretch;
-      border-left: 2px solid $grey;
+      margin-left: 5px;
       &:first-child {
         border-left: none;
+        margin-left: 0px;
+      }
+      &:first-of-type a {
+        border-radius: 75px 0 0 75px;
+      }
+      &:last-of-type a {
+        border-radius:  0 75px 75px 0;
       }
       a {
+        @include box-shadow;
+        background: $light;
+        font-size: 1.5vw;
         height: 100%;
         display: flex;
         align-items: center;
@@ -151,7 +162,7 @@
           color: $dark;
         }
         &.active {
-          background: $secondarycolor;
+          background-color: $secondarycolor;
           color: $light;
         }
       }
