@@ -2,21 +2,21 @@
   background: rgba(255, 255, 255, 0.5);
   height: $bottomNavHeight;
   width: 100%;
-  z-index:9996;
+  z-index: 9996;
   position: fixed;
   bottom: 0;
   // border-top: 1px solid rgba($dark, 0.5);
   @include box-shadow;
-  transition: all 1s ease-in-out;
+  transition: all 0.5s ease-in-out;
   &.togglenav {
     bottom: -$bottomNavHeight;
   }
 }
 .btn-home {
   position: fixed;
-  bottom:20px;
+  bottom: 20px;
   left: 20px;
-  z-index:9998;
+  z-index: 9998;
   &:not(.btn-simult) {
     &.settings-opened {
       visibility: hidden;
@@ -26,9 +26,9 @@
 }
 .btn-settings {
   position: fixed;
-  bottom:20px;
+  bottom: 20px;
   right: 20px;
-  z-index:9998;
+  z-index: 9998;
   &:not(.btn-simult) {
     &.nav-opened {
       visibility: hidden;
