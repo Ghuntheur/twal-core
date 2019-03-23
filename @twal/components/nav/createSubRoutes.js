@@ -47,7 +47,7 @@ export const createSubRoutes = (baseUrl, render, renderLinks = null) => {
     const Routes = () => (
       <Switch>
         {routes}
-        <Route path="*" render={() => <Redirect to={`/${url}/1`} />} /> */}
+        <Route path="*" render={() => <Redirect to={`/${url}/1`} />} />
       </Switch>
     );
 
@@ -69,7 +69,7 @@ export const createSubRoutes = (baseUrl, render, renderLinks = null) => {
         .map((_, index) => index + 1);
 
   const links = array.map(item => (
-    <Link key={`${uniqid()}--link`} to={`${baseUrl}/${item}`}>
+    <Link key={`${uniqid()}--link`} to={`${baseUrl}/${item}`} className="submenu-link">
       {t(`${url}:${item}.${labelKey}`)}
     </Link>
   ));
