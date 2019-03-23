@@ -44,7 +44,19 @@
     }
   }
 }
+@mixin legend($font: $secondaryfont, $color: $dark, $size: 1.5, $align: center, $style: italic) {
+  font-family: $font;
+  font-style: $style;
+  color: $color;
+  font-size: 1.5rem;
+  text-align: $align;
+  width: 100%;
+  display: block;
+}
 
+.legend {
+  @include legend;
+}
 .text-panel {
   padding: 10% 12%;
   h1,
