@@ -1,7 +1,3 @@
-$mainfont: 'open sans';
-$secondaryfont: 'PT serif';
-$textalign: justify;
-
 @mixin mainParagraph($align: $textalign) {
   margin-bottom: 15px;
   line-height: 2.5rem;
@@ -42,14 +38,25 @@ $textalign: justify;
       // margin-left: -28px;
       left: 0;
     }
-
     &:after {
       content: '\201D';
       margin-left: -25px;
     }
   }
 }
+@mixin legend($font: $secondaryfont, $color: $dark, $size: 1.5, $align: center, $style: italic) {
+  font-family: $font;
+  font-style: $style;
+  color: $color;
+  font-size: 1.5rem;
+  text-align: $align;
+  width: 100%;
+  display: block;
+}
 
+.legend {
+  @include legend;
+}
 .text-panel {
   padding: 10% 12%;
   h1,
@@ -61,7 +68,27 @@ $textalign: justify;
     font-family: $secondaryfont;
   }
   h1 {
-    font-size: 3vw;
+    font-size: 3.2rem;
+    margin-bottom: 25px;
+  }
+  h2 {
+    font-size: 2.7rem;
+    margin-bottom: 25px;
+  }
+  h3 {
+    font-size: 2.4rem;
+    margin-bottom: 25px;
+  }
+  h4 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+  h5 {
+    font-size: 1.75rem;
+    margin-bottom: 25px;
+  }
+  h6 {
+    font-size: 1.5rem;
     margin-bottom: 25px;
   }
   p:first-of-type {
@@ -69,11 +96,6 @@ $textalign: justify;
   }
   p {
     @include mainParagraph;
-    // white-space: pre-line;
-    // word-wrap: break-word;
-    // overflow-wrap: break-word;
-    // hyphens: auto;
-    // word-break: break-all;
   }
 }
 
