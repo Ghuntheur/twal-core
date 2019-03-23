@@ -3,7 +3,9 @@
   justify-content: space-around;
   align-content: stretch;
   width: 100%;
-  .panel-one, .panel-two, .panel-four {
+  .panel-one,
+  .panel-two,
+  .panel-four {
     display: flex;
     flex-direction: column;
     // padding-bottom: 150px;
@@ -16,30 +18,18 @@
   .panel-two {
     flex: 2 2 0;
   }
-  .panel-four{
+  .panel-four {
     flex: 3 3 0;
   }
 }
 
-.text-panel {
-  padding: 45px 5%;
-  h1, h2, h3, h4, h5, h6 {
-    font-family: $secondaryfont;
-  }
-  h1 {
-    font-size: 2em;
-    margin-bottom: 25px;
-  }
-  &> p {
-    @include mainParagraph;
-  }
-}
-
 .page {
-  &> .column-container {
-    &>.panel-one, &>.panel-two, &>.panel-four {
+  & > .column-container {
+    & > .panel-one,
+    & > .panel-two,
+    & > .panel-four {
       overflow: auto;
-      &>.text-panel {
+      & > .text-panel {
         padding-bottom: 150px;
       }
     }
@@ -49,8 +39,8 @@
 .simplebar-content {
   position: relative;
   width: 100%;
-  &>.panel {
-    padding-bottom: 160px;
+  & > .panel {
+    padding-bottom: 100px;
     overflow-y: hidden;
     // &:after {
     //   content:'';
@@ -67,16 +57,15 @@
   }
 }
 
-.scrollOverlay{
-  &:after{
-    content:'';
+.scrollOverlay {
+  &:after {
+    content: '';
     position: absolute;
-    bottom:0px;
+    bottom: 0px;
     display: block;
     height: 180px;
     width: 100%;
     background: $light fixed;
-    background: linear-gradient(0deg, rgba($light,1) 50%, rgba($light,0) 100%);
-
+    background: linear-gradient(0deg, rgba($light, 1) 50%, rgba($light, 0) 100%);
   }
 }

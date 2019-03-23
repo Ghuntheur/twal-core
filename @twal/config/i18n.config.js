@@ -4,10 +4,10 @@ import { initReactI18next } from 'react-i18next';
 
 import twalConfig from '@root/twal.config';
 
-import { isDev, throwError } from '@twal/utils/CommonUtils';
+import { throwError } from '@twal/utils/CommonUtils';
 
 const {
-  i18n: { availableLanguages, defaultLanguage, namespaces } = {},
+  i18n: { availableLanguages, defaultLanguage, namespaces, debug } = {},
   i18n: twalI18n
 } = twalConfig;
 
@@ -38,7 +38,7 @@ i18n
   .use(XHR)
   .use(initReactI18next)
   .init({
-    debug: isDev(),
+    debug: debug === undefined ? true : debug,
     load: 'languageOnly',
     lng: defaultLanguage,
     fallbackLng: availableLanguages,

@@ -1,12 +1,14 @@
-$mainfont: 'roboto';
-$secondaryfont: 'times new roman';
+$mainfont: 'open sans';
+$secondaryfont: 'PT serif';
+$textalign: justify;
 
-@mixin mainParagraph($align: justify){
+@mixin mainParagraph($align: $textalign) {
   margin-bottom: 15px;
-  line-height: 25px;
+  line-height: 2.5rem;
   color: $dark;
   text-align: $align;
   font-family: $mainfont;
+  font-size: 1.5rem;
 }
 
 @mixin quotes($bgcolor: $grey, $color: $dark) {
@@ -14,7 +16,7 @@ $secondaryfont: 'times new roman';
   font-style: italic;
   background: $bgcolor;
   border-left: rgba($dark, 0.5) 10px solid;
-  margin: 7% auto ;
+  margin: 7% auto;
   width: fit-content;
   padding: 20px 50px 20px 40px;
   box-sizing: border-box;
@@ -27,12 +29,13 @@ $secondaryfont: 'times new roman';
     @include mainParagraph;
     text-indent: 30px;
     color: $color;
-    &:before, &:after {
+    &:before,
+    &:after {
       position: absolute;
       height: 30px;
       line-height: 48px;
       font-size: 4em;
-      opacity: .2;
+      opacity: 0.2;
     }
     &:before {
       content: '\201C';
@@ -45,5 +48,49 @@ $secondaryfont: 'times new roman';
       margin-left: -25px;
     }
   }
+}
 
+.text-panel {
+  padding: 10% 12%;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $secondaryfont;
+  }
+  h1 {
+    font-size: 3vw;
+    margin-bottom: 25px;
+  }
+  p:first-of-type {
+    margin-top: 7%;
+  }
+  p {
+    @include mainParagraph;
+    // white-space: pre-line;
+    // word-wrap: break-word;
+    // overflow-wrap: break-word;
+    // hyphens: auto;
+    // word-break: break-all;
+  }
+}
+
+.text-column {
+  p {
+    @include mainParagraph;
+  }
+  .panel-one,
+  .panel-two,
+  .panel-four {
+    &:last-of-type {
+      padding-right: 0;
+    }
+    &:first-of-type {
+      padding-left: 0;
+    }
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
 }
