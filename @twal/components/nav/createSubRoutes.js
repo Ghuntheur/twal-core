@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, NavLink, Switch, Redirect, withRouter } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import Link from './Link';
 import { useTranslation } from 'react-i18next';
 import uniqid from 'uniqid';
 import twalConfig from '@root/twal.config';
@@ -21,6 +22,7 @@ export const createSubRoutes = (baseUrl, render, renderLinks = null) => {
   const { navigation: { linkLabelKey } = {} } = twalConfig;
   const labelKey = linkLabelKey || 'linkLabel';
   const { t } = useTranslation();
+  const url = baseUrl.replace(/^\//, '').toLowerCase();
 
   if (Array.isArray(render)) {
     const routes = [];
@@ -29,23 +31,23 @@ export const createSubRoutes = (baseUrl, render, renderLinks = null) => {
     render.forEach((comp, index) => {
       const uid = uniqid();
       routes.push(
-        <Route
-          key={`${comp.name}--${uid}--route`}
-          path={`${baseUrl}/${index + 1}`}
-          component={comp}
-        />
+        <Route key={`${comp.name}--${uid}--route`} path={`/${url}/${index + 1}`} component={comp} />
       );
       links.push(
-        <NavLink key={`${comp.name}--${uid}--link`} to={`${baseUrl}/${index + 1}`}>
-          {t(`${baseUrl.replace(/^\//, '')}:${index + 1}.${labelKey}`)}
-        </NavLink>
+        <Link
+          className="submenu-link"
+          key={`${comp.name}--${uid}--link`}
+          to={`/${url}/${index + 1}`}
+        >
+          {t(`${url}:${index + 1}.${labelKey}`)}
+        </Link>
       );
     });
 
     const Routes = () => (
       <Switch>
         {routes}
-        <Route path="*" component={() => <Redirect to={`${baseUrl}/1`} />} />
+        <Route path="*" render={() => <Redirect to={`/${url}/1`} />} />
       </Switch>
     );
 
@@ -55,8 +57,8 @@ export const createSubRoutes = (baseUrl, render, renderLinks = null) => {
   const Component = withRouter(render);
   const Routes = () => (
     <Switch>
-      <Route path={`${baseUrl}/:id`} component={Component} />
-      <Route path="*" component={() => <Redirect to={`${baseUrl}/1`} />} />
+      <Route path={`/${url}/:id`} component={Component} />
+      <Route path="*" render={() => <Redirect to={`/${url}/1`} />} />
     </Switch>
   );
 
@@ -67,9 +69,9 @@ export const createSubRoutes = (baseUrl, render, renderLinks = null) => {
         .map((_, index) => index + 1);
 
   const links = array.map(item => (
-    <NavLink key={`${uniqid()}--link`} to={`${baseUrl}/${item}`}>
-      {t(`${baseUrl.replace(/^\//, '')}-links:${item}`)}
-    </NavLink>
+    <Link key={`${uniqid()}--link`} to={`${baseUrl}/${item}`} className="submenu-link">
+      {t(`${url}:${item}.${labelKey}`)}
+    </Link>
   ));
 
   return [Routes, links];

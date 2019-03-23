@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import Link from './Link';
 import { withTranslation } from 'react-i18next';
 import '@twal/styles/components/nav/mainNav.scss';
 
@@ -23,11 +23,11 @@ const MainNav = ({ toggle, t }) => {
         {routes &&
           routes.map(route => (
             <li key={route.component} className="nav-list-elem" onClick={() => toggle()}>
-              <NavLink to={`/${route.component.toLowerCase()}`}>
+              <Link to={`/${route.component.toLowerCase()}`}>
                 {t(
                   `${linksNamespace || 'common'}:${route.i18nKey || route.component.toLowerCase()}`
                 )}
-              </NavLink>
+              </Link>
             </li>
           ))}
       </ul>
