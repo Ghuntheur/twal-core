@@ -94,7 +94,7 @@ class MainMenus extends React.Component {
         </CSSTransition>
         <HomeButton />
         <SettingsButton />
-        <div className="main-menu" > </div>
+        <div className="main-menu"> </div>
       </>
     );
   }

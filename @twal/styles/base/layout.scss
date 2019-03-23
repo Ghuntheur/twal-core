@@ -21,20 +21,6 @@
   }
 }
 
-.text-panel {
-  padding: 45px 5%;
-  h1, h2, h3, h4, h5, h6 {
-    font-family: $secondaryfont;
-  }
-  h1 {
-    font-size: 2em;
-    margin-bottom: 25px;
-  }
-  &> p {
-    @include mainParagraph;
-  }
-}
-
 .page {
   &> .column-container {
     &>.panel-one, &>.panel-two, &>.panel-four {

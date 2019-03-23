@@ -9,7 +9,7 @@
   @include box-shadow;
 }
 .btn-home {
-  position: absolute;
+  position: fixed;
   bottom:20px;
   left: 20px;
   z-index:9998;
@@ -21,7 +21,7 @@
   }
 }
 .btn-settings {
-  position: absolute;
+  position: fixed;
   bottom:20px;
   right: 20px;
   z-index:9998;
