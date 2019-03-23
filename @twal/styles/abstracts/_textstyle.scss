@@ -63,11 +63,19 @@ $textalign: justify;
   }
   p{
     @include mainParagraph;
+    // white-space: pre-line;
+    // word-wrap: break-word;
+    // overflow-wrap: break-word;
+    // hyphens: auto;
+    // word-break: break-all;
   }
 }
 
 .text-column {
-  .panel-one {
+  p{
+    @include mainParagraph;
+  }
+  .panel-one, .panel-two, .panel-four {
     &:last-of-type {
       padding-right: 0;
     }

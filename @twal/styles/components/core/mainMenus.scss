@@ -7,6 +7,10 @@
   bottom: 0;
   // border-top: 1px solid rgba($dark, 0.5);
   @include box-shadow;
+  transition: all 1s ease-in-out;
+  &.togglenav {
+    bottom: -$bottomNavHeight;
+  }
 }
 .btn-home {
   position: fixed;

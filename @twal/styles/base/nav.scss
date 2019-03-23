@@ -122,6 +122,10 @@
   padding:0 100px;
   left:50%;
   transform: translateX(-50%);
+  transition: all 1s ease-in-out;
+  &.togglenav {
+    bottom: -$bottomNavHeight;
+  }
   ul {
     width: 100%;
     display: flex;
@@ -171,4 +175,25 @@
     }
   }
 }
+.toggle-bottom-nav {
+  position: fixed;
+  bottom: $bottomNavHeight;
+  background: $red;
+  color:$light;
+  display: block;
+  width:60px;
+  left:50%;
+  transform: translateX(-50%);
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-top-left-radius: 60px * 2;
+  border-top-right-radius: 60px * 2;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+  &.togglenav {
+    bottom:0;
+  }
+}
+
 
