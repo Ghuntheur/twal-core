@@ -1,7 +1,3 @@
-$mainfont: 'open sans';
-$secondaryfont: 'PT serif';
-$textalign: justify;
-
 @mixin mainParagraph($align: $textalign) {
   margin-bottom: 15px;
   line-height: 2.5rem;

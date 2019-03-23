@@ -4,6 +4,11 @@
 
 @import 'base/base';
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
-@import url('https://fonts.googleapis.com/css?family=Hind+Vadodara|Open+Sans|PT+Serif|Roboto');
+@font-face {
+  font-family: 'open sans';
+  src: url('../public/fonts/OpenSans-Regular.ttf');
+}
+@font-face {
+  font-family: 'PT Serif';
+  src: url('../public/fonts/PT_Serif-Web-Regular.ttf');
+}
