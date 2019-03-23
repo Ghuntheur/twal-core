@@ -38,7 +38,6 @@
       // margin-left: -28px;
       left: 0;
     }
-
     &:after {
       content: '\201D';
       margin-left: -25px;
@@ -85,11 +84,6 @@
   }
   p {
     @include mainParagraph;
-    // white-space: pre-line;
-    // word-wrap: break-word;
-    // overflow-wrap: break-word;
-    // hyphens: auto;
-    // word-break: break-all;
   }
 }
 
