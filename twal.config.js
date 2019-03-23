@@ -9,6 +9,9 @@ module.exports = {
   plugins: {
     currentPlugins: ['carousel', 'videofullscreen', 'gallery']
   },
+  screenSaver: {
+    enabled: false
+  },
   routing: {
     linksNamespace: 'nav-links',
     routes: [{ component: 'Museum', default: true }]

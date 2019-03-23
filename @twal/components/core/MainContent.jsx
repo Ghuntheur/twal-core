@@ -19,6 +19,10 @@ const MainContent = () => {
     ? require(`@root/src/${rootComponent.replace(/^\//, '')}.jsx`).default
     : Home;
 
+  const defaultRouteUrl = (defaultRoute.path || defaultRoute.component)
+    .replace(/^\//, '')
+    .toLowerCase();
+
   return (
     <>
       <Route
@@ -30,17 +34,18 @@ const MainContent = () => {
               <RootComponent />
             </Page>
           ) : (
-            <Redirect to={`/${defaultRoute.path || defaultRoute.component}`.toLowerCase()} />
+            <Redirect to={`/${defaultRouteUrl}`} />
           )
         }
       />
       {routes &&
         routes.map(route => {
           const Component = require(`@root/src/pages/${route.component}`).default;
+          const url = (route.path || route.component).replace(/^\//, '').toLowerCase();
           return (
             <Route
               key={route.component}
-              path={`/${route.path || route.component}`.toLowerCase()}
+              path={`/${url}`}
               render={() => (
                 <Page>
                   <Component />
