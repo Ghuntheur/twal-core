@@ -23,11 +23,11 @@ class BottomMenu extends React.Component {
   };
 
   render() {
-    const { links, className, time } = this.props;
+    const { links, className, timeout } = this.props;
     const { toggle } = this.state;
 
     return (
-      <IdleTimer timeout={time * 1000} ref={this.idleTimer} onIdle={() => this.toggle(true)}>
+      <IdleTimer timeout={timeout * 1000} ref={this.idleTimer} onIdle={() => this.toggle(true)}>
         <div className={classnames('bottom-nav', className, { togglenav: toggle })}>
           <ul>
             {links.map(link => (
@@ -54,12 +54,12 @@ BottomMenu.propTypes = {
   links: PropTypes.arrayOf(PropTypes.node.isRequired).isRequired,
   className: PropTypes.string,
   isDrawer: PropTypes.bool,
-  time: PropTypes.number
+  timeout: PropTypes.number
 };
 
 BottomMenu.defaultProps = {
   isDrawer: true,
-  time: 10
+  timeout: 10
 };
 
 export default BottomMenu;
