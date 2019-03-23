@@ -2,7 +2,7 @@
 * Timeline css
 **/
 
-@mixin tick($bg-color: $primarycolor, $border-color:$light, $border-size: 3px) {
+@mixin tick($bg-color: $primarycolor, $border-color: $light, $border-size: 3px) {
   position: absolute;
   text-align: center;
   left: 51px;
@@ -12,21 +12,21 @@
   box-sizing: content-box;
 }
 
-@mixin tickround($bg-color: $primarycolor, $border-color:$light) {
+@mixin tickround($bg-color: $primarycolor, $border-color: $light) {
   border-radius: 75%;
   width: 15px;
   height: 15px;
   @include tick($bg-color, $border-color);
 }
 
-@mixin tickstick($bg-color: $grey, $border-color:$light){
+@mixin tickstick($bg-color: $grey, $border-color: $light) {
   width: 20px;
   height: 4px;
   transform: rotate(0deg);
   @include tick($bg-color, $border-color, 0);
 }
 
-@mixin ticksquare($bg-color: $primarycolor, $border-color:$light) {
+@mixin ticksquare($bg-color: $primarycolor, $border-color: $light) {
   border-radius: 4px;
   width: 15px;
   height: 15px;
@@ -34,7 +34,7 @@
   @include tick($bg-color, $border-color);
 }
 
-@mixin tickdiamond($bg-color: $primarycolor, $border-color:$light) {
+@mixin tickdiamond($bg-color: $primarycolor, $border-color: $light) {
   width: 15px;
   height: 15px;
   transform: rotate(45deg);
@@ -62,23 +62,24 @@
 }
 
 .sidemenu {
-  li{
-    a{
+  li {
+    a {
       justify-content: center;
     }
   }
 }
-.timeline, .sidemenu {
+.timeline,
+.sidemenu {
   border-right: 4px solid rgba($primarycolor, 1);
   min-height: 100%;
   overflow: auto;
   position: relative;
 
-  h2{
+  h2 {
     min-height: 75px;
     text-align: center;
     font-family: $secondaryfont;
-    font-size:1.7em;
+    font-size: 1.7em;
     background: white;
     display: flex;
     align-items: center;
@@ -92,7 +93,7 @@
     display: flex;
     justify-content: center;
     position: relative;
-    &:nth-child(2n+1) {
+    &:nth-child(2n + 1) {
       background: rgba($primarycolor, 0.1);
     }
     a {
@@ -113,15 +114,19 @@
   }
 }
 
-.bottom-nav{
-  position: absolute;
-  bottom:20px;
-  z-index:9997;
+.bottom-nav {
+  position: fixed;
+  bottom: 20px;
+  z-index: 9997;
   width: 90%;
   height: 60px;
-  padding:0 100px;
-  left:50%;
+  padding: 0 100px;
+  left: 50%;
   transform: translateX(-50%);
+  transition: all 0.5s ease-in-out;
+  &.togglenav {
+    bottom: -$bottomNavHeight;
+  }
   ul {
     width: 100%;
     display: flex;
@@ -129,35 +134,64 @@
     height: 100%;
     justify-content: center;
     align-items: center;
-    border-radius: 4px;
-    overflow: hidden;
-    li{
+    border-radius: 75px;
+    // overflow: hidden;
+
+    li {
       flex: 1 1 0;
       text-align: center;
-      background: #dedde4;
       align-self: stretch;
-      border-left: 2px solid $grey;
+      margin-left: 5px;
       &:first-child {
         border-left: none;
+        margin-left: 0px;
+      }
+      &:first-of-type a {
+        border-radius: 75px 0 0 75px;
+      }
+      &:last-of-type a {
+        border-radius: 0 75px 75px 0;
       }
       a {
+        @include box-shadow;
+        background: $light;
+        font-size: 1.5vw;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         text-decoration: none;
         color: $dark;
-        &:visited, &:focus, &:active {
+        &:visited,
+        &:focus,
+        &:active {
           color: $dark;
         }
         &.active {
-          background: $secondarycolor;
+          background-color: $secondarycolor;
           color: $light;
         }
       }
-
-
     }
   }
 }
-
+.toggle-bottom-nav {
+  position: fixed;
+  bottom: $bottomNavHeight;
+  background: $red;
+  color: $light;
+  display: block;
+  width: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-top-left-radius: 60px * 2;
+  border-top-right-radius: 60px * 2;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  &.togglenav {
+    bottom: 0;
+  }
+}

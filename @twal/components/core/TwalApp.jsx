@@ -5,8 +5,8 @@ import MainMenus from '@twal/components/core/MainMenus';
 
 const TwalApp = ({ ...rest }) => (
   <main>
-    <MainMenus {...rest} />
     <MainContent />
+    <MainMenus {...rest} />
   </main>
 );
 
