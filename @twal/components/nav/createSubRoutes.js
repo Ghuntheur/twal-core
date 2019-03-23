@@ -5,12 +5,16 @@ import uniqid from 'uniqid';
 
 import { throwError } from '@twal/utils/CommonUtils';
 
-export const createSubRoutes = (baseUrl, render, linksCount = 0) => {
+export const createSubRoutes = (baseUrl, render, renderLinks = null) => {
   // check
   if (!Array.isArray(render) && typeof render !== 'function')
     throwError('You have to provide array of components or a component');
   if (!baseUrl || typeof baseUrl !== 'string') throwError('You have to provide base url string');
-  if (typeof linksCount !== 'number' || linksCount < 0)
+  if (
+    renderLinks !== null &&
+    (typeof renderLinks === 'number' && renderLinks < 0) &&
+    typeof !Array.isArray(renderLinks)
+  )
     throwError('linksCount must be a positive number');
 
   // create
@@ -54,13 +58,17 @@ export const createSubRoutes = (baseUrl, render, linksCount = 0) => {
     </Switch>
   );
 
-  const links = Array(linksCount)
-    .fill()
-    .map((_, index) => (
-      <NavLink key={`${uniqid()}--link`} to={`${baseUrl}/${index + 1}`}>
-        {t(`${baseUrl.replace(/^\//, '')}-links:${index + 1}`)}
-      </NavLink>
-    ));
+  const array = Array.isArray(renderLinks)
+    ? renderLinks
+    : Array(renderLinks)
+        .fill()
+        .map((_, index) => index + 1);
+
+  const links = array.map(item => (
+    <NavLink key={`${uniqid()}--link`} to={`${baseUrl}/${item}`}>
+      {t(`${baseUrl.replace(/^\//, '')}-links:${item}`)}
+    </NavLink>
+  ));
 
   return [Routes, links];
 };
