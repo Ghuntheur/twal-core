@@ -191,6 +191,7 @@
 }
 .toggle-bottom-nav {
   position: fixed;
+  z-index: 9996;
   bottom: $bottomNavHeight;
   background: $red;
   color: $light;
