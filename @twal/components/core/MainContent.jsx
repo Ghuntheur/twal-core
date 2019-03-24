@@ -47,7 +47,7 @@ const MainContent = () => {
               key={route.component}
               path={`/${url}`}
               render={() => (
-                <Page>
+                <Page className={url}>
                   <Component />
                 </Page>
               )}
