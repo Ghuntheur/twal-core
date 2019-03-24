@@ -49,7 +49,8 @@
     &:before {
       position: absolute;
       content: '';
-      height: 75px;
+      height: $sidemenuItemHeight;
+      min-height: 75px;
       width: 1px;
       left: 59px;
       display: inline-block;
@@ -88,7 +89,7 @@
     min-height: 75px;
     text-align: center;
     font-family: $secondaryfont;
-    font-size: 1.7em;
+    font-size: 2rem;
     background: white;
     display: flex;
     align-items: center;
@@ -99,6 +100,7 @@
     margin-bottom: 150px;
     li {
       min-height: 75px;
+      height: $sidemenuItemHeight;
       align-items: center;
       display: flex;
       justify-content: center;
@@ -108,6 +110,7 @@
       }
       a {
         width: 100%;
+        font-size: 1.5rem;
         text-decoration: none;
         color: $dark;
         align-self: stretch;
@@ -171,7 +174,6 @@
       a {
         @include box-shadow;
         background: $light;
-        font-size: 1.5vw;
         height: 100%;
         display: flex;
         align-items: center;
