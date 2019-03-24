@@ -21,15 +21,17 @@ const MainNav = ({ toggle, t }) => {
     <nav className="main-nav">
       <ul className="nav-list">
         {routes &&
-          routes.map(route => (
-            <li key={route.component} className="nav-list-elem" onClick={() => toggle()}>
-              <Link to={`/${route.component.toLowerCase()}`}>
-                {t(
-                  `${linksNamespace || 'common'}:${route.i18nKey || route.component.toLowerCase()}`
-                )}
-              </Link>
-            </li>
-          ))}
+          routes.map(route => {
+            const i18nKey = route.i18nKey || route.component.toLowerCase();
+            const linkOptions = route.linkOptions || {};
+            return (
+              <li key={route.component} className="nav-list-elem" onClick={() => toggle()}>
+                <Link to={`/${route.component.toLowerCase()}`}>
+                  {t(`${linksNamespace || 'common'}:${i18nKey}`, linkOptions)}
+                </Link>
+              </li>
+            );
+          })}
       </ul>
       {(showLanguages || showLanguages === undefined) && <Languages />}
     </nav>
