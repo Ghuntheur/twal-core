@@ -4,16 +4,26 @@ $gutterLarge: 4;
 .gallery {
   margin-right: -$gutterSmall;
   overflow: hidden;
-
+  display: flex;
+  flex: 1 1 0;
   @media (min-width: 500px) {
     marginright: -$gutterLarge;
+  }
+  .gallery-picture {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1 1 0;
+    margin-right: 10px;
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
 }
 
 .gallery-thumbnail {
   box-sizing: border-box;
-  display: block;
-  float: left;
+  display: inline-block;
   line-height: 0;
   padding-right: $gutterSmall;
   padding-bottom: $gutterSmall;
@@ -28,7 +38,7 @@ $gutterLarge: 4;
 .gallery-square {
   padding-bottom: 0;
   width: 40%;
-
+  margin: auto;
   @media (min-width: 500px) {
     padding-bottom: 0;
   }
@@ -39,5 +49,14 @@ $gutterLarge: 4;
   display: block;
   height: auto;
   max-width: 100%;
-  width: auto;
+  width: 100%;
+  margin: auto;
+}
+
+#lightboxBackdrop {
+  z-index: 9998;
+  img {
+    width: auto;
+    border-radius: 5px;
+  }
 }

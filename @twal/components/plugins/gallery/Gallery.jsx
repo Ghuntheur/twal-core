@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Lightbox from 'react-images';
+import uniqid from 'uniqid';
+import classnames from 'classnames';
 
 import '@twal/styles/vendors/gallery.scss';
 /*
@@ -45,8 +47,11 @@ class Gallery extends React.Component {
   gotoImage = index => this.setState({ currentImage: index });
 
   handleClickImage = () => {
+    if (this.props.images.length === 1) {
+      this.closeLightbox();
+      return;
+    }
     if (this.state.currentImage === this.props.images.length - 1) return;
-
     this.gotoNext();
   };
 
@@ -57,14 +62,16 @@ class Gallery extends React.Component {
 
     const gallery = images.map((obj, i) => {
       return (
-        <a
-          href={obj.src}
-          className={`gallery-thumbnail gallery-${obj.orientation}`}
-          key={i}
-          onClick={e => this.openLightbox(i, e)}
-        >
-          <img src={obj.src} alt={obj.alt} className="gallery-source" />
-        </a>
+        <figure key={`${uniqid()}`} className="gallery-picture">
+          <a
+            href={obj.src}
+            className={`gallery-thumbnail gallery-${obj.orientation}`}
+            onClick={e => this.openLightbox(i, e)}
+          >
+            <img src={obj.src} alt={obj.alt} className="gallery-source" />
+          </a>
+          {obj.caption && <figcaption className="legend">{obj.caption}</figcaption>}
+        </figure>
       );
     });
 
@@ -72,11 +79,11 @@ class Gallery extends React.Component {
   };
 
   render() {
-    const { preventScroll, showThumbnails, images } = this.props;
+    const { preventScroll, showThumbnails, images, className } = this.props;
     const { currentImage, lightboxIsOpen } = this.state;
 
     return (
-      <div className="gallery-section">
+      <div className={classnames('gallery-section', className)}>
         {this.renderGallery()}
         <Lightbox
           currentImage={currentImage}
@@ -89,6 +96,7 @@ class Gallery extends React.Component {
           onClose={this.closeLightbox}
           preventScroll={preventScroll}
           showThumbnails={showThumbnails}
+          backdropClosesModal={true}
         />
       </div>
     );
@@ -96,9 +104,9 @@ class Gallery extends React.Component {
 }
 
 Gallery.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
-  preventScroll: PropTypes.func.isRequired,
-  showThumbnails: PropTypes.func.isRequired
+  images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  preventScroll: PropTypes.bool.isRequired,
+  showThumbnails: PropTypes.bool.isRequired
 };
 
 export default Gallery;
