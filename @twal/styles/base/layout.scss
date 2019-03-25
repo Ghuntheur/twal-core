@@ -35,37 +35,3 @@
     }
   }
 }
-
-.simplebar-content {
-  position: relative;
-  width: 100%;
-  & > .panel {
-    padding-bottom: 100px;
-    overflow-y: hidden;
-    // &:after {
-    //   content:'';
-    //   z-index:9999;
-    //   position: absolute;
-    //   bottom:100px;
-    //   display: block;
-    //   height: 300px;
-    //   width: 100%;
-    //   margin-top: -150px;
-    //   background: rgb(255,255,255) fixed;
-    //   background: linear-gradient(0deg,rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
-    // }
-  }
-}
-
-.scrollOverlay {
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0px;
-    display: block;
-    height: 180px;
-    width: 100%;
-    background: $light fixed;
-    background: linear-gradient(0deg, rgba($light, 1) 50%, rgba($light, 0) 100%);
-  }
-}

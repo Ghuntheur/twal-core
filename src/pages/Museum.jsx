@@ -7,8 +7,15 @@ import BaseComponent from '../components/Museum/BaseComponent';
 import SideMenu from '@twal/components/nav/SideMenu';
 
 const Museum = () => {
-  const [Routes, links] = createSubRoutes('/museum', BaseComponent, 4);
+  const [Routes, links] = createSubRoutes('/museum', BaseComponent, 38);
 
+  /* const Timeline = () => (
+   *   <ul>
+   *     {links.map(link => (
+   *       <li key={link.key}>{link}</li>
+   *     ))}
+   *   </ul>
+   * );*/
   const Timeline = () => <SideMenu links={links} type="timeline" name="Menu exemple" />;
 
   return <OneFourthLayout Small={Timeline} Big={Routes} />;
