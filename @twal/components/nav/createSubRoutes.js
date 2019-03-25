@@ -58,7 +58,12 @@ export const createSubRoutes = (baseUrl, render, renderLinks = null) => {
   const Routes = () => (
     <Switch>
       <Route path={`/${url}/:id`} component={Component} />
-      <Route path="*" render={() => <Redirect to={`/${url}/1`} />} />
+      <Route
+        path="*"
+        render={() => (
+          <Redirect to={`/${url}/${Array.isArray(renderLinks) ? renderLinks[0] : 1}`} />
+        )}
+      />
     </Switch>
   );
 

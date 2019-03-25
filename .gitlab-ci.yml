@@ -1,7 +1,7 @@
 stages:
   - test_stage
   - build_stage
-  - deploy_stage
+  # - deploy_stage
   - release_stage
 
 image: node:8
@@ -49,15 +49,15 @@ build_job:
     - merge_requests
 
 # DEPLOY
-deploy_job:
-  stage: deploy_stage
-  before_script:
-    - npm i -g netlify-cli
-  script:
-    - netlify deploy --prod --dir=build/ --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN
-  only:
-    - master
-    - develop
+# deploy_job:
+#   stage: deploy_stage
+#   before_script:
+#     - npm i -g netlify-cli
+#   script:
+#     - netlify deploy --prod --dir=build/ --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN
+#   only:
+#     - master
+#     - develop
 
 # RELEASE
 release_job:
