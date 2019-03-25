@@ -81,8 +81,6 @@
 .timeline,
 .sidemenu {
   border-right: 4px solid rgba($primarycolor, 1);
-  height: 100%;
-  overflow: hidden;
   position: relative;
 
   h2 {
@@ -97,7 +95,7 @@
     padding: 25px 15px;
   }
   ul {
-    margin-bottom: 150px;
+    margin-bottom: 135px;
     li {
       min-height: 75px;
       height: $sidemenuItemHeight;

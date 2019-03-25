@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SimpleBar from 'simplebar-react';
 import classnames from 'classnames';
 
-import 'simplebar/dist/simplebar.min.css';
 import '@twal/styles/components/ui/scrollable.scss';
 
 class Scrollable extends React.PureComponent {
@@ -41,14 +39,13 @@ class Scrollable extends React.PureComponent {
     const { fullyScrolled, scrollable } = this.state;
     const scrollOverlay = fullyScrolled;
     return (
-      <div style={{ height: '100%', overflow: 'hidden' }} ref={scrollable}>
-        <SimpleBar
-          onScroll={this.handleScroll}
-          className={classnames('scrollable', { scrollOverlay })}
-          {...rest}
-        >
-          {children}
-        </SimpleBar>
+      <div
+        className={classnames('scrollable', { scrollOverlay })}
+        onScroll={this.handleScroll}
+        ref={scrollable}
+        {...rest}
+      >
+        {children}
       </div>
     );
   }
