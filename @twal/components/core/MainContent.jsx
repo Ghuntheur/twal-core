@@ -42,6 +42,11 @@ const MainContent = () => {
         routes.map(route => {
           const Component = require(`@root/src/pages/${route.component}`).default;
           const url = (route.path || route.component).replace(/^\//, '').toLowerCase();
+
+          const includes = route.include
+            ? route.include.map(comp => require(`@root/src/${comp.replace(/^\//, '')}`).default)
+            : [];
+
           return (
             <Route
               key={route.component}
@@ -49,6 +54,9 @@ const MainContent = () => {
               render={() => (
                 <Page className={url}>
                   <Component />
+                  {includes.map((Comp, index) => (
+                    <Comp key={index} />
+                  ))}
                 </Page>
               )}
             />
