@@ -1,0 +1,21 @@
+.arrows-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  .arrow {
+    margin: 0 4px;
+    padding: 20px;
+    .invisible {
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .icon {
+      font-size: 3em;
+      color: black;
+      text-decoration: none;
+    }
+  }
+}
