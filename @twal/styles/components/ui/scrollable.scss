@@ -1,28 +1,17 @@
-.simplebar-content {
-  position: relative;
-  width: 100%;
-  & > .panel {
-    overflow-y: hidden;
-  }
-}
-
 .scrollable {
   &:after {
     content: '';
     pointer-events: none;
     position: absolute;
     bottom: 0px;
-    display: block;
     height: 165px;
     width: 100%;
     background: linear-gradient(0deg, rgba($light, 1) 50%, rgba($light, 0) 100%);
-    opacity: 0;
-    dislpay: none;
+    display: none;
   }
-}
-
-.scollOverlay {
-  &:after {
-    opacity: 1;
+  .scollOverlay {
+    &:after {
+      opacity: 1;
+    }
   }
 }
