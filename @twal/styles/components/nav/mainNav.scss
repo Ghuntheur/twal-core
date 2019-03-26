@@ -35,6 +35,15 @@
   }
 }
 
+.btn-icon {
+  i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+}
+
 .main-menu-left {
   @include appear;
 }
