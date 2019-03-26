@@ -37,10 +37,9 @@ class Scrollable extends React.PureComponent {
   render() {
     const { children, ...rest } = this.props;
     const { fullyScrolled, scrollable } = this.state;
-    const scrollOverlay = fullyScrolled;
     return (
       <div
-        className={classnames('scrollable', { scrollOverlay })}
+        className={classnames('scrollable', { scrollOverlay: fullyScrolled })}
         onScroll={this.handleScroll}
         ref={scrollable}
         {...rest}
