@@ -36,7 +36,6 @@
 @mixin button($bgcolor: $secondarycolor, $color: $light, $shadow: true) {
   cursor: pointer;
   padding: 8px;
-  font-size: 30px;
   background: $bgcolor;
   color: $light;
   display: flex;
@@ -52,14 +51,12 @@
   @include button($bgcolor, $color);
   border-radius: 50%;
   padding: 8px;
-  font-size: 30px;
 }
 
 @mixin rect-button($bgcolor: $secondarycolor, $color: $light, $shadow: true) {
   @include button($bgcolor, $color, $shadow);
   border-radius: 3px;
   padding: 8px;
-  font-size: 30px;
 }
 
 @mixin default-link {
